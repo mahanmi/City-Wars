@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="https://github.com/mahanmi/City-Wars" target="_blank" rel="null">
-    <img src="https://cdn.akamai.steamstatic.com/steam/apps/1689090/extras/Intro2.gif?t=1661935837" title="Intro Gif"/>
+    <img src="/Intro.gif" title="Intro Gif"/>
   </a>
 </p>
 
