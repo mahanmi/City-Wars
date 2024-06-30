@@ -3,9 +3,9 @@ package controller;
 import model.User;
 import java.util.Scanner;
 
-public Class MainMenu {
+public class MainMenu {
     public void run(Scanner scanner){
-        if (User.getUserById(Main.loggedInUserId).isFirstTime()) {
+        if (User.getUserById(loggedInUserId).firstTime) {
             System.out.println("Welcome to the game! You have been given 1000 coins to start with.");
             User.getUserById(Main.loggedInUserId).setBalance(1000);
             User.getUserById(Main.loggedInUserId).setFirstTime(false);
