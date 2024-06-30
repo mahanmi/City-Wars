@@ -1,8 +1,12 @@
+package model;
+
 public Class User {
     private String nickname;
     private String email;
     private String password;
     private int balance;
+    private boolean firstTime = true;
+    static int loggedInUserId = -1;
 
     public User(String nickname, String email, String password, int balance) {
         this.nickname = nickname;
@@ -25,5 +29,9 @@ public Class User {
 
     public int getBalance() {
         return balance;
+    }
+
+    public User getUserById(int id) {
+        return null;
     }
 }
