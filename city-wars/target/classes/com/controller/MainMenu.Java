@@ -1,14 +1,16 @@
 package controller;
 
-import model.User;
+import model.*;
+import main.*;
+
 import java.util.Scanner;
 
 public class MainMenu {
     public void run(Scanner scanner){
-        if (User.getUserById(loggedInUserId).firstTime) {
+        User user = crud.getUserById(Main.loggedInUserId);
+        if (user.isFirstTime()) {
             System.out.println("Welcome to the game! You have been given 1000 coins to start with.");
-            User.getUserById(Main.loggedInUserId).setBalance(1000);
-            User.getUserById(Main.loggedInUserId).setFirstTime(false);
+            user.setFirstTime(false);
         }
         System.out.println("Welcome to the main menu! What would you like to do?");
         System.out.println("1. Play a game");
@@ -18,7 +20,7 @@ public class MainMenu {
         System.out.println("5. Go to your profile");
         System.out.println("6. Log out");
 
-        String input  = scanner.nextInt();
+        String input  = scanner.nextLine();
         switch (input) {
             case 1:
                 GameMenu.run(scanner);
