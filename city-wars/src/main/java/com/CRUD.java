@@ -1,7 +1,6 @@
 package com;
 
-import com.model.User;
-import com.model.Card;
+import com.model.*;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -48,6 +47,40 @@ public class CRUD {
             connection.close();
         } catch (SQLException e) {
             System.out.println("Error adding user: " + e.getMessage());
+        }
+    }
+
+    public void deleteUser(int id) {
+        try {
+            String deleteQuery = "DELETE FROM users WHERE id = ?";
+            Connection connection = DriverManager.getConnection("jdbc:sqlite:city-wars/src/main/resources/data.db");
+            PreparedStatement statement = connection.prepareStatement(deleteQuery);
+            statement.setInt(1, id);
+            statement.executeUpdate();
+            connection.close();
+        } catch (SQLException e) {
+            System.out.println("Error deleting user: " + e.getMessage());
+        }
+    }
+
+    public void updateUser(User user) {
+        try {
+            String updateQuery = "UPDATE users SET password = ?, email = ?, nickname = ?, cardIDs = ?, Q1 = ?, Q2 = ?, Q3 = ?, balance = ? WHERE username = ?";
+            Connection connection = DriverManager.getConnection("jdbc:sqlite:city-wars/src/main/resources/data.db");
+            PreparedStatement statement = connection.prepareStatement(updateQuery);
+            statement.setString(1, user.getPassword());
+            statement.setString(2, user.getEmail());
+            statement.setString(3, user.getNickname());
+            statement.setString(4, user.getCardIDs());
+            statement.setString(5, user.getSecurityQuestions()[0]);
+            statement.setString(6, user.getSecurityQuestions()[1]);
+            statement.setString(7, user.getSecurityQuestions()[2]);
+            statement.setInt(8, user.getBalance());
+            statement.setString(9, user.getUsername());
+            statement.executeUpdate();
+            connection.close();
+        } catch (SQLException e) {
+            System.out.println("Error updating user: " + e.getMessage());
         }
     }
 
@@ -129,7 +162,7 @@ public class CRUD {
             statement.setInt(3, card.getDuration());
             statement.setInt(4, card.getDamage());
             statement.setInt(5, card.getUpgradeLevel());
-            statement.setInt(6, card.getUpgradeCost());            
+            statement.setInt(6, card.getUpgradeCost());
             statement.executeUpdate();
             connection.close();
         } catch (SQLException e) {
@@ -178,6 +211,19 @@ public class CRUD {
         } catch (SQLException e) {
             System.out.println("Error getting card by id: " + e.getMessage());
             return null;
+        }
+    }
+
+    public void deleteCard(int id) {
+        try {
+            String deleteQuery = "DELETE FROM cards WHERE id = ?";
+            Connection connection = DriverManager.getConnection("jdbc:sqlite:city-wars/src/main/resources/data.db");
+            PreparedStatement statement = connection.prepareStatement(deleteQuery);
+            statement.setInt(1, id);
+            statement.executeUpdate();
+            connection.close();
+        } catch (SQLException e) {
+            System.out.println("Error deleting card: " + e.getMessage());
         }
     }
 
