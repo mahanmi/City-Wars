@@ -1,17 +1,27 @@
 package com.model;
 
 public class Card {
-    private String name;
+    private final String name;
     private int id;
     private int power;
     private int duration;
     private int damage;
     private int level;
-    private int upgradeLevel;
-    private int upgradeCost;
+    private final int upgradeLevel;
+    private final int upgradeCost;
 
     public Card(int id, String name, int power, int duration, int damage, int upgradeLevel, int upgradeCost) {
         this.id = id;
+        this.name = name;
+        this.power = power;
+        this.duration = duration;
+        this.damage = damage;
+        this.level = 1;
+        this.upgradeLevel = upgradeLevel;
+        this.upgradeCost = upgradeCost;
+    }
+
+    public Card(String name, int power, int duration, int damage, int upgradeLevel, int upgradeCost) {
         this.name = name;
         this.power = power;
         this.duration = duration;

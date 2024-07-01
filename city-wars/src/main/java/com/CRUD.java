@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class CRUD {
     public static void main(String[] args) {
@@ -227,4 +228,69 @@ public class CRUD {
         }
     }
 
+    public ArrayList<Card> getAllCards() {
+        try {
+            String selectQuery = "SELECT * FROM cards";
+            Connection connection = DriverManager.getConnection("jdbc:sqlite:city-wars/src/main/resources/data.db");
+            PreparedStatement statement = connection.prepareStatement(selectQuery);
+            ResultSet resultSet = statement.executeQuery();
+            ArrayList<Card> cards = new ArrayList<Card>();
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                int power = resultSet.getInt("power");
+                int duration = resultSet.getInt("duration");
+                int damage = resultSet.getInt("damage");
+                int upgradeLevel = resultSet.getInt("upgradeLevel");
+                int upgradeCost = resultSet.getInt("upgradeCost");
+                Card card = new Card(id, name, power, duration, damage, upgradeLevel, upgradeCost);
+                cards.add(card);
+            }
+            return cards;
+        } catch (SQLException e) {
+            System.out.println("Error getting all cards: " + e.getMessage());
+            return null;
+        }
+    }
+
+    public void showCard(Card card){
+        System.out.println("Name: " + card.getName());
+        System.out.println("\t Power: " + card.getPower());
+        System.out.println("\t Duration: " + card.getDuration());
+        System.out.println("\t Damage: " + card.getDamage());
+        System.out.println("\t Upgrade Level: " + card.getUpgradeLevel());
+        System.out.println("\t Upgrade Cost: " + card.getUpgradeCost());
+    }
+
+    public void showAllUsers(){
+        try {
+            String selectQuery = "SELECT * FROM users";
+            Connection connection = DriverManager.getConnection("jdbc:sqlite:city-wars/src/main/resources/data.db");
+            PreparedStatement statement = connection.prepareStatement(selectQuery);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String username = resultSet.getString("username");
+                String password = resultSet.getString("password");
+                String email = resultSet.getString("email");
+                String nickname = resultSet.getString("nickname");
+                String cardIDs = resultSet.getString("cardIDs");
+                String Q1 = resultSet.getString("Q1");
+                String Q2 = resultSet.getString("Q2");
+                String Q3 = resultSet.getString("Q3");
+                int balance = resultSet.getInt("balance");
+                User user = new User(username, password, email, nickname, cardIDs, Q1, Q2, Q3, balance);
+                System.out.println("ID: " + id);
+                System.out.println("\t Username: " + user.getUsername());
+                System.out.println("\t Password: " + user.getPassword());
+                System.out.println("\t Email: " + user.getEmail());
+                System.out.println("\t Nickname: " + user.getNickname());
+                System.out.println("\t Card IDs: " + user.getCardIDs());
+                System.out.println("\t Security Questions: " + user.getSecurityQuestions()[0] + ", " + user.getSecurityQuestions()[1] + ", " + user.getSecurityQuestions()[2]);
+                System.out.println("\t Balance: " + user.getBalance());
+            }
+        } catch (SQLException e) {
+            System.out.println("Error showing all users: " + e.getMessage());
+        }
+    }
 }
