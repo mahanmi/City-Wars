@@ -43,6 +43,8 @@ public class AdminController {
                 case "4":
                     Main.crud.showAllUsers();
                     break;
+                case "back":
+                    break;
                 default:
                     System.out.println("Invalid input.");
                     break;
