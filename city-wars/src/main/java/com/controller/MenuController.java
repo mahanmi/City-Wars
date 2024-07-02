@@ -1,13 +1,13 @@
-package controller;
+package com.controller;
 
-import model.*;
-import main.*;
+import com.*;
+import com.model.User;
 
 import java.util.Scanner;
 
-public class MainMenu {
-    public void run(Scanner scanner){
-        User user = crud.getUserById(Main.loggedInUserId);
+public class MenuController {
+    public void run(Scanner scanner) {
+        User user = Main.crud.getUserById(Main.loggedInUserId);
         if (user.isFirstTime()) {
             System.out.println("Welcome to the game! You have been given 1000 coins to start with.");
             user.setFirstTime(false);
@@ -20,26 +20,26 @@ public class MainMenu {
         System.out.println("5. Go to your profile");
         System.out.println("6. Log out");
 
-        String input  = scanner.nextLine();
-        switch (input) {
-            case 1:
-                GameMenu.run(scanner);
+        Main.input = scanner.nextLine();
+        switch (Main.input) {
+            case "1":
+                // GameMenu.run(scanner);
                 break;
-            case 2:
-                User.getUserById(Main.loggedInUserId).showCards();
+            case "2":
+                // User.getUserById(Main.loggedInUserId).showCards();
                 break;
-            case 3:
-                BattleLogMenu.run(scanner);
+            case "3":
+                // BattleLogMenu.run(scanner);
                 break;
-            case 4:
-                StoreMenu.run(scanner);
+            case "4":
+                // StoreMenu.run(scanner);
                 break;
-            case 5:
-                ProfileMenu.run(scanner);
+            case "5":
+                // ProfileMenu.run(scanner);
                 break;
-            case 6:
+            case "6":
                 Main.loggedInUserId = -1;
-                LogInMenu.run(scanner);
+                // LoginMenu.run(scanner);
                 break;
         }
     }
