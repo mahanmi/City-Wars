@@ -9,8 +9,8 @@ import org.apache.commons.lang3.RandomStringUtils;
 
 import com.Main;
 import com.model.User;
+import com.view.authentication.Captcha;
 import com.view.authentication.SignupMenu;
-import com.view.Captcha;
 
 public class AuthenticationController {
 
