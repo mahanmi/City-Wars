@@ -17,7 +17,7 @@ public class CRUD {
     private void createTables() {
         try {
             Connection connection = DriverManager.getConnection("jdbc:sqlite:city-wars/src/main/resources/data.db");
-            String createTableQuery = "CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, username TEXT UNIQUE, password TEXT,email TEXT UNIQUE,nickname TEXT,cardIDs TEXT,Q1 TEXT,Q2 TEXT,Q3 TEXT,balance INT)";
+            String createTableQuery = "CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, username TEXT UNIQUE, password TEXT,email TEXT UNIQUE,nickname TEXT,cardIDs TEXT,QuestionID INT,Answer TEXT,balance INT)";
             connection.createStatement().execute(createTableQuery);
             System.out.println("Users Table created successfully");
             createTableQuery = "CREATE TABLE IF NOT EXISTS cards (id INTEGER PRIMARY KEY, name TEXT UNIQUE, power INT, duration INT, damage INT,upgradeLevel INT,upgradeCost INT)";
@@ -31,7 +31,7 @@ public class CRUD {
 
     public void addUser(User user) {
         try {
-            String insertQuery = "INSERT INTO users (username, password, email, nickname, cardIDs, Q1, Q2, Q3, balance) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String insertQuery = "INSERT INTO users (username, password, email, nickname, cardIDs,getSecurityQuestionID, getSecurityQuestionAnswer, balance) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             Connection connection = DriverManager.getConnection("jdbc:sqlite:city-wars/src/main/resources/data.db");
             PreparedStatement statement = connection.prepareStatement(insertQuery);
             statement.setString(1, user.getUsername());
@@ -39,10 +39,9 @@ public class CRUD {
             statement.setString(3, user.getEmail());
             statement.setString(4, user.getNickname());
             statement.setString(5, user.getCardIDs());
-            statement.setString(6, user.getSecurityQuestions()[0]);
-            statement.setString(7, user.getSecurityQuestions()[1]);
-            statement.setString(8, user.getSecurityQuestions()[2]);
-            statement.setInt(9, user.getBalance());
+            statement.setInt(6, user.getSecurityQuestionID());
+            statement.setString(7, user.getSecurityQuestionAnswer());
+            statement.setInt(8, user.getBalance());
             statement.executeUpdate();
             connection.close();
         } catch (SQLException e) {
@@ -65,18 +64,17 @@ public class CRUD {
 
     public void updateUser(User user) {
         try {
-            String updateQuery = "UPDATE users SET password = ?, email = ?, nickname = ?, cardIDs = ?, Q1 = ?, Q2 = ?, Q3 = ?, balance = ? WHERE username = ?";
+            String updateQuery = "UPDATE users SET password = ?, email = ?, nickname = ?, cardIDs = ?, QuestionID=?, Answer=?, balance = ? WHERE username = ?";
             Connection connection = DriverManager.getConnection("jdbc:sqlite:city-wars/src/main/resources/data.db");
             PreparedStatement statement = connection.prepareStatement(updateQuery);
             statement.setString(1, user.getPassword());
             statement.setString(2, user.getEmail());
             statement.setString(3, user.getNickname());
             statement.setString(4, user.getCardIDs());
-            statement.setString(5, user.getSecurityQuestions()[0]);
-            statement.setString(6, user.getSecurityQuestions()[1]);
-            statement.setString(7, user.getSecurityQuestions()[2]);
-            statement.setInt(8, user.getBalance());
-            statement.setString(9, user.getUsername());
+            statement.setInt(5, user.getSecurityQuestionID());
+            statement.setString(6, user.getSecurityQuestionAnswer());
+            statement.setInt(7, user.getBalance());
+            statement.setString(8, user.getUsername());
             statement.executeUpdate();
             connection.close();
         } catch (SQLException e) {
@@ -86,7 +84,7 @@ public class CRUD {
 
     public void updateUser(User user, int id) {
         try {
-            String updateQuery = "UPDATE users SET username = ?, password = ?, email = ?, nickname = ?, cardIDs = ?, Q1 = ?, Q2 = ?, Q3 = ?, balance = ? WHERE id = ?";
+            String updateQuery = "UPDATE users SET username = ?, password = ?, email = ?, nickname = ?, cardIDs = ?, QuestionID=?, Answer=?, balance = ? WHERE id = ?";
             Connection connection = DriverManager.getConnection("jdbc:sqlite:city-wars/src/main/resources/data.db");
             PreparedStatement statement = connection.prepareStatement(updateQuery);
             statement.setString(1, user.getUsername());
@@ -94,11 +92,10 @@ public class CRUD {
             statement.setString(3, user.getEmail());
             statement.setString(4, user.getNickname());
             statement.setString(5, user.getCardIDs());
-            statement.setString(6, user.getSecurityQuestions()[0]);
-            statement.setString(7, user.getSecurityQuestions()[1]);
-            statement.setString(8, user.getSecurityQuestions()[2]);
-            statement.setInt(9, user.getBalance());
-            statement.setInt(10, id);
+            statement.setInt(6, user.getSecurityQuestionID());
+            statement.setString(7, user.getSecurityQuestionAnswer());
+            statement.setInt(8, user.getBalance());
+            statement.setInt(9, id);
             statement.executeUpdate();
             connection.close();
         } catch (SQLException e) {
@@ -119,11 +116,11 @@ public class CRUD {
                 String email = resultSet.getString("email");
                 String nickname = resultSet.getString("nickname");
                 String cardIDs = resultSet.getString("cardIDs");
-                String Q1 = resultSet.getString("Q1");
-                String Q2 = resultSet.getString("Q2");
-                String Q3 = resultSet.getString("Q3");
+                int securityQuestionID = resultSet.getInt("QuestionID");
+                String securityQuestionAnswer = resultSet.getString("Answer");
                 int balance = resultSet.getInt("balance");
-                User user = new User(username, password, email, nickname, cardIDs, Q1, Q2, Q3, balance);
+                User user = new User(username, password, email, nickname, cardIDs, securityQuestionID,
+                        securityQuestionAnswer, balance);
                 return user;
             } else {
                 return null;

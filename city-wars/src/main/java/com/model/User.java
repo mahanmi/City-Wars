@@ -3,40 +3,38 @@ package com.model;
 import java.util.ArrayList;
 
 import com.Main;
-import com.CRUD;
 
 public class User {
     private String username;
     private String password;
     private String email;
     private String nickname;
-    public ArrayList<Card> cards = new ArrayList<>();
-    public String[] securityQuestions = new String[3];
+    private ArrayList<Card> cards = new ArrayList<>();
+    private int securityQuestionID;
+    private String securityQuestionAnswer;
     private int balance;
-    public boolean firstTime = true;
+    private boolean firstTime = true;
 
-    public User(String username, String password, String email, String nickname, String cardIDs, String Q1, String Q2,
-            String Q3) {
+    public User(String username, String password, String email, String nickname, String cardIDs, int securityQuestionID,
+            String securityQuestionAnswer) {
         this.username = username;
         this.password = password;
         this.email = email;
         this.nickname = nickname;
-        this.securityQuestions[0] = Q1;
-        this.securityQuestions[1] = Q2;
-        this.securityQuestions[2] = Q3;
+        this.securityQuestionID = securityQuestionID;
+        this.securityQuestionAnswer = securityQuestionAnswer;
         addCards(cardIDs);
         this.balance = Main.INITIAL_BALANCE;
     }
 
-    public User(String username, String password, String email, String nickname, String cardIDs, String Q1, String Q2,
-            String Q3, int balance) {
+    public User(String username, String password, String email, String nickname, String cardIDs, int securityQuestionID,
+            String securityQuestionAnswer, int balance) {
         this.username = username;
         this.password = password;
         this.email = email;
         this.nickname = nickname;
-        this.securityQuestions[0] = Q1;
-        this.securityQuestions[1] = Q2;
-        this.securityQuestions[2] = Q3;
+        this.securityQuestionID = securityQuestionID;
+        this.securityQuestionAnswer = securityQuestionAnswer;
         addCards(cardIDs);
         this.balance = balance;
     }
@@ -79,8 +77,12 @@ public class User {
         return cardIDs;
     }
 
-    public String[] getSecurityQuestions() {
-        return securityQuestions;
+    public int getSecurityQuestionID() {
+        return securityQuestionID;
+    }
+
+    public String getSecurityQuestionAnswer() {
+        return securityQuestionAnswer;
     }
 
     public void setUsername(String username, int id) {
