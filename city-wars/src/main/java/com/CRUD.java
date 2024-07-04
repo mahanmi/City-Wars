@@ -32,7 +32,7 @@ public class CRUD {
 
     public void addUser(User user) {
         try {
-            String insertQuery = "INSERT INTO users (username, password, email, nickname, cardIDs,getSecurityQuestionID, getSecurityQuestionAnswer, balance) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            String insertQuery = "INSERT INTO users (username, password, email, nickname, cardIDs, QuestionID, Answer, balance) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             Connection connection = DriverManager.getConnection("jdbc:sqlite:city-wars/src/main/resources/data.db");
             PreparedStatement statement = connection.prepareStatement(insertQuery);
             statement.setString(1, user.getUsername());

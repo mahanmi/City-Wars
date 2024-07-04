@@ -6,7 +6,9 @@ import java.util.regex.Pattern;
 public enum Command {
 
     SIGNUP("user create -u (?<username>.*) -p (?<password>.*) (?<passwordConfirmation>.*) -email (?<email>.*) -n (?<nickname>.*)"),
-    SIGNUP_RANDOM("user create -u (?<username>.*) -p random -email (?<email>.*) -n (?<nickname>.*)");
+    SIGNUP_RANDOM("user create -u (?<username>.*) -p random -email (?<email>.*) -n (?<nickname>.*)"),
+    LOGIN("user login -u (?<username>.*) -p (?<password>.*)"),
+    ;
 
     private final String regex;
 

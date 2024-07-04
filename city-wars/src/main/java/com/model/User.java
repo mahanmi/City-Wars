@@ -40,6 +40,9 @@ public class User {
     }
 
     private void addCards(String cardIDs) {
+        if (cardIDs == null || cardIDs.equals("")) {
+            return;
+        }
         String[] cardIDsArray = cardIDs.split(",");
         for (String cardID : cardIDsArray) {
             String[] cardIDArray = cardID.split("\\.");
@@ -73,6 +76,9 @@ public class User {
         String cardIDs = "";
         for (Card card : cards) {
             cardIDs += card.getId() + "." + card.getLevel() + ",";
+        }
+        if (cardIDs.length() > 0) {
+            cardIDs = cardIDs.substring(0, cardIDs.length() - 1);
         }
         return cardIDs;
     }

@@ -10,13 +10,29 @@ import org.apache.commons.lang3.RandomStringUtils;
 import com.Main;
 import com.model.User;
 import com.view.authentication.Captcha;
-import com.view.authentication.SignupMenu;
 
 public class AuthenticationController {
 
-    public void run(Scanner scanner) {
-        SignupMenu signupMenu = new SignupMenu();
-        signupMenu.run(scanner);
+    public void login(Matcher matcher) {
+        String username = matcher.group("username");
+        String password = matcher.group("password");
+
+        if (username != null && password != null) {
+            int userId = Main.crud.getUserIdByUsername(username);
+            if (userId != -1) {
+                User user = Main.crud.getUserById(userId);
+                if (user.getPassword().equals(password)) {
+                    Main.loggedInUserId = userId;
+                    System.out.println("user logged in successfully!");
+                } else {
+                    System.out.println("Password and Username don’t match!");
+                }
+            } else {
+                System.out.println("Username doesn’t exist!");
+            }
+        } else {
+            System.out.println("You must fill all fields!");
+        }
     }
 
     public void signup(Matcher matcher, Scanner scanner, String password) {
@@ -39,7 +55,7 @@ public class AuthenticationController {
                             if (isEmailValid(email)) {
                                 // Ask security question
                                 System.out.println("User created successfully. Please choose a security question :\n" +
-                                        "1-What is your father’s name ?\n" +
+                                        "1-What is your father's name ?\n" +
                                         "2-What is your favorite color ?\n" +
                                         "3-What was the name of your first pet?");
                                 Main.input = scanner.nextLine();
@@ -63,10 +79,16 @@ public class AuthenticationController {
                                     Main.input = scanner.nextLine();
                                     userCaptcha = Integer.parseInt(Main.input);
                                 }
-                                Main.crud.addUser(new User(username, passwordConfirmation, email, nickname, "NULL",
-                                        securityQuestionID, securityQuestionAnswer));
 
-                                System.out.println("User created successfully!");
+                                User user = new User(username, password, email, nickname, "",
+                                        securityQuestionID, securityQuestionAnswer);
+
+                                Main.crud.addUser(user);
+
+                                Main.loggedInUserId = Main.crud.getUserIdByUsername(username);
+                                Main.loggedInUser = user;
+
+                                System.out.println("User created & Logged in successfully!");
                             } else {
                                 System.out.println("Email is invalid!");
                             }
