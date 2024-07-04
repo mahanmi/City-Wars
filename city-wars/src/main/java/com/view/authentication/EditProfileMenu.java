@@ -21,7 +21,7 @@ public class EditProfileMenu {
       Main.input = scanner.nextLine();
 
       while (!(Main.input.equals("1") || Main.input.equals("2") || Main.input.equals("3")
-          || Main.input.equals("4") || Main.input.equals("5"))) {
+          || Main.input.equals("4") || Main.input.equals("5") || Main.input.equals("back"))) {
         System.out.println("Please enter a valid number!");
         Main.input = scanner.nextLine();
       }
@@ -112,7 +112,7 @@ public class EditProfileMenu {
     System.out.println("Enter your new password");
     while (true) {
       newPassword = scanner.nextLine();
-      if (isPasswordValid(newPassword) && !newPassword.equals(newPassword)) {
+      if (isPasswordValid(newPassword) && !newPassword.equals(oldPassword)) {
         break;
       }
       else if(!isPasswordValid(newPassword)){
@@ -134,7 +134,7 @@ public class EditProfileMenu {
       }
     }
 
-    System.out.println("Please enter yout new password again (to verify it)");
+    System.out.println("Please enter your new password again (to verify it)");
     while (true) {
       Main.input = scanner.nextLine();
       if(Main.input.equals(newPassword)){

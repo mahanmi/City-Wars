@@ -20,7 +20,4 @@ public class Main {
         MenuController menu = new MenuController();
         menu.run(scanner);
     }
-
-    
-
 }

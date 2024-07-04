@@ -23,6 +23,7 @@ public class AuthenticationController {
                 User user = Main.crud.getUser(userId);
                 if (user.getPassword().equals(password)) {
                     Main.loggedInUserId = userId;
+                    Main.loggedInUser = user;
                     Main.loggedInUser.setFirstTime(false);
                     System.out.println("user logged in successfully!");
                 } else {

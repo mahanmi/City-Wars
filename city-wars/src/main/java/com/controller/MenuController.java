@@ -35,7 +35,7 @@ public class MenuController {
                     // GameMenu.run(scanner);
                     break;
                 case "2":
-                    // User.getUserById(Main.loggedInUserId).showCards();
+                    Main.crud.getUser(Main.loggedInUserId).showCards();
                     break;
                 case "3":
                     // BattleLogMenu.run(scanner);
@@ -44,7 +44,8 @@ public class MenuController {
                     // StoreMenu.run(scanner);
                     break;
                 case "5":
-                    // ProfileMenu.run(scanner, User.getUserById(Main.loggedInUserId));
+                    com.view.authentication.EditProfileMenu editProfileMenu = new com.view.authentication.EditProfileMenu();
+                    editProfileMenu.run(scanner, Main.crud.getUser(Main.loggedInUserId));
                     break;
                 case "6":
                     logout();
