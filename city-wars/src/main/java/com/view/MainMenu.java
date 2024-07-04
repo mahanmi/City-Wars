@@ -37,7 +37,7 @@ public class MainMenu {
           // GameMenu.run(scanner);
           break;
         case "2":
-          Main.crud.getUser(Main.loggedInUserId).showCards();
+          Main.loggedInUser.showCards();
           break;
         case "3":
           // BattleLogMenu.run(scanner);

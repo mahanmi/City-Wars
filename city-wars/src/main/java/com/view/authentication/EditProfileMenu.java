@@ -45,7 +45,7 @@ public class EditProfileMenu {
 
         case "5":
           changeEmail(scanner, user);
-          break;  
+          break;
 
         case "back":
           break;
@@ -59,19 +59,19 @@ public class EditProfileMenu {
     System.out.println("Email: " + user.getEmail());
     System.out.println("Nickname: " + user.getNickname());
     System.out.println("Balance: " + user.getBalance() + "$");
-    String securityQuastion;
+    String securityQuestion;
     if (user.getSecurityQuestionID() == 1) {
-      securityQuastion = "What is your father’s name ?";
+      securityQuestion = "What is your father's name ?";
     } else if (user.getSecurityQuestionID() == 2) {
-      securityQuastion = "What is your favorite color ?";
+      securityQuestion = "What is your favorite color ?";
     } else {
-      securityQuastion = "What was the name of your first pet?";
+      securityQuestion = "What was the name of your first pet?";
     }
-    System.out.println("Security quastion: " + securityQuastion);
-    System.out.println("Security quastion's answer: " + user.getSecurityQuestionAnswer());
+    System.out.println("Security question: " + securityQuestion);
+    System.out.println("Security question's answer: " + user.getSecurityQuestionAnswer());
     System.out.println();
     for (Card i : user.cards) {
-      com.Main.crud.showCard(i);
+      System.out.println(i.getCardInfo());
     }
   }
 
@@ -115,12 +115,10 @@ public class EditProfileMenu {
       newPassword = scanner.nextLine();
       if (isPasswordValid(newPassword) && !newPassword.equals(oldPassword)) {
         break;
-      }
-      else if(!isPasswordValid(newPassword)){
-        System.out.println("This password is invalid \n Try again");
-      }
-      else{
+      } else if (newPassword.equals(oldPassword)) {
         System.out.println("Please enter a new password!");
+      } else {
+        System.out.println("Try again");
       }
     }
 
@@ -129,36 +127,33 @@ public class EditProfileMenu {
       Main.input = scanner.nextLine();
       if (Integer.parseInt(Main.input) == captcha) {
         break;
-      }
-      else{
+      } else {
         System.out.println("Captcha WRONG \n Try again");
       }
     }
 
-    System.out.println("Please enter your new password again (to verify it)");
+    System.out.println("Please enter your new password again (to confirm it)");
     while (true) {
       Main.input = scanner.nextLine();
-      if(Main.input.equals(newPassword)){
+      if (Main.input.equals(newPassword)) {
         user.setPassword(newPassword);
         System.out.println("Password changed successfully!");
         break;
-      }
-      else{
-        System.out.println("Current password is incorrect!\n Try again");
+      } else {
+        System.out.println("password confirmation is incorrect!\n Try again");
       }
     }
   }
 
-  private void changeEmail(Scanner scanner, User user){
+  private void changeEmail(Scanner scanner, User user) {
     System.out.println("Please enter your new email address");
     while (true) {
-      Main.input = scanner.nextLine(); 
-      if(isEmailValid(Main.input)){
+      Main.input = scanner.nextLine();
+      if (isEmailValid(Main.input)) {
         user.setEmail(Main.input);
         System.out.println("Email address changed successfully!");
         return;
-      }
-      else{
+      } else {
         System.out.println("This address is not valid! \n Try again");
       }
     }
@@ -186,9 +181,9 @@ public class EditProfileMenu {
 
   private boolean isEmailValid(String email) {
     if (email.matches("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+\\.com$")) {
-        return true;
+      return true;
     }
     return false;
-}
+  }
 
 }

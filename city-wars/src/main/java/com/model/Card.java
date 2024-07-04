@@ -31,7 +31,7 @@ public class Card {
         this.upgradeCost = upgradeCost;
     }
 
-    public Card(Card card,int level){
+    public Card(Card card, int level) {
         this.id = card.getId();
         this.name = card.getName();
         this.power = card.getPower();
@@ -90,5 +90,15 @@ public class Card {
     @Override
     public String toString() {
         return name + " (Level " + level + ")" + " Power: " + power + " Duration: " + duration + " Damage: " + damage;
+    }
+
+    public String getCardInfo() {
+        return "Name: " + name + "\n" +
+                "Power: " + power + "\n" +
+                "Duration: " + duration + "\n" +
+                "Damage: " + damage + "\n" +
+                "Level: " + level + "\n" +
+                "Upgrade Level: " + upgradeLevel + "\n" +
+                "Upgrade Cost: " + upgradeCost + "\n";
     }
 }

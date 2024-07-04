@@ -13,6 +13,7 @@ public class CRUD {
     public static void main(String[] args) {
         CRUD crud = new CRUD();
         crud.createTables();
+        crud.addInitialCards();
     }
 
     private void createTables() {
@@ -287,15 +288,6 @@ public class CRUD {
             System.out.println("Error getting all cards: " + e.getMessage());
             return null;
         }
-    }
-
-    public void showCard(Card card) {
-        System.out.println("Name: " + card.getName());
-        System.out.println("\t Power: " + card.getPower());
-        System.out.println("\t Duration: " + card.getDuration());
-        System.out.println("\t Damage: " + card.getDamage());
-        System.out.println("\t Upgrade Level: " + card.getUpgradeLevel());
-        System.out.println("\t Upgrade Cost: " + card.getUpgradeCost());
     }
 
     public void showAllUsers() {
