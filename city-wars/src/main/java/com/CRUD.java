@@ -21,7 +21,7 @@ public class CRUD {
             String createTableQuery = "CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, username TEXT UNIQUE, password TEXT,email TEXT UNIQUE,nickname TEXT,cardIDs TEXT,QuestionID INT,Answer TEXT,balance INT)";
             connection.createStatement().execute(createTableQuery);
             System.out.println("Users Table created successfully");
-            createTableQuery = "CREATE TABLE IF NOT EXISTS cards (id INTEGER PRIMARY KEY, name TEXT UNIQUE, power INT, duration INT, damage INT,upgradeLevel INT,upgradeCost INT)";
+            createTableQuery = "CREATE TABLE IF NOT EXISTS cards (id INTEGER PRIMARY KEY, name TEXT UNIQUE,isSpell INT, power INT, duration INT, damage INT,upgradeLevel INT,upgradeCost INT)";
             connection.createStatement().execute(createTableQuery);
             System.out.println("Cards Table created successfully");
             connection.close();
@@ -186,15 +186,16 @@ public class CRUD {
 
     public void addCard(Card card) {
         try {
-            String insertQuery = "INSERT INTO cards (name, power, duration, damage, upgradeLevel, upgradeCost) VALUES (?, ?, ?, ?, ?, ?)";
+            String insertQuery = "INSERT INTO cards (name, isSpell ,power, duration, damage, upgradeLevel, upgradeCost) VALUES (?, ?,?, ?, ?, ?, ?)";
             Connection connection = DriverManager.getConnection("jdbc:sqlite:city-wars/src/main/resources/data.db");
             PreparedStatement statement = connection.prepareStatement(insertQuery);
             statement.setString(1, card.getName());
-            statement.setInt(2, card.getPower());
-            statement.setInt(3, card.getDuration());
-            statement.setInt(4, card.getDamage());
-            statement.setInt(5, card.getUpgradeLevel());
-            statement.setInt(6, card.getUpgradeCost());
+            statement.setInt(2, card.isSpecial());
+            statement.setInt(3, card.getPower());
+            statement.setInt(4, card.getDuration());
+            statement.setInt(5, card.getDamage());
+            statement.setInt(6, card.getUpgradeLevel());
+            statement.setInt(7, card.getUpgradeCost());
             statement.executeUpdate();
             connection.close();
         } catch (SQLException e) {
@@ -204,16 +205,17 @@ public class CRUD {
 
     public void updateCard(Card card, int id) {
         try {
-            String updateQuery = "UPDATE cards SET name = ?, power = ?, duration = ?, damage = ?, upgradeLevel = ?, upgradeCost = ? WHERE id = ?";
+            String updateQuery = "UPDATE cards SET name = ?,isSpecial=?, power = ?, duration = ?, damage = ?, upgradeLevel = ?, upgradeCost = ? WHERE id = ?";
             Connection connection = DriverManager.getConnection("jdbc:sqlite:city-wars/src/main/resources/data.db");
             PreparedStatement statement = connection.prepareStatement(updateQuery);
             statement.setString(1, card.getName());
-            statement.setInt(2, card.getPower());
-            statement.setInt(3, card.getDuration());
-            statement.setInt(4, card.getDamage());
-            statement.setInt(5, card.getUpgradeLevel());
-            statement.setInt(6, card.getUpgradeCost());
-            statement.setInt(7, id);
+            statement.setInt(2, card.isSpecial());
+            statement.setInt(3, card.getPower());
+            statement.setInt(4, card.getDuration());
+            statement.setInt(5, card.getDamage());
+            statement.setInt(6, card.getUpgradeLevel());
+            statement.setInt(7, card.getUpgradeCost());
+            statement.setInt(8, id);            
             statement.executeUpdate();
             connection.close();
         } catch (SQLException e) {

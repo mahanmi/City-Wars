@@ -13,7 +13,6 @@ public class User {
     private int securityQuestionID;
     private String securityQuestionAnswer;
     private int balance;
-    private boolean firstTime = true;
 
     public User(String username, String password, String email, String nickname, String cardIDs, int securityQuestionID,
             String securityQuestionAnswer) {
@@ -116,14 +115,6 @@ public class User {
         Main.crud.updateUser(this);
     }
 
-    public void setFirstTime(boolean firstTime) {
-        this.firstTime = firstTime;
-    }
-
-    public boolean isFirstTime() {
-        return firstTime;
-    }
-
     public void showCards() {
         System.out.println("Your cards:");
         for (Card card : cards) {
@@ -133,6 +124,11 @@ public class User {
 
     public void addCard(Card card) {
         cards.add(card);
+        Main.crud.updateUser(this);
+    }
+
+    public void addCards(ArrayList<Card> cards) {
+        this.cards = cards;
         Main.crud.updateUser(this);
     }
 

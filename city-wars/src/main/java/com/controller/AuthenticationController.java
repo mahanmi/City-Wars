@@ -23,8 +23,8 @@ public class AuthenticationController {
                 User user = Main.crud.getUser(userId);
                 if (user.getPassword().equals(password)) {
                     Main.loggedInUserId = userId;
-                    Main.loggedInUser.setFirstTime(false);
-                    System.out.println("user logged in successfully!");
+                    Main.loggedInUser = user;
+                    System.out.println("\u001B[32muser logged in successfully!\u001B[0m");
                 } else {
                     System.out.println("Password and Username don’t match!");
                 }
@@ -87,6 +87,8 @@ public class AuthenticationController {
                                 Main.loggedInUser = user;
 
                                 System.out.println("User created & Logged in successfully!");
+                                MenuController menuController = new MenuController();
+                                menuController.greetNewUser(user, scanner);
                             } else {
                                 System.out.println("Email is invalid!");
                             }

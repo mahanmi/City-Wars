@@ -50,6 +50,10 @@ public class Card {
         return name;
     }
 
+    public int isSpecial() {
+        return 0;
+    }
+
     public int getPower() {
         return power;
     }
@@ -81,5 +85,10 @@ public class Card {
         } else {
             System.out.println("Not enough balance to upgrade card");
         }
+    }
+
+    @Override
+    public String toString() {
+        return name + " (Level " + level + ")" + " Power: " + power + " Duration: " + duration + " Damage: " + damage;
     }
 }
