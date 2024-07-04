@@ -48,7 +48,7 @@ public class User {
             String[] cardIDArray = cardID.split("\\.");
             int id = Integer.parseInt(cardIDArray[0]);
             int level = Integer.parseInt(cardIDArray[1]);
-            cards.add(new Card(Main.crud.getCardById(id), level));
+            cards.add(new Card(Main.crud.getCard(id), level));
         }
     }
 
@@ -98,18 +98,22 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+        Main.crud.updateUser(this);
     }
 
     public void setEmail(String email) {
         this.email = email;
+        Main.crud.updateUser(this);
     }
 
     public void setNickname(String nickname) {
         this.nickname = nickname;
+        Main.crud.updateUser(this);
     }
 
     public void setBalance(int balance) {
         this.balance = balance;
+        Main.crud.updateUser(this);
     }
 
     public void setFirstTime(boolean firstTime) {

@@ -104,7 +104,7 @@ public class CRUD {
         }
     }
 
-    public User getUserById(int id) {
+    public User getUser(int id) {
         try {
             String selectQuery = "SELECT * FROM users WHERE id = ?";
             Connection connection = DriverManager.getConnection("jdbc:sqlite:city-wars/src/main/resources/data.db");
@@ -122,8 +122,10 @@ public class CRUD {
                 int balance = resultSet.getInt("balance");
                 User user = new User(username, password, email, nickname, cardIDs, securityQuestionID,
                         securityQuestionAnswer, balance);
+                connection.close();
                 return user;
             } else {
+                connection.close();
                 return null;
             }
         } catch (SQLException e) {
@@ -132,7 +134,36 @@ public class CRUD {
         }
     }
 
-    public int getUserIdByUsername(String username) {
+    public User getUser(String username) {
+        try {
+            String selectQuery = "SELECT * FROM users WHERE username = ?";
+            Connection connection = DriverManager.getConnection("jdbc:sqlite:city-wars/src/main/resources/data.db");
+            PreparedStatement statement = connection.prepareStatement(selectQuery);
+            statement.setString(1, username);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                String password = resultSet.getString("password");
+                String email = resultSet.getString("email");
+                String nickname = resultSet.getString("nickname");
+                String cardIDs = resultSet.getString("cardIDs");
+                int securityQuestionID = resultSet.getInt("QuestionID");
+                String securityQuestionAnswer = resultSet.getString("Answer");
+                int balance = resultSet.getInt("balance");
+                User user = new User(username, password, email, nickname, cardIDs, securityQuestionID,
+                        securityQuestionAnswer, balance);
+                connection.close();
+                return user;
+            } else {
+                connection.close();
+                return null;
+            }
+        } catch (SQLException e) {
+            System.out.println("Error getting user by id: " + e.getMessage());
+            return null;
+        }
+    }
+
+    public int getUserId(String username) {
         try {
             String selectQuery = "SELECT id FROM users WHERE username = ?";
             Connection connection = DriverManager.getConnection("jdbc:sqlite:city-wars/src/main/resources/data.db");
@@ -140,8 +171,11 @@ public class CRUD {
             statement.setString(1, username);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
-                return resultSet.getInt("id");
+                int result = resultSet.getInt("id");
+                connection.close();
+                return result;
             } else {
+                connection.close();
                 return -1;
             }
         } catch (SQLException e) {
@@ -187,7 +221,7 @@ public class CRUD {
         }
     }
 
-    public Card getCardById(int id) {
+    public Card getCard(int id) {
         try {
             String selectQuery = "SELECT * FROM cards WHERE id = ?";
             Connection connection = DriverManager.getConnection("jdbc:sqlite:city-wars/src/main/resources/data.db");
@@ -202,8 +236,10 @@ public class CRUD {
                 int upgradeLevel = resultSet.getInt("upgradeLevel");
                 int upgradeCost = resultSet.getInt("upgradeCost");
                 Card card = new Card(id, name, power, duration, damage, upgradeLevel, upgradeCost);
+                connection.close();
                 return card;
             } else {
+                connection.close();
                 return null;
             }
         } catch (SQLException e) {
@@ -243,6 +279,7 @@ public class CRUD {
                 Card card = new Card(id, name, power, duration, damage, upgradeLevel, upgradeCost);
                 cards.add(card);
             }
+            connection.close();
             return cards;
         } catch (SQLException e) {
             System.out.println("Error getting all cards: " + e.getMessage());
@@ -283,9 +320,11 @@ public class CRUD {
                 System.out.println("\t Email: " + user.getEmail());
                 System.out.println("\t Nickname: " + user.getNickname());
                 System.out.println("\t Card IDs: " + user.getCardIDs());
-                System.out.println("\t Security Question" + securityQuestionID + ": " + user.getSecurityQuestionAnswer());
+                System.out
+                        .println("\t Security Question" + securityQuestionID + ": " + user.getSecurityQuestionAnswer());
                 System.out.println("\t Balance: " + user.getBalance());
             }
+            connection.close();
         } catch (SQLException e) {
             System.out.println("Error showing all users: " + e.getMessage());
         }
