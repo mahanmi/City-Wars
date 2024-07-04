@@ -28,9 +28,9 @@ public class SignupMenu {
     while (Main.loggedInUserId == -1) {
       Main.input = scanner.nextLine();
       if ((matcher = Command.SIGNUP.getMatcher(Main.input)) != null) {
-        controller.signup(matcher, scanner, matcher.group("password"));
+        controller.signup(matcher, scanner, false);
       } else if ((matcher = Command.SIGNUP_RANDOM.getMatcher(Main.input)) != null) {
-        controller.signup(matcher, scanner, controller.generateRandomPassword());
+        controller.signup(matcher, scanner, true);
       } else if (Main.input.equals("exit")) {
         System.out.println("Returning to main menu");
         return;

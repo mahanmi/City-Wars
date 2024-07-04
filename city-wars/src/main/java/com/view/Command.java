@@ -5,9 +5,12 @@ import java.util.regex.Pattern;
 
 public enum Command {
 
+    SIGNUP_PAGE("signup"),
     SIGNUP("user create -u (?<username>.*) -p (?<password>.*) (?<passwordConfirmation>.*) -email (?<email>.*) -n (?<nickname>.*)"),
     SIGNUP_RANDOM("user create -u (?<username>.*) -p random -email (?<email>.*) -n (?<nickname>.*)"),
     LOGIN("user login -u (?<username>.*) -p (?<password>.*)"),
+    FORGOT_PASSWORD("forgot password"),
+    EXIT("exit"),
     ;
 
     private final String regex;
