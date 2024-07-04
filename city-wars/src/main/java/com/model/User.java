@@ -9,11 +9,12 @@ public class User {
     private String password;
     private String email;
     private String nickname;
-    private ArrayList<Card> cards = new ArrayList<>();
     private int securityQuestionID;
     private String securityQuestionAnswer;
     private int balance;
     private boolean firstTime = true;
+
+    public ArrayList<Card> cards = new ArrayList<>();
 
     public User(String username, String password, String email, String nickname, String cardIDs, int securityQuestionID,
             String securityQuestionAnswer) {
@@ -90,20 +91,24 @@ public class User {
         Main.crud.updateUser(this, id);
     }
 
-    public void setPassword(String password) {
+    public void setPassword(String password, int id) {
         this.password = password;
+        Main.crud.updateUser(this, id);
     }
 
-    public void setEmail(String email) {
+    public void setEmail(String email, int id) {
         this.email = email;
+        Main.crud.updateUser(this, id);
     }
 
-    public void setNickname(String nickname) {
+    public void setNickname(String nickname, int id) {
         this.nickname = nickname;
+        Main.crud.updateUser(this, id);
     }
 
-    public void setBalance(int balance) {
+    public void setBalance(int balance, int id) {
         this.balance = balance;
+        Main.crud.updateUser(this, id);
     }
 
     public void setFirstTime(boolean firstTime) {

@@ -26,7 +26,7 @@ public class MenuController {
 
             Main.input  = scanner.nextLine();
 
-            switch (input) {
+            switch (Main.input) {
                 case "1":
                     // GameMenu.run(scanner);
                     break;
@@ -40,7 +40,7 @@ public class MenuController {
                     // StoreMenu.run(scanner);
                     break;
                 case "5":
-                    // ProfileMenu.run(scanner);
+                    // ProfileMenu.run(scanner, User.getUserById(Main.loggedInUserId));
                     break;
                 case "6":
                     Main.loggedInUserId = -1;
