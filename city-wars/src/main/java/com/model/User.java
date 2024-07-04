@@ -9,10 +9,11 @@ public class User {
     private String password;
     private String email;
     private String nickname;
-    private ArrayList<Card> cards = new ArrayList<>();
     private int securityQuestionID;
     private String securityQuestionAnswer;
     private int balance;
+
+    public ArrayList<Card> cards = new ArrayList<>();
 
     public User(String username, String password, String email, String nickname, String cardIDs, int securityQuestionID,
             String securityQuestionAnswer) {

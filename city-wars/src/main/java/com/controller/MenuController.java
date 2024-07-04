@@ -2,6 +2,7 @@ package com.controller;
 
 import com.*;
 import com.model.*;
+import com.view.authentication.EditProfileMenu;
 import com.view.authentication.LoginMenu;
 
 import java.util.Scanner;
@@ -42,7 +43,8 @@ public class MenuController {
                 scanner.nextLine();
             }
         }
-        System.out.println("\u001B[32mYou can view your cards at any time by selecting view my cards option in mainMenu.\u001B[0m");
+        System.out.println(
+                "\u001B[32mYou can view your cards at any time by selecting view my cards option in mainMenu.\u001B[0m");
         System.out.println("You can start playing the game now. Good luck!\n");
     }
 
@@ -62,6 +64,11 @@ public class MenuController {
         for (Card card : cards) {
             System.out.print(card);
         }
+    }
+
+    public void editProfile(Scanner scanner) {
+        EditProfileMenu editProfileMenu = new EditProfileMenu();
+        editProfileMenu.run(scanner, Main.loggedInUser);
     }
 
     public void logout() {

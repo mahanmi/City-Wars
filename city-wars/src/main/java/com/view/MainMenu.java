@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import com.Main;
 import com.controller.MenuController;
-import com.view.authentication.LoginMenu;
+import com.view.authentication.EditProfileMenu;
 
 public class MainMenu {
   private MenuController controller;
@@ -14,7 +14,6 @@ public class MainMenu {
   }
 
   public void run(Scanner scanner) {
-    
 
     System.out.println("Welcome to the main menu!\n");
 
@@ -38,7 +37,7 @@ public class MainMenu {
           // GameMenu.run(scanner);
           break;
         case "2":
-          // User.getUserById(Main.loggedInUserId).showCards();
+          Main.crud.getUser(Main.loggedInUserId).showCards();
           break;
         case "3":
           // BattleLogMenu.run(scanner);
@@ -47,7 +46,7 @@ public class MainMenu {
           // StoreMenu.run(scanner);
           break;
         case "5":
-          // ProfileMenu.run(scanner);
+          controller.editProfile(scanner);
           break;
         case "6":
           controller.logout();
