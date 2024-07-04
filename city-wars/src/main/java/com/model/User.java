@@ -41,12 +41,15 @@ public class User {
     }
 
     private void addCards(String cardIDs) {
+        if (cardIDs == null || cardIDs.equals("")) {
+            return;
+        }
         String[] cardIDsArray = cardIDs.split(",");
         for (String cardID : cardIDsArray) {
             String[] cardIDArray = cardID.split("\\.");
             int id = Integer.parseInt(cardIDArray[0]);
             int level = Integer.parseInt(cardIDArray[1]);
-            cards.add(new Card(Main.crud.getCardById(id), level));
+            cards.add(new Card(Main.crud.getCard(id), level));
         }
     }
 
@@ -75,6 +78,9 @@ public class User {
         for (Card card : cards) {
             cardIDs += card.getId() + "." + card.getLevel() + ",";
         }
+        if (cardIDs.length() > 0) {
+            cardIDs = cardIDs.substring(0, cardIDs.length() - 1);
+        }
         return cardIDs;
     }
 
@@ -91,24 +97,24 @@ public class User {
         Main.crud.updateUser(this, id);
     }
 
-    public void setPassword(String password, int id) {
+    public void setPassword(String password) {
         this.password = password;
-        Main.crud.updateUser(this, id);
+        Main.crud.updateUser(this);
     }
 
-    public void setEmail(String email, int id) {
+    public void setEmail(String email) {
         this.email = email;
-        Main.crud.updateUser(this, id);
+        Main.crud.updateUser(this);
     }
 
-    public void setNickname(String nickname, int id) {
+    public void setNickname(String nickname) {
         this.nickname = nickname;
-        Main.crud.updateUser(this, id);
+        Main.crud.updateUser(this);
     }
 
-    public void setBalance(int balance, int id) {
+    public void setBalance(int balance) {
         this.balance = balance;
-        Main.crud.updateUser(this, id);
+        Main.crud.updateUser(this);
     }
 
     public void setFirstTime(boolean firstTime) {

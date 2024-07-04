@@ -1,5 +1,8 @@
 package com;
 
+import java.util.Scanner;
+
+import com.controller.MenuController;
 import com.model.User;
 import com.view.authentication.Captcha;
 
@@ -13,6 +16,9 @@ public class Main {
     public static String input;
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        MenuController menu = new MenuController();
+        menu.run(scanner);
     }
 
     

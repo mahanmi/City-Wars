@@ -10,20 +10,36 @@ import org.apache.commons.lang3.RandomStringUtils;
 import com.Main;
 import com.model.User;
 import com.view.authentication.Captcha;
-import com.view.authentication.SignupMenu;
 
 public class AuthenticationController {
 
-    public void run(Scanner scanner) {
-        SignupMenu signupMenu = new SignupMenu();
-        signupMenu.run(scanner);
+    public void login(Matcher matcher) {
+        String username = matcher.group("username");
+        String password = matcher.group("password");
+
+        if (username != null && password != null) {
+            int userId = Main.crud.getUserId(username);
+            if (userId != -1) {
+                User user = Main.crud.getUser(userId);
+                if (user.getPassword().equals(password)) {
+                    Main.loggedInUserId = userId;
+                    Main.loggedInUser.setFirstTime(false);
+                    System.out.println("user logged in successfully!");
+                } else {
+                    System.out.println("Password and Username don’t match!");
+                }
+            } else {
+                System.out.println("Username doesn’t exist!");
+            }
+        } else {
+            System.out.println("You must fill all fields!");
+        }
     }
 
-    public void signup(Matcher matcher, Scanner scanner, String password) {
+    public void signup(Matcher matcher, Scanner scanner, boolean isRandomPassword) {
         String username = matcher.group("username");
-        String passwordConfirmation = (matcher.group("passwordConfirmation") != null)
-                ? matcher.group("passwordConfirmation")
-                : password;
+        String password = (!isRandomPassword) ? matcher.group("password") : generateRandomPassword();
+        String passwordConfirmation = (!isRandomPassword) ? matcher.group("passwordConfirmation") : password;
         String email = matcher.group("email");
         String nickname = matcher.group("nickname");
         int securityQuestionID;
@@ -31,15 +47,13 @@ public class AuthenticationController {
 
         if (username != null && password != null && passwordConfirmation != null && email != null && nickname != null) {
             if (isUsernameValid(username)) {
-
-                if (Main.crud.getUserIdByUsername(username) == -1) {
+                if (Main.crud.getUserId(username) == -1) {
                     if (isPasswordValid(password)) {
-
                         if (password.equals(passwordConfirmation)) {
                             if (isEmailValid(email)) {
                                 // Ask security question
                                 System.out.println("User created successfully. Please choose a security question :\n" +
-                                        "1-What is your father’s name ?\n" +
+                                        "1-What is your father's name ?\n" +
                                         "2-What is your favorite color ?\n" +
                                         "3-What was the name of your first pet?");
                                 Main.input = scanner.nextLine();
@@ -63,10 +77,16 @@ public class AuthenticationController {
                                     Main.input = scanner.nextLine();
                                     userCaptcha = Integer.parseInt(Main.input);
                                 }
-                                Main.crud.addUser(new User(username, passwordConfirmation, email, nickname, "NULL",
-                                        securityQuestionID, securityQuestionAnswer));
 
-                                System.out.println("User created successfully!");
+                                User user = new User(username, password, email, nickname, "",
+                                        securityQuestionID, securityQuestionAnswer);
+
+                                Main.crud.addUser(user);
+
+                                Main.loggedInUserId = Main.crud.getUserId(username);
+                                Main.loggedInUser = user;
+
+                                System.out.println("User created & Logged in successfully!");
                             } else {
                                 System.out.println("Email is invalid!");
                             }
@@ -112,14 +132,67 @@ public class AuthenticationController {
         return false;
     }
 
-    public String generateRandomPassword() {
+    private String generateRandomPassword() {
         char[] possibleCharacters = (new String(
-                "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789~`!@#$%^&*()-_=+[{]}\\|;:\'\",<.>/?"))
+                "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&*_=+"))
                 .toCharArray();
         Random random = new Random();
-        int randomStrLength = random.nextInt() % 10 + 8;
+        int randomStrLength = random.nextInt() % 10 + 17;
         String randomStr = RandomStringUtils.random(randomStrLength, 0, possibleCharacters.length - 1, false, false,
                 possibleCharacters, new SecureRandom());
+        System.out.println("Your random password is : \u001B[31m" + randomStr + "\u001B[0m");
         return randomStr;
+    }
+
+    public void resetPassword(Scanner scanner) {
+
+        System.out.print("Enter your Username :");
+        Main.input = scanner.nextLine();
+        User user = Main.crud.getUser(Main.input);
+        if (askSecurityQuestion(scanner, user)) {
+            System.out.print("Enter New Password :");
+            String password = scanner.nextLine();
+            System.out.print("Password confirmation :");
+            String passwordConfirmation = scanner.nextLine();
+            while (isPasswordValid(password) && !password.matches(passwordConfirmation)) {
+                if (password.matches(passwordConfirmation)) {
+                    if (isPasswordValid(password)) {
+                        user.setPassword(password);
+                        System.out.println("your password changed successfully!");
+                    }
+
+                    System.out.println("Password is invalid!");
+                } else {
+                    System.out.println("Passwords do not match!");
+                }
+            }
+        } else {
+            System.out.println("Wrong Answer! Are you really " + user.getNickname() + "?\n" + "Try Again!");
+        }
+
+    }
+
+    private boolean askSecurityQuestion(Scanner scanner, User user) {
+        String question;
+        switch (user.getSecurityQuestionID()) {
+            case 1:
+                question = "What is your father's name ?";
+                break;
+
+            case 2:
+                question = "What is your favorite color ?";
+
+            case 3:
+                question = "What was the name of your first pet?";
+
+            default:
+                System.out.println("Something went wrong in initializing SecurityQuestionID");
+                return false;
+        }
+        System.out.println(question);
+        if (scanner.nextLine().matches(user.getSecurityQuestionAnswer())) {
+            return true;
+        }
+        return false;
     }
 }

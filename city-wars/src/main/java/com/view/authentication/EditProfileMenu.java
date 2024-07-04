@@ -7,7 +7,7 @@ import java.util.Scanner;
 import com.Main;
 
 public class EditProfileMenu {
-  
+
   public void run(Scanner scanner, User user) {
     System.out.println("Welcome to profile menu!");
     while (!com.Main.input.equals("back")) {
@@ -91,7 +91,7 @@ public class EditProfileMenu {
   private void changeNickname(Scanner scanner, User user) {
     System.out.println("Please enter your new nickname");
     String newNickname = scanner.nextLine();
-    user.setNickname(newNickname, Main.loggedInUserId);
+    user.setNickname(newNickname);
     System.out.println("Nickname changed successfully!");
   }
 
@@ -138,7 +138,7 @@ public class EditProfileMenu {
     while (true) {
       Main.input = scanner.nextLine();
       if(Main.input.equals(newPassword)){
-        user.setPassword(newPassword, Main.loggedInUserId);
+        user.setPassword(newPassword);
         System.out.println("Password changed successfully!");
         break;
       }
@@ -153,7 +153,7 @@ public class EditProfileMenu {
     while (true) {
       Main.input = scanner.nextLine(); 
       if(isEmailValid(Main.input)){
-        user.setEmail(Main.input, Main.loggedInUserId);
+        user.setEmail(Main.input);
         System.out.println("Email address changed successfully!");
         return;
       }

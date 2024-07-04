@@ -84,7 +84,7 @@ public class AdminController {
             return;
         }
         int id = Integer.parseInt(Main.input);
-        Card card = Main.crud.getCardById(id);
+        Card card = Main.crud.getCard(id);
         Main.crud.showCard(card);
         
         System.out.println("Enter card's new name:");
@@ -124,7 +124,7 @@ public class AdminController {
             return;
         }
         int id = Integer.parseInt(scanner.nextLine());
-        Card card = Main.crud.getCardById(id);
+        Card card = Main.crud.getCard(id);
         Main.crud.showCard(card);
         
         System.out.println("Are you sure you want to delete this card? (y/n)");
