@@ -93,6 +93,10 @@ public class User {
         return xp;
     }
 
+    public int getHP() {
+        return level * 100 + 150;
+    }
+
     public int getBalance() {
         return balance;
     }

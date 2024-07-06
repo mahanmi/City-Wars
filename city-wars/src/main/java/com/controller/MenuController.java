@@ -30,13 +30,15 @@ public class MenuController {
 
         System.out.println("Welcome to the game! You have been given \u001B[33m1000\u001B[0m coins to start with.");
         ArrayList<Card> starterCards = starterCards();
+        user.addCards(starterCards);
         System.out.println("your cards will be displayed one by one press enter to continue\n" +
                 "(enter \u001B[34mshow all\u001B[0m to see all cards at once)\n"
                 + "You have been given the following cards to start with:");
         Main.input = scanner.nextLine();
-        user.addCards(starterCards);
         if (Main.input.equals("show all")) {
-            printCards(starterCards);
+            for (Card card : starterCards) {
+                System.out.println(card);
+            }
         } else {
             for (Card card : starterCards) {
                 System.out.println(card);
@@ -58,12 +60,6 @@ public class MenuController {
             allCards.remove(randomIndex);
         }
         return starterCards;
-    }
-
-    private void printCards(ArrayList<Card> cards) {
-        for (Card card : cards) {
-            System.out.print(card);
-        }
     }
 
     public void editProfile(Scanner scanner) {

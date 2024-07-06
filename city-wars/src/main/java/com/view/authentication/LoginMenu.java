@@ -16,6 +16,10 @@ public class LoginMenu {
       "enter \u001B[34msignup\u001B[0m to go to the signup page\n" +
       "enter \u001B[34mforgot password\u001B[0m reset your password \n" +
       "enter \u001B[34mexit\u001B[0m to return to the main menu";
+  private final String help = "user login -u <username> -p <password>\n" +
+      "enter signup to go to the signup page\n" +
+      "enter forgot password reset your password \n" +
+      "enter exit to return to the main menu";
 
   private static final int BASE_LOCKOUT_TIME = 5;
 
@@ -59,6 +63,7 @@ public class LoginMenu {
           return;
         } else {
           System.out.println("Invalid command!");
+          System.out.println(help);
         }
       }
     }

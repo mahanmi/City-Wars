@@ -1,7 +1,6 @@
 package com.view.authentication;
 
 import com.model.User;
-import com.model.Card;
 import java.util.Scanner;
 
 import com.Main;

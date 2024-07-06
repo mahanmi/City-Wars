@@ -1,12 +1,16 @@
 package com;
 
 import com.model.*;
+import com.model.game.Game;
+import com.model.game.Prize;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Date;
+
 import java.util.ArrayList;
 
 public class CRUD {
@@ -19,12 +23,18 @@ public class CRUD {
     private void createTables() {
         try {
             Connection connection = DriverManager.getConnection("jdbc:sqlite:city-wars/src/main/resources/data.db");
-            String createTableQuery = "CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, username TEXT UNIQUE, password TEXT,email TEXT UNIQUE,nickname TEXT,cardIDs TEXT,QuestionID INT,Answer TEXT,balance INT)";
+            // users table
+            String createTableQuery = "CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, username TEXT UNIQUE, level INT,xp INT,password TEXT,email TEXT UNIQUE,nickname TEXT,cardIDs TEXT,QuestionID INT,Answer TEXT,balance INT)";
             connection.createStatement().execute(createTableQuery);
             System.out.println("Users Table created successfully");
+            // cards table
             createTableQuery = "CREATE TABLE IF NOT EXISTS cards (id INTEGER PRIMARY KEY, name TEXT UNIQUE,isSpell INT, power INT, duration INT, damage INT,upgradeLevel INT,upgradeCost INT)";
             connection.createStatement().execute(createTableQuery);
             System.out.println("Cards Table created successfully");
+            // games table
+            createTableQuery = "CREATE TABLE IF NOT EXISTS games (id INTEGER PRIMARY KEY, player1ID INT, player2ID INT, winner INT, date DATE , gameMode INT,prize TEXT)";
+            connection.createStatement().execute(createTableQuery);
+            System.out.println("Games Table created successfully");
             connection.close();
         } catch (SQLException e) {
             System.out.println("Error creating tables: " + e.getMessage());
@@ -33,17 +43,19 @@ public class CRUD {
 
     public void addUser(User user) {
         try {
-            String insertQuery = "INSERT INTO users (username, password, email, nickname, cardIDs, QuestionID, Answer, balance) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            String insertQuery = "INSERT INTO users (username, level, xp, password, email, nickname, cardIDs, QuestionID, Answer, balance) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             Connection connection = DriverManager.getConnection("jdbc:sqlite:city-wars/src/main/resources/data.db");
             PreparedStatement statement = connection.prepareStatement(insertQuery);
             statement.setString(1, user.getUsername());
-            statement.setString(2, user.getPassword());
-            statement.setString(3, user.getEmail());
-            statement.setString(4, user.getNickname());
-            statement.setString(5, user.getCardIDs());
-            statement.setInt(6, user.getSecurityQuestionID());
-            statement.setString(7, user.getSecurityQuestionAnswer());
-            statement.setInt(8, user.getBalance());
+            statement.setInt(2, user.getLevel());
+            statement.setInt(3, user.getXp());
+            statement.setString(4, user.getPassword());
+            statement.setString(5, user.getEmail());
+            statement.setString(6, user.getNickname());
+            statement.setString(7, user.getCardIDs());
+            statement.setInt(8, user.getSecurityQuestionID());
+            statement.setString(9, user.getSecurityQuestionAnswer());
+            statement.setInt(10, user.getBalance());
             statement.executeUpdate();
             connection.close();
         } catch (SQLException e) {
@@ -66,17 +78,20 @@ public class CRUD {
 
     public void updateUser(User user) {
         try {
-            String updateQuery = "UPDATE users SET password = ?, email = ?, nickname = ?, cardIDs = ?, QuestionID=?, Answer=?, balance = ? WHERE username = ?";
+            String updateQuery = "UPDATE users SET username = ?, level = ?, xp = ?, password = ?, email = ?, nickname = ?, cardIDs = ?, QuestionID=?, Answer=?, balance = ? WHERE id = ?";
             Connection connection = DriverManager.getConnection("jdbc:sqlite:city-wars/src/main/resources/data.db");
             PreparedStatement statement = connection.prepareStatement(updateQuery);
-            statement.setString(1, user.getPassword());
-            statement.setString(2, user.getEmail());
-            statement.setString(3, user.getNickname());
-            statement.setString(4, user.getCardIDs());
-            statement.setInt(5, user.getSecurityQuestionID());
-            statement.setString(6, user.getSecurityQuestionAnswer());
-            statement.setInt(7, user.getBalance());
-            statement.setString(8, user.getUsername());
+            statement.setString(1, user.getUsername());
+            statement.setInt(2, user.getLevel());
+            statement.setInt(3, user.getXp());
+            statement.setString(4, user.getPassword());
+            statement.setString(5, user.getEmail());
+            statement.setString(6, user.getNickname());
+            statement.setString(7, user.getCardIDs());
+            statement.setInt(8, user.getSecurityQuestionID());
+            statement.setString(9, user.getSecurityQuestionAnswer());
+            statement.setInt(10, user.getBalance());
+            statement.setInt(11, getUserId(user.getUsername()));
             statement.executeUpdate();
             connection.close();
         } catch (SQLException e) {
@@ -86,18 +101,20 @@ public class CRUD {
 
     public void updateUser(User user, int id) {
         try {
-            String updateQuery = "UPDATE users SET username = ?, password = ?, email = ?, nickname = ?, cardIDs = ?, QuestionID=?, Answer=?, balance = ? WHERE id = ?";
+            String updateQuery = "UPDATE users SET username = ?, level = ?, xp = ?, password = ?, email = ?, nickname = ?, cardIDs = ?, QuestionID=?, Answer=?, balance = ? WHERE id = ?";
             Connection connection = DriverManager.getConnection("jdbc:sqlite:city-wars/src/main/resources/data.db");
             PreparedStatement statement = connection.prepareStatement(updateQuery);
             statement.setString(1, user.getUsername());
-            statement.setString(2, user.getPassword());
-            statement.setString(3, user.getEmail());
-            statement.setString(4, user.getNickname());
-            statement.setString(5, user.getCardIDs());
-            statement.setInt(6, user.getSecurityQuestionID());
-            statement.setString(7, user.getSecurityQuestionAnswer());
-            statement.setInt(8, user.getBalance());
-            statement.setInt(9, id);
+            statement.setInt(2, user.getLevel());
+            statement.setInt(3, user.getXp());
+            statement.setString(4, user.getPassword());
+            statement.setString(5, user.getEmail());
+            statement.setString(6, user.getNickname());
+            statement.setString(7, user.getCardIDs());
+            statement.setInt(8, user.getSecurityQuestionID());
+            statement.setString(9, user.getSecurityQuestionAnswer());
+            statement.setInt(10, user.getBalance());
+            statement.setInt(11, id);
             statement.executeUpdate();
             connection.close();
         } catch (SQLException e) {
@@ -114,6 +131,8 @@ public class CRUD {
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 String username = resultSet.getString("username");
+                int level = resultSet.getInt("level");
+                int xp = resultSet.getInt("xp");
                 String password = resultSet.getString("password");
                 String email = resultSet.getString("email");
                 String nickname = resultSet.getString("nickname");
@@ -121,7 +140,7 @@ public class CRUD {
                 int securityQuestionID = resultSet.getInt("QuestionID");
                 String securityQuestionAnswer = resultSet.getString("Answer");
                 int balance = resultSet.getInt("balance");
-                User user = new User(username, password, email, nickname, cardIDs, securityQuestionID,
+                User user = new User(username, level, xp, password, email, nickname, cardIDs, securityQuestionID,
                         securityQuestionAnswer, balance);
                 connection.close();
                 return user;
@@ -143,6 +162,8 @@ public class CRUD {
             statement.setString(1, username);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
+                int level = resultSet.getInt("level");
+                int xp = resultSet.getInt("xp");
                 String password = resultSet.getString("password");
                 String email = resultSet.getString("email");
                 String nickname = resultSet.getString("nickname");
@@ -150,7 +171,7 @@ public class CRUD {
                 int securityQuestionID = resultSet.getInt("QuestionID");
                 String securityQuestionAnswer = resultSet.getString("Answer");
                 int balance = resultSet.getInt("balance");
-                User user = new User(username, password, email, nickname, cardIDs, securityQuestionID,
+                User user = new User(username, level, xp, password, email, nickname, cardIDs, securityQuestionID,
                         securityQuestionAnswer, balance);
                 connection.close();
                 return user;
@@ -216,7 +237,7 @@ public class CRUD {
             statement.setInt(5, card.getDamage());
             statement.setInt(6, card.getUpgradeLevel());
             statement.setInt(7, card.getUpgradeCost());
-            statement.setInt(8, id);            
+            statement.setInt(8, id);
             statement.executeUpdate();
             connection.close();
         } catch (SQLException e) {
@@ -376,5 +397,72 @@ public class CRUD {
         addCard(card18);
         addCard(card19);
         addCard(card20);
+    }
+
+    public void addGame(Game game) {
+        try {
+            String insertQuery = "INSERT INTO games (player1ID, player2ID, winner, date, gameMode, prize) VALUES (?, ?, ?, ?, ?, ?)";
+            Connection connection = DriverManager.getConnection("jdbc:sqlite:city-wars/src/main/resources/data.db");
+            PreparedStatement statement = connection.prepareStatement(insertQuery);
+            statement.setInt(1, getUserId(game.getPlayer1().getUsername()));
+            statement.setInt(2, getUserId(game.getPlayer2().getUsername()));
+            statement.setInt(3, game.getWinner());
+            statement.setDate(4, game.getDate());
+            statement.setInt(5, game.getGameMode());
+            statement.setString(6, game.getPrize().toString());
+            statement.executeUpdate();
+            connection.close();
+        } catch (SQLException e) {
+            System.out.println("Error adding game: " + e.getMessage());
+        }
+    }
+
+    public void deleteGame(int id) {
+        try {
+            String deleteQuery = "DELETE FROM games WHERE id = ?";
+            Connection connection = DriverManager.getConnection("jdbc:sqlite:city-wars/src/main/resources/data.db");
+            PreparedStatement statement = connection.prepareStatement(deleteQuery);
+            statement.setInt(1, id);
+            statement.executeUpdate();
+            connection.close();
+        } catch (SQLException e) {
+            System.out.println("Error deleting game: " + e.getMessage());
+        }
+    }
+
+    public ArrayList<Game> getUserGamesList(User user) {
+        try {
+            String selectQuery = "SELECT * FROM games WHERE player1ID = ? OR player2ID = ?";
+            Connection connection = DriverManager.getConnection("jdbc:sqlite:city-wars/src/main/resources/data.db");
+            PreparedStatement statement = connection.prepareStatement(selectQuery);
+            statement.setInt(1, getUserId(user.getUsername()));
+            statement.setInt(2, getUserId(user.getUsername()));
+            ResultSet resultSet = statement.executeQuery();
+            ArrayList<Game> games = new ArrayList<Game>();
+            while (resultSet.next()) {
+                int player1ID = resultSet.getInt("player1ID");
+                int player2ID = resultSet.getInt("player2ID");
+                int winner = resultSet.getInt("winner");
+                Date date = resultSet.getDate("date");
+                int gameMode = resultSet.getInt("gameMode");
+                Prize prize;
+                if (gameMode == 0) {
+                    prize = new Prize(resultSet.getInt("gameMode"), 0);
+                } else {
+                    String[] prizeParts = resultSet.getString("prize").split(",");
+                    prize = new Prize(Integer.parseInt(prizeParts[0]), Integer.parseInt(prizeParts[1]));
+                    // prizeParts[0]: xp, prizeParts[1]: balance
+                }
+                User player1 = getUser(player1ID);
+                User player2 = getUser(player2ID);
+                Game game = new Game(gameMode, player1, player2, prize, date, winner);
+                games.add(game);
+            }
+            connection.close();
+            return games;
+        } catch (SQLException e) {
+            System.out.println("Error getting user games list: " + e.getMessage());
+            return null;
+        }
     }
 }
