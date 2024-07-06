@@ -119,7 +119,7 @@ public class User {
     public void showCards() {
         System.out.println("Your cards:");
         for (Card card : cards) {
-            System.out.println(card.getName() + " (Level " + card.getLevel() + ")");
+            System.out.println(card);
         }
     }
 
