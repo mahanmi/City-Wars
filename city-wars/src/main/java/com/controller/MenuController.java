@@ -2,9 +2,9 @@ package com.controller;
 
 import com.*;
 import com.model.*;
-import com.view.authentication.EditProfileMenu;
+import com.view.EditProfileMenu;
+import com.view.StoreMenu;
 import com.view.authentication.LoginMenu;
-import com.view.authentication.StoreMenu;
 
 import java.util.Scanner;
 import java.util.ArrayList;

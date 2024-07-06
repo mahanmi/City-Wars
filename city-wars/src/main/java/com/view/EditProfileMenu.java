@@ -1,4 +1,4 @@
-package com.view.authentication;
+package com.view;
 
 import com.model.User;
 import java.util.Scanner;
