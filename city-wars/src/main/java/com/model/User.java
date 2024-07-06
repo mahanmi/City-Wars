@@ -21,7 +21,7 @@ public class User {
             String securityQuestionAnswer) {
         this.username = username;
         this.password = password;
-        this.email = email;         
+        this.email = email;
         this.nickname = nickname;
         this.securityQuestionID = securityQuestionID;
         this.securityQuestionAnswer = securityQuestionAnswer;
@@ -148,7 +148,8 @@ public class User {
     public void showCards() {
         System.out.println("Your cards:");
         for (Card card : cards) {
-            System.out.println(card.getName() + " (Level " + card.getLevel() + ") " + " Upgrade cost: " + card.getUpgradeCost() * Math.pow(1.25, card.getLevel() - 1));
+            System.out.println(card.getName() + " (Level " + card.getLevel() + ") " + " Upgrade cost: "
+                    + card.getUpgradeCost() * Math.pow(1.25, card.getLevel() - 1));
             System.out.println("\t Power: " + card.getPower());
             System.out.println("\t Duration: " + card.getDuration());
             System.out.println("\t Damage: " + card.getDamage());
@@ -172,7 +173,7 @@ public class User {
     public void showNotOwnedCards() {
         for (Card card : Main.crud.getAllCards()) {
             if (!cards.contains(card)) {
-                System.out.println(card.getName() + " (Price: " + 5*card.getUpgradeCost() + ")");
+                System.out.println(card.getName() + " (Price: " + 5 * card.getUpgradeCost() + ")");
                 System.out.println("\t Power: " + card.getPower());
                 System.out.println("\t Duration: " + card.getDuration());
                 System.out.println("\t Damage: " + card.getDamage());
@@ -181,10 +182,12 @@ public class User {
         System.out.println("Your balance: " + this.balance + "$");
     }
 
-    public void upgradeCard(Card card){
-        for(Card i : cards){
-            if(i.equals(card)){
+    public void upgradeCard(Card card) {
+        for (Card i : cards) {
+            if (i.equals(card)) {
                 i.setLevel(i.getLevel() + 1);
+                Main.crud.updateUser(this);
+                return;
             }
         }
     }
