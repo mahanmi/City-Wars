@@ -4,6 +4,7 @@ import com.*;
 import com.model.*;
 import com.view.authentication.EditProfileMenu;
 import com.view.authentication.LoginMenu;
+import com.view.authentication.StoreMenu;
 
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -69,6 +70,11 @@ public class MenuController {
     public void editProfile(Scanner scanner) {
         EditProfileMenu editProfileMenu = new EditProfileMenu();
         editProfileMenu.run(scanner, Main.loggedInUser);
+    }
+
+    public void storeMenu(Scanner scanner) {
+        StoreMenu storeMenu = new StoreMenu();
+        storeMenu.run(scanner, Main.loggedInUser);
     }
 
     public void logout() {

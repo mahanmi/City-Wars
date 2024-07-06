@@ -43,7 +43,7 @@ public class MainMenu {
           // BattleLogMenu.run(scanner);
           break;
         case "4":
-          // StoreMenu.run(scanner);
+          controller.storeMenu(scanner);
           break;
         case "5":
           controller.editProfile(scanner);

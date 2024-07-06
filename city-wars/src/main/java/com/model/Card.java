@@ -78,13 +78,8 @@ public class Card {
         return upgradeCost;
     }
 
-    public void upgrade(int balance) {
-        if (balance >= upgradeCost * Math.pow(1.25, level - 1)) {
-            level++;
-            balance -= upgradeCost * Math.pow(1.25, level - 1);
-        } else {
-            System.out.println("Not enough balance to upgrade card");
-        }
+    public void setLevel(int level) {
+        this.level = level;
     }
 
     @Override

@@ -216,7 +216,7 @@ public class CRUD {
             statement.setInt(5, card.getDamage());
             statement.setInt(6, card.getUpgradeLevel());
             statement.setInt(7, card.getUpgradeCost());
-            statement.setInt(8, id);            
+            statement.setInt(8, id);
             statement.executeUpdate();
             connection.close();
         } catch (SQLException e) {
@@ -247,6 +247,33 @@ public class CRUD {
             }
         } catch (SQLException e) {
             System.out.println("Error getting card by id: " + e.getMessage());
+            return null;
+        }
+    }
+
+    public Card getCard(String cardName) {
+        try {
+            String selectQuery = "SELECT * FROM cards WHERE name = ?";
+            Connection connection = DriverManager.getConnection("jdbc:sqlite:city-wars/src/main/resources/data.db");
+            PreparedStatement statement = connection.prepareStatement(selectQuery);
+            statement.setString(1, cardName);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                int power = resultSet.getInt("power");
+                int duration = resultSet.getInt("duration");
+                int damage = resultSet.getInt("damage");
+                int upgradeLevel = resultSet.getInt("upgradeLevel");
+                int upgradeCost = resultSet.getInt("upgradeCost");
+                Card card = new Card(id, cardName, power, duration, damage, upgradeLevel, upgradeCost);
+                connection.close();
+                return card;
+            } else {
+                connection.close();
+                return null;
+            }
+        } catch (SQLException e) {
+            System.out.println("Error getting card by name: " + e.getMessage());
             return null;
         }
     }

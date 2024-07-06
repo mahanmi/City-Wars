@@ -11,7 +11,7 @@ public class EditProfileMenu {
 
   public void run(Scanner scanner, User user) {
     System.out.println("Welcome to profile menu!");
-    while (!com.Main.input.equals("back")) {
+    while (!Main.input.equals("back")) {
       System.out.println("What do you want to do?");
       System.out.println("1. See your profile");
       System.out.println("2. Change your username");
