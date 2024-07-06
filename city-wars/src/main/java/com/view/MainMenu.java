@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 import com.Main;
 import com.controller.MenuController;
-import com.view.authentication.EditProfileMenu;
 
 public class MainMenu {
   private MenuController controller;

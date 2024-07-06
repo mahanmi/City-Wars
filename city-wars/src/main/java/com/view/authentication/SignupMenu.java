@@ -32,7 +32,7 @@ public class SignupMenu {
       } else if ((matcher = Command.SIGNUP_RANDOM.getMatcher(Main.input)) != null) {
         controller.signup(matcher, scanner, true);
       } else if (Main.input.equals("exit")) {
-        System.out.println("Returning to main menu");
+        System.out.println("Returning to login menu");
         return;
       } else {
         System.out.println("Invalid command!");

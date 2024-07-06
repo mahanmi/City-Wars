@@ -11,6 +11,8 @@ public class User {
     private String nickname;
     private int securityQuestionID;
     private String securityQuestionAnswer;
+    private int level = 1;
+    private int xp = 0;
     private int balance;
 
     public ArrayList<Card> cards = new ArrayList<>();
@@ -30,6 +32,21 @@ public class User {
     public User(String username, String password, String email, String nickname, String cardIDs, int securityQuestionID,
             String securityQuestionAnswer, int balance) {
         this.username = username;
+        this.password = password;
+        this.email = email;
+        this.nickname = nickname;
+        this.securityQuestionID = securityQuestionID;
+        this.securityQuestionAnswer = securityQuestionAnswer;
+        addCards(cardIDs);
+        this.balance = balance;
+    }
+
+    public User(String username, int level, int xp, String password, String email, String nickname, String cardIDs,
+            int securityQuestionID,
+            String securityQuestionAnswer, int balance) {
+        this.username = username;
+        this.level = level;
+        this.xp = xp;
         this.password = password;
         this.email = email;
         this.nickname = nickname;
@@ -66,6 +83,18 @@ public class User {
 
     public String getNickname() {
         return nickname;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public int getXp() {
+        return xp;
+    }
+
+    public int getHP() {
+        return level * 100 + 150;
     }
 
     public int getBalance() {
@@ -158,5 +187,14 @@ public class User {
                 i.setLevel(i.getLevel() + 1);
             }
         }
+    }
+
+    public void addXp(int xp) {
+        this.xp += xp;
+        if (xp >= 100) {
+            level++;
+            this.xp -= 100;
+        }
+        Main.crud.updateUser(this);
     }
 }

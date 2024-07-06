@@ -1,13 +1,14 @@
 package com.view.authentication;
 
 import com.model.User;
-import com.model.Card;
-import com.view.authentication.Captcha;
 import java.util.Scanner;
 
 import com.Main;
+import com.controller.EditProfileController;
 
 public class EditProfileMenu {
+
+  private EditProfileController controller = new EditProfileController();
 
   public void run(Scanner scanner, User user) {
     System.out.println("Welcome to profile menu!");
@@ -28,162 +29,29 @@ public class EditProfileMenu {
       }
       switch (Main.input) {
         case "1":
-          showProfile(user);
+          controller.showProfile(user);
           break;
 
         case "2":
-          changeUsername(scanner, user);
+          controller.changeUsername(scanner, user);
           break;
 
         case "3":
-          changeNickname(scanner, user);
+          controller.changeNickname(scanner, user);
           break;
 
         case "4":
-          changePassword(scanner, user);
+          controller.changePassword(scanner, user);
           break;
 
         case "5":
-          changeEmail(scanner, user);
+          controller.changeEmail(scanner, user);
           break;
 
         case "back":
           break;
       }
     }
-  }
-
-  private void showProfile(User user) {
-    System.out.println("Username: " + user.getUsername());
-    System.out.println("Password: " + user.getPassword());
-    System.out.println("Email: " + user.getEmail());
-    System.out.println("Nickname: " + user.getNickname());
-    System.out.println("Balance: " + user.getBalance() + "$");
-    String securityQuestion;
-    if (user.getSecurityQuestionID() == 1) {
-      securityQuestion = "What is your father's name ?";
-    } else if (user.getSecurityQuestionID() == 2) {
-      securityQuestion = "What is your favorite color ?";
-    } else {
-      securityQuestion = "What was the name of your first pet?";
-    }
-    System.out.println("Security question: " + securityQuestion);
-    System.out.println("Security question's answer: " + user.getSecurityQuestionAnswer());
-    System.out.println();
-    for (Card i : user.cards) {
-      System.out.println(i.getCardInfo());
-    }
-  }
-
-  private void changeUsername(Scanner scanner, User user) {
-    System.out.println("Please enter your new username");
-    while (true) {
-      String newUsername = scanner.nextLine();
-      if (isUsernameValid(newUsername)) {
-        user.setUsername(newUsername, Main.loggedInUserId);
-        System.out.println("Username changed successfully!");
-        return;
-      } else {
-        System.out.println("Invalid username! Try again");
-      }
-    }
-  }
-
-  private void changeNickname(Scanner scanner, User user) {
-    System.out.println("Please enter your new nickname");
-    String newNickname = scanner.nextLine();
-    user.setNickname(newNickname);
-    System.out.println("Nickname changed successfully!");
-  }
-
-  private void changePassword(Scanner scanner, User user) {
-    String oldPassword;
-    String newPassword;
-    int captcha;
-
-    System.out.println("Enter you old password");
-    while (true) {
-      oldPassword = scanner.nextLine();
-      if (oldPassword.equals(user.getPassword())) {
-        break;
-      }
-      System.out.println("Password WRONG\n Try again");
-    }
-
-    System.out.println("Enter your new password");
-    while (true) {
-      newPassword = scanner.nextLine();
-      if (isPasswordValid(newPassword) && !newPassword.equals(oldPassword)) {
-        break;
-      } else if (newPassword.equals(oldPassword)) {
-        System.out.println("Please enter a new password!");
-      } else {
-        System.out.println("Try again");
-      }
-    }
-
-    while (true) {
-      captcha = new Captcha().generateCaptcha();
-      Main.input = scanner.nextLine();
-      if (Integer.parseInt(Main.input) == captcha) {
-        break;
-      } else {
-        System.out.println("Captcha WRONG \n Try again");
-      }
-    }
-
-    System.out.println("Please enter your new password again (to confirm it)");
-    while (true) {
-      Main.input = scanner.nextLine();
-      if (Main.input.equals(newPassword)) {
-        user.setPassword(newPassword);
-        System.out.println("Password changed successfully!");
-        break;
-      } else {
-        System.out.println("password confirmation is incorrect!\n Try again");
-      }
-    }
-  }
-
-  private void changeEmail(Scanner scanner, User user) {
-    System.out.println("Please enter your new email address");
-    while (true) {
-      Main.input = scanner.nextLine();
-      if (isEmailValid(Main.input)) {
-        user.setEmail(Main.input);
-        System.out.println("Email address changed successfully!");
-        return;
-      } else {
-        System.out.println("This address is not valid! \n Try again");
-      }
-    }
-  }
-
-  private boolean isUsernameValid(String username) {
-    if (username.matches("[a-zA-Z0-9_]+")) {
-      return true;
-    }
-    return false;
-  }
-
-  private boolean isPasswordValid(String password) {
-    if (password.length() >= 8) {
-      if (password.matches(".*[a-z].*") && password.matches(".*[A-Z].*")
-          && password.matches(".*[^a-zA-Z0-9].*")) {
-        return true;
-      }
-      System.out.println(
-          "Password must contain at least one lowercase letter, one uppercase letter and one special character!");
-    }
-    System.out.println("Password must be at least 8 characters long!");
-    return false;
-  }
-
-  private boolean isEmailValid(String email) {
-    if (email.matches("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+\\.com$")) {
-      return true;
-    }
-    return false;
   }
 
 }
