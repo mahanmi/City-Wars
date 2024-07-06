@@ -107,14 +107,14 @@ public class AuthenticationController {
         }
     }
 
-    private boolean isUsernameValid(String username) {
+    protected boolean isUsernameValid(String username) {
         if (username.matches("[a-zA-Z0-9_]+")) {
             return true;
         }
         return false;
     }
 
-    private boolean isPasswordValid(String password) {
+    protected boolean isPasswordValid(String password) {
         if (password.length() >= 8) {
             if (password.matches(".*[a-z].*") && password.matches(".*[A-Z].*")
                     && password.matches(".*[^a-zA-Z0-9].*")) {
@@ -127,7 +127,7 @@ public class AuthenticationController {
         return false;
     }
 
-    private boolean isEmailValid(String email) {
+    protected boolean isEmailValid(String email) {
         if (email.matches("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+\\.com$")) {
             return true;
         }
