@@ -4,12 +4,12 @@ import com.model.*;
 import com.model.game.Game;
 import com.model.game.Prize;
 
+import java.sql.Timestamp;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Date;
 
 import java.util.ArrayList;
 
@@ -32,7 +32,7 @@ public class CRUD {
             connection.createStatement().execute(createTableQuery);
             System.out.println("Cards Table created successfully");
             // games table
-            createTableQuery = "CREATE TABLE IF NOT EXISTS games (id INTEGER PRIMARY KEY, player1ID INT, player2ID INT, winner INT, date DATE , gameMode INT,prize TEXT)";
+            createTableQuery = "CREATE TABLE IF NOT EXISTS games (id INTEGER PRIMARY KEY, player1ID INT, player2ID INT, winner INT, date DATETIME , gameMode INT,prize TEXT)";
             connection.createStatement().execute(createTableQuery);
             System.out.println("Games Table created successfully");
             connection.close();
@@ -434,9 +434,9 @@ public class CRUD {
             statement.setInt(1, getUserId(game.getPlayer1().getUsername()));
             statement.setInt(2, getUserId(game.getPlayer2().getUsername()));
             statement.setInt(3, game.getWinner());
-            statement.setDate(4, game.getDate());
+            statement.setTimestamp(4, game.getDate());
             statement.setInt(5, game.getGameMode());
-            statement.setString(6, game.getPrize().toString());
+            statement.setString(6, game.getPrize().dbString());
             statement.executeUpdate();
             connection.close();
         } catch (SQLException e) {
@@ -470,16 +470,14 @@ public class CRUD {
                 int player1ID = resultSet.getInt("player1ID");
                 int player2ID = resultSet.getInt("player2ID");
                 int winner = resultSet.getInt("winner");
-                Date date = resultSet.getDate("date");
+                Timestamp date = resultSet.getTimestamp("date");
                 int gameMode = resultSet.getInt("gameMode");
                 Prize prize;
-                if (gameMode == 0) {
-                    prize = new Prize(resultSet.getInt("gameMode"), 0);
-                } else {
-                    String[] prizeParts = resultSet.getString("prize").split(",");
-                    prize = new Prize(Integer.parseInt(prizeParts[0]), Integer.parseInt(prizeParts[1]));
-                    // prizeParts[0]: xp, prizeParts[1]: balance
-                }
+
+                String[] prizeParts = resultSet.getString("prize").split(",");
+                prize = new Prize(Integer.parseInt(prizeParts[0]), Integer.parseInt(prizeParts[1]));
+                // prizeParts[0]: xp, prizeParts[1]: balance
+
                 User player1 = getUser(player1ID);
                 User player2 = getUser(player2ID);
                 Game game = new Game(gameMode, player1, player2, prize, date, winner);

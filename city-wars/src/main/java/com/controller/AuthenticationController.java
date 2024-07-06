@@ -142,6 +142,10 @@ public class AuthenticationController {
         int randomStrLength = random.nextInt() % 10 + 17;
         String randomStr = RandomStringUtils.random(randomStrLength, 0, possibleCharacters.length - 1, false, false,
                 possibleCharacters, new SecureRandom());
+        while (!isPasswordValid(randomStr)) {
+            randomStr = RandomStringUtils.random(randomStrLength, 0, possibleCharacters.length - 1, false, false,
+                    possibleCharacters, new SecureRandom());
+        }
         System.out.println("Your random password is : \u001B[31m" + randomStr + "\u001B[0m");
         return randomStr;
     }

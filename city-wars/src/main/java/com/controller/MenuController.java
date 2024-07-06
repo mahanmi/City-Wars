@@ -3,6 +3,7 @@ package com.controller;
 import com.*;
 import com.model.*;
 import com.view.EditProfileMenu;
+import com.view.MatchHistory;
 import com.view.StoreMenu;
 import com.view.authentication.LoginMenu;
 
@@ -48,7 +49,8 @@ public class MenuController {
         }
         System.out.println(
                 "\u001B[32mYou can view your cards at any time by selecting view my cards option in mainMenu.\u001B[0m");
-        System.out.println("You can start playing the game now. Good luck!\n");
+        System.out.println("You can start playing the game now. Good luck!(press ENTER to continue)\n");
+        scanner.nextLine();
     }
 
     private ArrayList<Card> starterCards() {
@@ -61,6 +63,11 @@ public class MenuController {
             allCards.remove(randomIndex);
         }
         return starterCards;
+    }
+
+    public void matchHistory(Scanner scanner) {
+        MatchHistory matchHistory = new MatchHistory();
+        matchHistory.run(scanner);
     }
 
     public void editProfile(Scanner scanner) {

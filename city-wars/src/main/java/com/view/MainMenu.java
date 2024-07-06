@@ -39,7 +39,7 @@ public class MainMenu {
           Main.loggedInUser.showCards();
           break;
         case "3":
-          // BattleLogMenu.run(scanner);
+          controller.matchHistory(scanner);
           break;
         case "4":
           controller.storeMenu(scanner);
