@@ -212,7 +212,7 @@ public class CRUD {
             Connection connection = DriverManager.getConnection("jdbc:sqlite:city-wars/src/main/resources/data.db");
             PreparedStatement statement = connection.prepareStatement(insertQuery);
             statement.setString(1, card.getName());
-            statement.setInt(2, card.isSpecial());
+            statement.setInt(2, card.isSpell());
             statement.setInt(3, card.getPower());
             statement.setInt(4, card.getDuration());
             statement.setInt(5, card.getDamage());
@@ -225,19 +225,19 @@ public class CRUD {
         }
     }
 
-    public void updateCard(Card card, int id) {
+    public void updateCard(Card card) {
         try {
-            String updateQuery = "UPDATE cards SET name = ?,isSpecial=?, power = ?, duration = ?, damage = ?, upgradeLevel = ?, upgradeCost = ? WHERE id = ?";
+            String updateQuery = "UPDATE cards SET name = ?,isSpell=?, power = ?, duration = ?, damage = ?, upgradeLevel = ?, upgradeCost = ? WHERE id = ?";
             Connection connection = DriverManager.getConnection("jdbc:sqlite:city-wars/src/main/resources/data.db");
             PreparedStatement statement = connection.prepareStatement(updateQuery);
             statement.setString(1, card.getName());
-            statement.setInt(2, card.isSpecial());
+            statement.setInt(2, card.isSpell());
             statement.setInt(3, card.getPower());
             statement.setInt(4, card.getDuration());
             statement.setInt(5, card.getDamage());
             statement.setInt(6, card.getUpgradeLevel());
             statement.setInt(7, card.getUpgradeCost());
-            statement.setInt(8, id);
+            statement.setInt(8, card.getId());
             statement.executeUpdate();
             connection.close();
         } catch (SQLException e) {
