@@ -16,15 +16,14 @@ public class Game {
   private ArrayList<Card> player1Board;
   private ArrayList<Card> player2Board;
 
-  public Game(int gameMode, User player1, User player2, Prize prize) {
+  public Game(int gameMode, User player1, User player2,  int winner, ArrayList<Card> player1Board, ArrayList<Card> player2Board) {
     this.gameMode = gameMode;
     this.player1 = player1;
     this.player2 = player2;
     this.date = new Timestamp(System.currentTimeMillis());
-    this.winner = -1;
-    this.prize = prize;
-    this.player1Board = new ArrayList<>(20);
-    this.player2Board = new ArrayList<>(20);
+    this.player1Board = player1Board;
+    this.player2Board = player2Board;
+    this.winner = winner;
   }
 
   public Game(int gameMode, User player1, User player2, Prize prize, Timestamp date, int winner) {
@@ -63,6 +62,14 @@ public class Game {
   public String getMatchDate() {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
     return date.toLocalDateTime().format(formatter);
+  }
+
+  public ArrayList<Card> getPlayer1Board() {
+    return player1Board;
+  }
+
+  public ArrayList<Card> getPlayer2Board() {
+    return player2Board;
   }
 
   public void setWinner(int winner) {
