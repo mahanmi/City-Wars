@@ -11,7 +11,8 @@ public class Card {
     private final int upgradeCost;
     private int character;
 
-    public Card(int id, String name, int power, int duration, int damage, int upgradeLevel, int upgradeCost, int character) {
+    public Card(int id, String name, int power, int duration, int damage, int upgradeLevel, int upgradeCost,
+            int character) {
         this.id = id;
         this.name = name;
         this.power = power;
@@ -80,7 +81,7 @@ public class Card {
     public int getUpgradeCost() {
         return upgradeCost;
     }
-    
+
     public int getCharacter() {
         return character;
     }
@@ -91,7 +92,7 @@ public class Card {
 
     public void setDamage(int damage) {
         this.damage = damage;
-    }   
+    }
 
     @Override
     public String toString() {

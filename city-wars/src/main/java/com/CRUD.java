@@ -28,7 +28,7 @@ public class CRUD {
             connection.createStatement().execute(createTableQuery);
             System.out.println("Users Table created successfully");
             // cards table
-            createTableQuery = "CREATE TABLE IF NOT EXISTS cards (id INTEGER PRIMARY KEY, name TEXT UNIQUE,isSpell INT, power INT, duration INT, damage INT,upgradeLevel INT,upgradeCost INT)";
+            createTableQuery = "CREATE TABLE IF NOT EXISTS cards (id INTEGER PRIMARY KEY, name TEXT UNIQUE,isSpell INT, power INT, duration INT, damage INT,upgradeLevel INT,upgradeCost INT,character INT)";
             connection.createStatement().execute(createTableQuery);
             System.out.println("Cards Table created successfully");
             // games table
@@ -208,7 +208,7 @@ public class CRUD {
 
     public void addCard(Card card) {
         try {
-            String insertQuery = "INSERT INTO cards (name, isSpell ,power, duration, damage, upgradeLevel, upgradeCost) VALUES (?, ?,?, ?, ?, ?, ?)";
+            String insertQuery = "INSERT INTO cards (name, isSpell, power, duration, damage, upgradeLevel, upgradeCost, character) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             Connection connection = DriverManager.getConnection("jdbc:sqlite:city-wars/src/main/resources/data.db");
             PreparedStatement statement = connection.prepareStatement(insertQuery);
             statement.setString(1, card.getName());
@@ -218,6 +218,7 @@ public class CRUD {
             statement.setInt(5, card.getDamage());
             statement.setInt(6, card.getUpgradeLevel());
             statement.setInt(7, card.getUpgradeCost());
+            statement.setInt(8, card.getCharacter());
             statement.executeUpdate();
             connection.close();
         } catch (SQLException e) {
@@ -227,7 +228,7 @@ public class CRUD {
 
     public void updateCard(Card card) {
         try {
-            String updateQuery = "UPDATE cards SET name = ?,isSpell=?, power = ?, duration = ?, damage = ?, upgradeLevel = ?, upgradeCost = ? WHERE id = ?";
+            String updateQuery = "UPDATE cards SET name = ?, isSpell = ?, power = ?, duration = ?, damage = ?, upgradeLevel = ?, upgradeCost = ? , character = ? WHERE id = ?";
             Connection connection = DriverManager.getConnection("jdbc:sqlite:city-wars/src/main/resources/data.db");
             PreparedStatement statement = connection.prepareStatement(updateQuery);
             statement.setString(1, card.getName());
@@ -238,6 +239,7 @@ public class CRUD {
             statement.setInt(6, card.getUpgradeLevel());
             statement.setInt(7, card.getUpgradeCost());
             statement.setInt(8, card.getId());
+            statement.setInt(9, card.getCharacter());
             statement.executeUpdate();
             connection.close();
         } catch (SQLException e) {
@@ -253,15 +255,22 @@ public class CRUD {
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
-                String name = resultSet.getString("name");
-                int power = resultSet.getInt("power");
-                int duration = resultSet.getInt("duration");
-                int damage = resultSet.getInt("damage");
-                int upgradeLevel = resultSet.getInt("upgradeLevel");
-                int upgradeCost = resultSet.getInt("upgradeCost");
-                Card card = new Card(id, name, power, duration, damage, upgradeLevel, upgradeCost);
-                connection.close();
-                return card;
+                if (resultSet.getInt("isSpell") == 1) {
+                    // This is a spell
+                    connection.close();
+                    return null;
+                } else {
+                    String name = resultSet.getString("name");
+                    int power = resultSet.getInt("power");
+                    int duration = resultSet.getInt("duration");
+                    int damage = resultSet.getInt("damage");
+                    int upgradeLevel = resultSet.getInt("upgradeLevel");
+                    int upgradeCost = resultSet.getInt("upgradeCost");
+                    int character = resultSet.getInt("character");
+                    Card card = new Card(id, name, power, duration, damage, upgradeLevel, upgradeCost, character);
+                    connection.close();
+                    return card;
+                }
             } else {
                 connection.close();
                 return null;
@@ -280,15 +289,22 @@ public class CRUD {
             statement.setString(1, cardName);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
-                int id = resultSet.getInt("id");
-                int power = resultSet.getInt("power");
-                int duration = resultSet.getInt("duration");
-                int damage = resultSet.getInt("damage");
-                int upgradeLevel = resultSet.getInt("upgradeLevel");
-                int upgradeCost = resultSet.getInt("upgradeCost");
-                Card card = new Card(id, cardName, power, duration, damage, upgradeLevel, upgradeCost);
-                connection.close();
-                return card;
+                if (resultSet.getInt("isSpell") == 1) {
+                    // This is a spell
+                    connection.close();
+                    return null;
+                } else {
+                    int id = resultSet.getInt("id");
+                    int power = resultSet.getInt("power");
+                    int duration = resultSet.getInt("duration");
+                    int damage = resultSet.getInt("damage");
+                    int upgradeLevel = resultSet.getInt("upgradeLevel");
+                    int upgradeCost = resultSet.getInt("upgradeCost");
+                    int character = resultSet.getInt("character");
+                    Card card = new Card(id, cardName, power, duration, damage, upgradeLevel, upgradeCost, character);
+                    connection.close();
+                    return card;
+                }
             } else {
                 connection.close();
                 return null;
@@ -320,15 +336,20 @@ public class CRUD {
             ResultSet resultSet = statement.executeQuery();
             ArrayList<Card> cards = new ArrayList<Card>();
             while (resultSet.next()) {
-                int id = resultSet.getInt("id");
-                String name = resultSet.getString("name");
-                int power = resultSet.getInt("power");
-                int duration = resultSet.getInt("duration");
-                int damage = resultSet.getInt("damage");
-                int upgradeLevel = resultSet.getInt("upgradeLevel");
-                int upgradeCost = resultSet.getInt("upgradeCost");
-                Card card = new Card(id, name, power, duration, damage, upgradeLevel, upgradeCost);
-                cards.add(card);
+                if (resultSet.getInt("isSpell") == 1) {
+                    continue;
+                } else {
+                    int id = resultSet.getInt("id");
+                    String name = resultSet.getString("name");
+                    int power = resultSet.getInt("power");
+                    int duration = resultSet.getInt("duration");
+                    int damage = resultSet.getInt("damage");
+                    int upgradeLevel = resultSet.getInt("upgradeLevel");
+                    int upgradeCost = resultSet.getInt("upgradeCost");
+                    int character = resultSet.getInt("character");
+                    Card card = new Card(id, name, power, duration, damage, upgradeLevel, upgradeCost, character);
+                    cards.add(card);
+                }
             }
             connection.close();
             return cards;
@@ -374,21 +395,21 @@ public class CRUD {
 
     public void addInitialCards() {
         // DAMAGE/HEAL
-        Card card1 = new Card("Supporting Cover", 37, 2, 40, 2, 150,1);
-        Card card2 = new Card("Flash Pellets", 29, 4, 28, 1, 100,1);
-        Card card3 = new Card("Swift Justice", 36, 2, 52, 2, 200,1);
-        Card card4 = new Card("Rapid Recoil", 25, 4, 40, 1, 100,1);
-        Card card5 = new Card("Bullet Flurry", 31, 2, 32, 2, 150,2);
-        Card card6 = new Card("Run & Gun", 28, 1, 28, 1, 80,2);
-        Card card7 = new Card("Leaping Fury", 30, 3, 21, 2, 70,2);
-        Card card8 = new Card("Bullet Blast", 35, 5, 55, 3, 250,2);
-        Card card9 = new Card("Bullet Assault", 30, 5, 25, 1, 150,3);
-        Card card10 = new Card("Stealth Support", 35, 4, 20, 2, 100,3);
-        Card card11 = new Card("Damage Breaker", 0 /* Infinity */ , 2, 40, 4, 350,3);
-        Card card12 = new Card("IDN Burst", 30, 3, 21, 2, 100,3);
-        Card card13 = new Card("Multi-Fire", 30, 2, 26, 2, 150,4);
-        Card card14 = new Card("Shattered Augmentation", 25, 5, 40, 1, 150,4);
-        Card card15 = new Card("Biker Support", 30, 3, 21, 2, 150,4);
+        Card card1 = new Card("Supporting Cover", 37, 2, 40, 2, 150, 1);
+        Card card2 = new Card("Flash Pellets", 29, 4, 28, 1, 100, 1);
+        Card card3 = new Card("Swift Justice", 36, 2, 52, 2, 200, 1);
+        Card card4 = new Card("Rapid Recoil", 25, 4, 40, 1, 100, 1);
+        Card card5 = new Card("Bullet Flurry", 31, 2, 32, 2, 150, 2);
+        Card card6 = new Card("Run & Gun", 28, 1, 28, 1, 80, 2);
+        Card card7 = new Card("Leaping Fury", 30, 3, 21, 2, 70, 2);
+        Card card8 = new Card("Bullet Blast", 35, 5, 55, 3, 250, 2);
+        Card card9 = new Card("Bullet Assault", 30, 5, 25, 1, 150, 3);
+        Card card10 = new Card("Stealth Support", 35, 4, 20, 2, 100, 3);
+        Card card11 = new Card("Damage Breaker", 0 /* Infinity */ , 2, 40, 4, 350, 3);
+        Card card12 = new Card("IDN Burst", 30, 3, 21, 2, 100, 3);
+        Card card13 = new Card("Multi-Fire", 30, 2, 26, 2, 150, 4);
+        Card card14 = new Card("Shattered Augmentation", 25, 5, 40, 1, 150, 4);
+        Card card15 = new Card("Biker Support", 30, 3, 21, 2, 150, 4);
         addCard(card1);
         addCard(card2);
         addCard(card3);
@@ -406,19 +427,23 @@ public class CRUD {
         addCard(card15);
 
         // SPELLS
-        Card card16 = new Card("Rad Darts", 33, 3, 33, 4, 300,1); // This spell makes the opposing space poisonous, and if
-                                                                // the opponent places a card in that space, they will
-                                                                // take damage at the end of the game
-        Card card17 = new Card("Thermo Crisi", 33, 2, 36, 3, 200,2); // This spell randomly sets one of the opponent's
-                                                                   // spaces on fire, causing the damage of the card
-                                                                   // placed in that space to be halved
-        Card card18 = new Card("Ice Land", 32, 2, 34, 5, 350,3); // This spell freezes two opponent's spaces, preventing
-                                                               // them from placing a card in that space
-        Card card19 = new Card("Acidic Cleanser", 29, 1, 33, 3, 180,4); // This spell makes the opposing space acidic,
-                                                                      // causing the opponent to take damage when they
-                                                                      // reach this space at the end of the game
-        Card card20 = new Card("Thermo Extinguisher", 33, 1, 47, 4, 350,4); // This spell neutralizes the effect of Ice
-                                                                          // Land on all our spaces
+        Card card16 = new Card("Rad Darts", 33, 3, 33, 4, 300, 1); // This spell makes the opposing space poisonous, and
+                                                                   // if
+                                                                   // the opponent places a card in that space, they
+                                                                   // will
+                                                                   // take damage at the end of the game
+        Card card17 = new Card("Thermo Crisi", 33, 2, 36, 3, 200, 2); // This spell randomly sets one of the opponent's
+                                                                      // spaces on fire, causing the damage of the card
+                                                                      // placed in that space to be halved
+        Card card18 = new Card("Ice Land", 32, 2, 34, 5, 350, 3); // This spell freezes two opponent's spaces,
+                                                                  // preventing
+                                                                  // them from placing a card in that space
+        Card card19 = new Card("Acidic Cleanser", 29, 1, 33, 3, 180, 4); // This spell makes the opposing space acidic,
+                                                                         // causing the opponent to take damage when
+                                                                         // they
+                                                                         // reach this space at the end of the game
+        Card card20 = new Card("Thermo Extinguisher", 33, 1, 47, 4, 350, 4); // This spell neutralizes the effect of Ice
+                                                                             // Land on all our spaces
         addCard(card16);
         addCard(card17);
         addCard(card18);
