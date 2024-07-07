@@ -69,22 +69,4 @@ public class Game {
     this.winner = winner;
   }
 
-  public void placeCard(User player, Card card, int position) throws Exception {
-    if (player == player1) {
-      for (int i = position; i < card.getDuration(); i++) {
-        if (player1Board.get(i) != null) {
-          throw new Exception("There is already a card in that position");
-        }
-        player1Board.set(i, card);
-      }
-    } else {
-      for (int i = position; i < card.getDuration(); i++) {
-        if (player2Board.get(i) != null) {
-          throw new Exception("There is already a card in that position");
-        }
-        player2Board.set(i, card);
-      }
-    }
-  }
-
 }

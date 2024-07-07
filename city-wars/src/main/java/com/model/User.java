@@ -12,7 +12,7 @@ public class User {
     private String nickname;
     private int securityQuestionID;
     private String securityQuestionAnswer;
-    private int level = 1;
+    private int level = 0;
     private int xp = 0;
     private int balance;
 
@@ -221,9 +221,9 @@ public class User {
 
     public void addXp(int xp) {
         this.xp += xp;
-        if (xp >= 100) {
+        if (xp >= (level + 1) * 100) {
             level++;
-            this.xp -= 100;
+            this.xp -= (level + 1) * 100;
         }
         Main.crud.updateUser(this);
     }
