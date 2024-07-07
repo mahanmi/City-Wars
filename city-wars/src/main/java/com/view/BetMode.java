@@ -12,12 +12,12 @@ import com.controller.BetModeController;
 import com.Main;
 
 public class BetMode {
-    public void run(Scanner scanner, User player1, User player2) throws Exception  {
-        final int ROUNDS = 4;
-        int remainingRounds = ROUNDS;
-        int position, winnerId = -1;
+    public void run(Scanner scanner, User player1, User player2) throws Exception {
+        int round = 4, position, hp1 = 250, hp2 = 250;
         User firstPlayer;
         User secondPlayer;
+        User winner;
+        User loser;
         Card holeCard = new Card("Hole", 0, 0, 0, 0, 0, 0);
 
         BetModeController controller = new BetModeController();
@@ -45,9 +45,8 @@ public class BetMode {
         ArrayList<Card> secondPlayerHand = new ArrayList<>(5);
         secondPlayerHand = playerHand(secondPlayer);
 
-
-        while (remainingRounds > 0) {
-            System.out.println("Round " + (ROUNDS - remainingRounds + 1) + " of " + ROUNDS);
+        while (round > 0) {
+            System.out.println("Round " + (5 - round));
             System.out.println(firstPlayer.getNickname() + "'s turn");
             System.out.println("Please select a card to play:");
             controller.showHand(firstPlayerHand);
@@ -68,12 +67,51 @@ public class BetMode {
             secondPlayerHand.remove(cardIndex - 1);
             secondPlayerHand.set(cardIndex - 1, secondPlayer.cards.get(rand.nextInt(secondPlayer.cards.size())));
 
-            remainingRounds--;
+            round--;
         }
 
-        User winner = firstPlayer;
-        Prize prize = new Prize(20 * Math.abs(firstPlayer.getLevel() - secondPlayer.getLevel()), 2 * bet);
-        Game game = new Game(1, firstPlayer, secondPlayer, prize, new Timestamp(System.currentTimeMillis()), Main.crud.getUserId(winner.getUsername()));
+        winner = controller.timeline(firstPlayerBoard, secondPlayerBoard, firstPlayer, secondPlayer, hp1, hp2);
+        if(winner == null){
+            while (round > 0) {
+                System.out.println("Round " + (5 - round));
+                System.out.println(firstPlayer.getNickname() + "'s turn");
+                System.out.println("Please select a card to play:");
+                controller.showHand(firstPlayerHand);
+                int cardIndex = Integer.parseInt(scanner.nextLine());
+                System.out.println("Please select the position you want to play this card in:");
+                position = scanner.nextInt();
+                controller.placeCard(firstPlayer, firstPlayerBoard, secondPlayerBoard, firstPlayerHand.get(cardIndex - 1), position);
+                firstPlayerHand.remove(cardIndex - 1);
+                firstPlayerHand.set(cardIndex - 1, firstPlayer.cards.get(rand.nextInt(firstPlayer.cards.size())));
+    
+                System.out.println(secondPlayer.getNickname() + "'s turn");
+                System.out.println("Please select a card to play:");
+                controller.showHand(secondPlayerHand);
+                cardIndex = Integer.parseInt(scanner.nextLine());
+                System.out.println("Please select the position you want to play this card in:");
+                position = scanner.nextInt();
+                controller.placeCard(secondPlayer, secondPlayerBoard, firstPlayerBoard, secondPlayerHand.get(cardIndex - 1), position);
+                secondPlayerHand.remove(cardIndex - 1);
+                secondPlayerHand.set(cardIndex - 1, secondPlayer.cards.get(rand.nextInt(secondPlayer.cards.size())));
+    
+                round--;
+            }
+    
+            winner = controller.timeline(firstPlayerBoard, secondPlayerBoard, firstPlayer, secondPlayer, hp1, hp2);
+        }
+
+        if(winner.equals(firstPlayer)){
+            loser = secondPlayer;
+        } else {
+            loser = firstPlayer;
+        }
+        
+        Prize winnerPrize = controller.winPrize(winner, loser, bet);
+        winner.setBalance(winner.getBalance() + winnerPrize.balance);
+        Prize loserPrize = controller.losePrize(winner, loser, bet);
+        loser.setBalance(loser.getBalance() + loserPrize.balance);
+
+        Game game = new Game(1, firstPlayer, secondPlayer, winnerPrize, new Timestamp(System.currentTimeMillis()), Main.crud.getUserId(winner.getUsername()));
         Main.crud.addGame(game);
     }
 
