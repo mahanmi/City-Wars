@@ -12,8 +12,8 @@ import com.controller.BetModeController;
 import com.Main;
 
 public class BetMode {
-    public void run(Scanner scanner, User player1, User player2) throws Exception {
-        int round = 4, position, hp1 = 250, hp2 = 250;
+    public void run(Scanner scanner, User player1, User player2) {
+        int round = 4, hp1 = 200, hp2 = 200;
         User firstPlayer;
         User secondPlayer;
         User winner;
@@ -36,24 +36,29 @@ public class BetMode {
         int bet = controller.welcome(scanner, firstPlayer, secondPlayer);
         
         ArrayList<Card> firstPlayerBoard = new ArrayList<>(21);
-        firstPlayerBoard.add(rand.nextInt(firstPlayerBoard.size() - 1), holeCard);
+        for(int i = 0; i < 21; i++){
+            firstPlayerBoard.add(null);
+        }
+        firstPlayerBoard.add(rand.nextInt(21), holeCard);
         ArrayList<Card> secondPlayerBoard = new ArrayList<>(21);
-        secondPlayerBoard.add(rand.nextInt(secondPlayerBoard.size() - 1), holeCard);
+        for(int i = 0; i < 21; i++){
+            secondPlayerBoard.add(null);
+        }
+        secondPlayerBoard.add(rand.nextInt(21), holeCard);
 
         ArrayList<Card> firstPlayerHand = new ArrayList<>(5);
         firstPlayerHand = playerHand(firstPlayer);
         ArrayList<Card> secondPlayerHand = new ArrayList<>(5);
         secondPlayerHand = playerHand(secondPlayer);
 
+
         while (round > 0) {
-            System.out.println("Round " + (5 - round));
+            System.out.println("Round " + (5 - round ) + " of " + 4);
             System.out.println(firstPlayer.getNickname() + "'s turn");
             System.out.println("Please select a card to play:");
             controller.showHand(firstPlayerHand);
             int cardIndex = Integer.parseInt(scanner.nextLine());
-            System.out.println("Please select the position you want to play this card in:");
-            position = scanner.nextInt();
-            controller.placeCard(firstPlayer, firstPlayerBoard, secondPlayerBoard, firstPlayerHand.get(cardIndex - 1), position);
+            controller.placeCard(scanner, firstPlayer, firstPlayerBoard, secondPlayerBoard, firstPlayerHand.get(cardIndex - 1));
             firstPlayerHand.remove(cardIndex - 1);
             firstPlayerHand.set(cardIndex - 1, firstPlayer.cards.get(rand.nextInt(firstPlayer.cards.size())));
 
@@ -61,9 +66,7 @@ public class BetMode {
             System.out.println("Please select a card to play:");
             controller.showHand(secondPlayerHand);
             cardIndex = Integer.parseInt(scanner.nextLine());
-            System.out.println("Please select the position you want to play this card in:");
-            position = scanner.nextInt();
-            controller.placeCard(secondPlayer, secondPlayerBoard, firstPlayerBoard, secondPlayerHand.get(cardIndex - 1), position);
+            controller.placeCard(scanner, secondPlayer, secondPlayerBoard, firstPlayerBoard, secondPlayerHand.get(cardIndex - 1));
             secondPlayerHand.remove(cardIndex - 1);
             secondPlayerHand.set(cardIndex - 1, secondPlayer.cards.get(rand.nextInt(secondPlayer.cards.size())));
 
@@ -78,9 +81,7 @@ public class BetMode {
                 System.out.println("Please select a card to play:");
                 controller.showHand(firstPlayerHand);
                 int cardIndex = Integer.parseInt(scanner.nextLine());
-                System.out.println("Please select the position you want to play this card in:");
-                position = scanner.nextInt();
-                controller.placeCard(firstPlayer, firstPlayerBoard, secondPlayerBoard, firstPlayerHand.get(cardIndex - 1), position);
+                controller.placeCard(scanner, firstPlayer, firstPlayerBoard, secondPlayerBoard, firstPlayerHand.get(cardIndex - 1));
                 firstPlayerHand.remove(cardIndex - 1);
                 firstPlayerHand.set(cardIndex - 1, firstPlayer.cards.get(rand.nextInt(firstPlayer.cards.size())));
     
@@ -88,9 +89,7 @@ public class BetMode {
                 System.out.println("Please select a card to play:");
                 controller.showHand(secondPlayerHand);
                 cardIndex = Integer.parseInt(scanner.nextLine());
-                System.out.println("Please select the position you want to play this card in:");
-                position = scanner.nextInt();
-                controller.placeCard(secondPlayer, secondPlayerBoard, firstPlayerBoard, secondPlayerHand.get(cardIndex - 1), position);
+                controller.placeCard(scanner, secondPlayer, secondPlayerBoard, firstPlayerBoard, secondPlayerHand.get(cardIndex - 1));
                 secondPlayerHand.remove(cardIndex - 1);
                 secondPlayerHand.set(cardIndex - 1, secondPlayer.cards.get(rand.nextInt(secondPlayer.cards.size())));
     
