@@ -54,8 +54,10 @@ public class AdminController {
         int upgradeLevel = Integer.parseInt(scanner.nextLine());
         System.out.println("Enter the upgrade cost of the card:");
         int upgradeCost = Integer.parseInt(scanner.nextLine());
+        System.out.println("Which character does this card belong to? (1: Warrior, 2: Mage, 3: Archer , 4: Rogue)");
+        int character = Integer.parseInt(scanner.nextLine());
 
-        Card card = new Card(name, power, duration, damage, upgradeLevel, upgradeCost);
+        Card card = new Card(name, power, duration, damage, upgradeLevel, upgradeCost, character);
 
         Main.crud.addCard(card);
         System.out.println("Card added successfully.");
@@ -95,11 +97,13 @@ public class AdminController {
         Main.input = scanner.nextLine();
         int upgradeCost = (Main.input.equals("")) ? card.getUpgradeCost()
                 : Integer.parseInt(Main.input);
+        System.out.println("Enter card's new character: [default: " + card.getCharacter() + "] (1: Warrior, 2: Mage, 3: Archer , 4: Rogue)");
+        int character = Integer.parseInt(scanner.nextLine());
 
         System.out.println("Are you sure you want to edit this card? (y/n)[default: n]");
         Main.input = scanner.nextLine();
         if (Main.input.equals("y")) {
-            Card newCard = new Card(id, name, power, duration, damage, upgradeLevel, upgradeCost);
+            Card newCard = new Card(id, name, power, duration, damage, upgradeLevel, upgradeCost, character);
             Main.crud.updateCard(newCard);
             System.out.println("Card edited successfully.");
         } else {

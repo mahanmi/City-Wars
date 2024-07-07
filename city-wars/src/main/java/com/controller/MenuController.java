@@ -2,6 +2,7 @@ package com.controller;
 
 import com.*;
 import com.model.*;
+import com.view.BetMode;
 import com.view.EditProfileMenu;
 import com.view.MatchHistory;
 import com.view.StoreMenu;
@@ -66,6 +67,11 @@ public class MenuController {
             allCards.remove(randomIndex);
         }
         return starterCards;
+    }
+
+    public void betMode(Scanner scanner, User player1, User player2) {
+        BetMode betMode = new BetMode();
+        betMode.run();
     }
 
     public void matchHistory(Scanner scanner) {
