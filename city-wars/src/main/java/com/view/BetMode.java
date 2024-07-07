@@ -10,8 +10,10 @@ import com.model.game.Prize;
 import com.controller.BetModeController;
 
 public class BetMode {
-    public void run(Scanner scanner, User player1, User player2, int bet){
-        int round = 4, position;
+    public void run(Scanner scanner, User player1, User player2, int bet) {
+        final int ROUNDS = 4;
+        int remainingRounds = ROUNDS;
+        int position, winner = 0;
         User firstPlayer;
         User secondPlayer;
 
@@ -35,18 +37,16 @@ public class BetMode {
 
         Prize prize = new Prize(20 * Math.abs(firstPlayer.getLevel() - secondPlayer.getLevel()), 2 * bet);
 
-        Game game = new Game(1, firstPlayer, secondPlayer, prize);
-
-        while(round > 0){
-            System.out.println("Round " + (5 - round));
+        while (remainingRounds > 0) {
+            System.out.println("Round " + (ROUNDS - remainingRounds + 1) + " of " + ROUNDS);
             System.out.println(firstPlayer.getNickname() + "'s turn");
             System.out.println("Please select a card to play:");
             controller.showHand(firstPlayerHand);
             int cardIndex = Integer.parseInt(scanner.nextLine());
             System.out.println("Please select the position you want to play this card in:");
             position = scanner.nextInt();
-            firstPlayerBoard.add(firstPlayerHand.get(cardIndex-1));
-            firstPlayer.cards.remove(cardIndex);
+            firstPlayerBoard.add(firstPlayerHand.get(cardIndex - 1));
+            firstPlayer.cards.remove(cardIndex - 1);
 
             System.out.println(secondPlayer.getNickname() + "'s turn");
             System.out.println("Please select a card to play:");
@@ -54,11 +54,14 @@ public class BetMode {
             cardIndex = Integer.parseInt(scanner.nextLine());
             System.out.println("Please select the position you want to play this card in:");
             position = scanner.nextInt();
-            secondPlayerBoard.add(secondPlayerHand.get(cardIndex-1));
-            secondPlayer.cards.remove(cardIndex);
+            secondPlayerBoard.add(secondPlayerHand.get(cardIndex - 1));
+            secondPlayer.cards.remove(cardIndex - 1);
 
-            round--;
+            remainingRounds--;
         }
+
+        Game game = new Game(1, player1, player2, winner, firstPlayerHand, secondPlayerHand);
+
     }
 
     private ArrayList<Card> playerHand(User player) {
