@@ -67,11 +67,11 @@ public class BetModeController {
         while (true) {
             System.out.println("Please select the position you want to play this card in:");
             int position = scanner.nextInt();
-            if(position < 0 || position > 22 - card.getDuration()){
+            if(position < 1 || position > 22 - card.getDuration()){
                 System.out.println("You can't place a card here");
                 continue;
             }
-            for (int i = position - 1; i < position - 1 + card.getDuration(); i++) {
+            for (int i = position - 1; i < position - 1 + card.getDuration() - 1; i++) {
                 if (board.get(i) != null) {
                     System.out.println("You can't place a card here");
                     continue;
@@ -80,20 +80,11 @@ public class BetModeController {
             if (card.getCharacter() == player.getCharacter()) {
                 card.setDamage(card.getDamage() + (2 * card.getDuration()));
             }
-            for (int i = position - 1; i < position - 1 + card.getDuration(); i++) {
-                card.setDamage(card.getDamage() / card.getDuration());
-                if (board.get(i).getPower() > board2.get(i).getPower()) {
-                    board2.get(i).setDamage(0);
-                    board.set(i, card);
-                } else if (board.get(i).getPower() < board2.get(i).getPower()) {
-                    board.set(i, card);
-                    board.get(i).setDamage(0);
-                } else {
-                    board.set(i, card);
-                    board.get(i).setDamage(0);
-                    board2.get(i).setDamage(0);
-                }
+            card.setDamage(card.getDamage() / card.getDuration());
+            for (int i = position - 1; i < position - 1 + card.getDuration() - 1; i++) {
+                board.set(i, card);
             }
+            return;
         }
     }
 

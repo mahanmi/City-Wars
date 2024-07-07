@@ -13,7 +13,7 @@ import com.Main;
 
 public class BetMode {
     public void run(Scanner scanner, User player1, User player2) {
-        int round = 4, hp1 = 200, hp2 = 200;
+        int round = 4, hp1 = 200, hp2 = 200, cardIndex;
         User firstPlayer;
         User secondPlayer;
         User winner;
@@ -57,18 +57,27 @@ public class BetMode {
             System.out.println(firstPlayer.getNickname() + "'s turn");
             System.out.println("Please select a card to play:");
             controller.showHand(firstPlayerHand);
-            int cardIndex = Integer.parseInt(scanner.nextLine());
+            cardIndex = Integer.parseInt(scanner.nextLine());
             controller.placeCard(scanner, firstPlayer, firstPlayerBoard, secondPlayerBoard, firstPlayerHand.get(cardIndex - 1));
             firstPlayerHand.remove(cardIndex - 1);
-            firstPlayerHand.set(cardIndex - 1, firstPlayer.cards.get(rand.nextInt(firstPlayer.cards.size())));
-
+            if(cardIndex - 1 < firstPlayerHand.size()){
+                firstPlayerHand.set(cardIndex - 1, firstPlayer.cards.get(rand.nextInt(5)));
+            }
+            else{
+                firstPlayerHand.add(firstPlayer.cards.get(rand.nextInt(5)));
+            }
             System.out.println(secondPlayer.getNickname() + "'s turn");
             System.out.println("Please select a card to play:");
             controller.showHand(secondPlayerHand);
-            cardIndex = Integer.parseInt(scanner.nextLine());
+            cardIndex = scanner.nextInt();
             controller.placeCard(scanner, secondPlayer, secondPlayerBoard, firstPlayerBoard, secondPlayerHand.get(cardIndex - 1));
             secondPlayerHand.remove(cardIndex - 1);
-            secondPlayerHand.set(cardIndex - 1, secondPlayer.cards.get(rand.nextInt(secondPlayer.cards.size())));
+            if(cardIndex - 1 < secondPlayerHand.size()){
+                secondPlayerHand.set(cardIndex - 1, secondPlayer.cards.get(rand.nextInt(5)));
+            }
+            else{
+                secondPlayerHand.add(secondPlayer.cards.get(rand.nextInt(5)));
+            }
 
             round--;
         }
@@ -80,7 +89,7 @@ public class BetMode {
                 System.out.println(firstPlayer.getNickname() + "'s turn");
                 System.out.println("Please select a card to play:");
                 controller.showHand(firstPlayerHand);
-                int cardIndex = Integer.parseInt(scanner.nextLine());
+                cardIndex = Integer.parseInt(scanner.nextLine());
                 controller.placeCard(scanner, firstPlayer, firstPlayerBoard, secondPlayerBoard, firstPlayerHand.get(cardIndex - 1));
                 firstPlayerHand.remove(cardIndex - 1);
                 firstPlayerHand.set(cardIndex - 1, firstPlayer.cards.get(rand.nextInt(firstPlayer.cards.size())));
@@ -88,7 +97,7 @@ public class BetMode {
                 System.out.println(secondPlayer.getNickname() + "'s turn");
                 System.out.println("Please select a card to play:");
                 controller.showHand(secondPlayerHand);
-                cardIndex = Integer.parseInt(scanner.nextLine());
+                cardIndex = scanner.nextInt();
                 controller.placeCard(scanner, secondPlayer, secondPlayerBoard, firstPlayerBoard, secondPlayerHand.get(cardIndex - 1));
                 secondPlayerHand.remove(cardIndex - 1);
                 secondPlayerHand.set(cardIndex - 1, secondPlayer.cards.get(rand.nextInt(secondPlayer.cards.size())));
