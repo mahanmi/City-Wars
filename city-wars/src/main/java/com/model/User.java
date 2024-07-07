@@ -2,6 +2,7 @@ package com.model;
 
 import java.util.ArrayList;
 
+import de.vandermeer.asciitable.AsciiTable;
 import com.Main;
 
 public class User {
@@ -145,15 +146,27 @@ public class User {
         Main.crud.updateUser(this);
     }
 
+
     public void showCards() {
-        System.out.println("Your cards:");
+        AsciiTable at = new AsciiTable();
+        at.addRule();
+        at.addRow("Name", "Level", "Upgrade Cost", "Power", "Duration", "Damage");
+        at.addRule();
+
         for (Card card : cards) {
-            System.out.println(card.getName() + " (Level " + card.getLevel() + ") " + " Upgrade cost: "
-                    + card.getUpgradeCost() * Math.pow(1.25, card.getLevel() - 1));
-            System.out.println("\t Power: " + card.getPower());
-            System.out.println("\t Duration: " + card.getDuration());
-            System.out.println("\t Damage: " + card.getDamage());
+            String name = card.getName();
+            int level = card.getLevel();
+            int upgradeCost = (int) (card.getUpgradeCost() * Math.pow(1.25, card.getLevel() - 1));
+            int power = card.getPower();
+            int duration = card.getDuration();
+            int damage = card.getDamage();
+
+            at.addRow(name, level, String.format("%.2f", upgradeCost), power, duration, damage);
+            at.addRule();
         }
+
+        String rend = at.render();
+        System.out.println(rend);
     }
 
     public void addCard(Card card) {
@@ -171,14 +184,28 @@ public class User {
     }
 
     public void showNotOwnedCards() {
-        for (Card card : Main.crud.getAllCards()) {
+        ArrayList<Card> allCards = new ArrayList<>(Main.crud.getAllCards());
+        
+        AsciiTable at = new AsciiTable();
+        at.addRule();
+        at.addRow("Name", "Price", "Power", "Duration", "Damage");
+        at.addRule();
+        
+        for (Card card : allCards) {
             if (!cards.contains(card)) {
-                System.out.println(card.getName() + " (Price: " + 5 * card.getUpgradeCost() + ")");
-                System.out.println("\t Power: " + card.getPower());
-                System.out.println("\t Duration: " + card.getDuration());
-                System.out.println("\t Damage: " + card.getDamage());
+                String name = card.getName();
+                double price = 5 * card.getUpgradeCost();
+                int power = card.getPower();
+                int duration = card.getDuration();
+                int damage = card.getDamage();
+    
+                at.addRow(name, String.format("%.2f", price), String.valueOf(power), String.valueOf(duration), String.valueOf(damage));
+                at.addRule();
             }
         }
+        
+        String rend = at.render();
+        System.out.println(rend);
         System.out.println("Your balance: " + this.balance + "$");
     }
 

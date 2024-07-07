@@ -12,6 +12,7 @@ public class StoreController {
     user.showNotOwnedCards();
     System.out.println("Enter the name of the card you want to buy:");
     String cardName = scanner.nextLine();
+    if(cardName.equals("back")) return;
     Card card = Main.crud.getCard(cardName);
     if (card == null) {
       System.out.println("Card not found.");
@@ -29,6 +30,7 @@ public class StoreController {
     user.showCards();
     System.out.println("Enter the name of the card you want to upgrade:");
     String cardName = scanner.nextLine();
+    if(cardName.equals("back")) return;
     Card card = null;
     for (Card i : user.cards) {
       if (i.getName().equals(cardName)) {
