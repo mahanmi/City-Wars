@@ -33,7 +33,7 @@ public class MainMenu {
 
       switch (Main.input) {
         case "1":
-          controller.betMode(scanner);
+          controller.gameMenu(scanner);
           break;
         case "2":
           Main.loggedInUser.showCards();
