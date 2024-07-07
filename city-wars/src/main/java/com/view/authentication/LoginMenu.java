@@ -13,6 +13,7 @@ public class LoginMenu {
   private AuthenticationController controller;
   private final String Welcome = "Welcome to the login page!\n" +
       "\u001B[32muser login -u <username> -p <password>\u001B[0m\n" +
+      "enter \u001B[34mlogin admin <password>\u001B[0m to login as admin\n" +
       "enter \u001B[34msignup\u001B[0m to go to the signup page\n" +
       "enter \u001B[34mforgot password\u001B[0m reset your password \n" +
       "enter \u001B[34mexit\u001B[0m to return to the main menu";
@@ -58,7 +59,11 @@ public class LoginMenu {
         } else if ((matcher = Command.FORGOT_PASSWORD.getMatcher(Main.input)) != null) {
           controller.resetPassword(scanner);
           System.out.println(Welcome);
-        } else if ((matcher = Command.EXIT.getMatcher(Main.input)) != null) {
+        } 
+        else if ((matcher = Command.ADMIN_LOGIN.getMatcher(Main.input)) != null){
+          controller.adminLogin(matcher);
+          System.out.println(Welcome);
+        }else if ((matcher = Command.EXIT.getMatcher(Main.input)) != null) {
           System.out.println("Returning to main menu");
           return;
         } else {

@@ -10,6 +10,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import com.Main;
 import com.model.User;
 import com.view.authentication.Captcha;
+import com.controller.Admin.AdminController;
 
 public class AuthenticationController {
 
@@ -30,6 +31,23 @@ public class AuthenticationController {
                 }
             } else {
                 System.out.println("Username doesn’t exist!");
+            }
+        } else {
+            System.out.println("You must fill all fields!");
+        }
+    }
+
+    public void adminLogin(Matcher matcher) {
+        String password = matcher.group("password");
+
+        if (password != null) {
+            if (password.equals("admin")) {
+                System.out.println("\u001B[32madmin logged in successfully!\u001B[0m");
+                Main.loggedInUserId = 0;
+                AdminController adminController = new AdminController();
+                adminController.adminMenu(new Scanner(System.in));
+            } else {
+                System.out.println("Incorrect password!");
             }
         } else {
             System.out.println("You must fill all fields!");

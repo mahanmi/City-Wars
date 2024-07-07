@@ -8,26 +8,14 @@ import com.model.*;
 public class AdminController {
     final String password = "admin";
 
-    public void login(String password, Scanner scanner) {
-        boolean validPassword = false;
-        while (!validPassword) {
-            if (password.equals(this.password)) {
-                System.out.println("Logged in as admin.");
-                validPassword = true;
-                adminMenu(scanner);
-            } else {
-                System.out.println("Incorrect password.");
-            }
-        }
-    }
-
     public void adminMenu(Scanner scanner) {
-        while (!Main.input.equals("back")) {
+        while (!Main.input.equals("5")) {
             System.out.println("What would you like to do?");
             System.out.println("1. Add a card");
             System.out.println("2. Edit a card");
             System.out.println("3. Delete a card");
             System.out.println("4. View all players");
+            System.out.println("5. Logout");
 
             Main.input = scanner.nextLine();
             switch (Main.input) {
@@ -43,7 +31,8 @@ public class AdminController {
                 case "4":
                     Main.crud.showAllUsers();
                     break;
-                case "back":
+                case "5":
+                    Main.loggedInUserId = -1;
                     break;
                 default:
                     System.out.println("Invalid input.");
