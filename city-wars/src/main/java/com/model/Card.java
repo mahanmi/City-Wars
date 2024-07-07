@@ -50,7 +50,7 @@ public class Card {
         return name;
     }
 
-    public int isSpecial() {
+    public int isSpell() {
         return 0;
     }
 

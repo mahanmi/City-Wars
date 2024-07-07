@@ -71,28 +71,36 @@ public class AdminController {
         if (Main.input.equals("back")) {
             return;
         }
-        int id = Integer.parseInt(Main.input);
-        Card card = Main.crud.getCard(id);
+        Card card = cards.get(Integer.parseInt(Main.input) - 1);
+        int id = card.getId();
         System.out.println(card.getCardInfo());
 
-        System.out.println("Enter card's new name:");
-        String name = scanner.nextLine();
-        System.out.println("Enter card's new power:");
-        int power = Integer.parseInt(scanner.nextLine());
-        System.out.println("Enter card's new duration:");
-        int duration = Integer.parseInt(scanner.nextLine());
-        System.out.println("Enter card's new damage:");
-        int damage = Integer.parseInt(scanner.nextLine());
-        System.out.println("Enter card's new upgrade level:");
-        int upgradeLevel = Integer.parseInt(scanner.nextLine());
-        System.out.println("Enter card's new upgrade cost:");
-        int upgradeCost = Integer.parseInt(scanner.nextLine());
+        System.out.println("Enter card's new name: [default: " + card.getName() + "]");
+        Main.input = scanner.nextLine();
+        String name = (Main.input.equals("")) ? card.getName() : Main.input;
+        System.out.println("Enter card's new power: [default: " + card.getPower() + "]");
+        Main.input = scanner.nextLine();
+        int power = (Main.input.equals("")) ? card.getPower() : Integer.parseInt(Main.input);
+        System.out.println("Enter card's new duration: [default: " + card.getDuration() + "]");
+        Main.input = scanner.nextLine();
+        int duration = (Main.input.equals("")) ? card.getDuration() : Integer.parseInt(Main.input);
+        System.out.println("Enter card's new damage: [default: " + card.getDamage() + "]");
+        Main.input = scanner.nextLine();
+        int damage = (Main.input.equals("")) ? card.getDamage() : Integer.parseInt(Main.input);
+        System.out.println("Enter card's new upgrade level: [default: " + card.getUpgradeLevel() + "]");
+        Main.input = scanner.nextLine();
+        int upgradeLevel = (Main.input.equals("")) ? card.getUpgradeLevel()
+                : Integer.parseInt(Main.input);
+        System.out.println("Enter card's new upgrade cost: [default: " + card.getUpgradeCost() + "]");
+        Main.input = scanner.nextLine();
+        int upgradeCost = (Main.input.equals("")) ? card.getUpgradeCost()
+                : Integer.parseInt(Main.input);
 
         System.out.println("Are you sure you want to edit this card? (y/n)[default: n]");
         Main.input = scanner.nextLine();
         if (Main.input.equals("y")) {
-            Card newCard = new Card(name, power, duration, damage, upgradeLevel, upgradeCost);
-            Main.crud.updateCard(newCard, id);
+            Card newCard = new Card(id, name, power, duration, damage, upgradeLevel, upgradeCost);
+            Main.crud.updateCard(newCard);
             System.out.println("Card edited successfully.");
         } else {
             return;
