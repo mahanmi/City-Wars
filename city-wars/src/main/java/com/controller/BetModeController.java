@@ -3,6 +3,7 @@ package com.controller;
 import java.util.Scanner;
 import java.util.ArrayList;
 import com.model.User;
+import com.model.game.Prize;
 
 import de.vandermeer.asciitable.AsciiTable;
 
@@ -90,11 +91,54 @@ public class BetModeController {
 
     public void chooseCharacter(Scanner scanner, User player) {
         System.out.println(player.getNickname() + " choose your character:");
-        System.out.println("1. Warrior");
-        System.out.println("2. Mage");
-        System.out.println("3. Archer");
-        System.out.println("4. Rogue");
+        System.out.println("1. Warrior\t2. Mage\t3. Archer\t4. Rogue");
         int character = Integer.parseInt(scanner.nextLine());
         player.setCharacter(character);
+    }
+
+    public User timeline(ArrayList<Card> board1, ArrayList<Card> board2, User player1, User player2, int hp1, int hp2){
+        for(int i = 0; i < board1.size(); i++){
+            if(board1.get(i).getPower() > board2.get(i).getPower()){
+                hp2 -= board1.get(i).getDamage();
+            } else if(board1.get(i).getPower() < board2.get(i).getPower()){
+                hp1 -= board2.get(i).getDamage();
+            } else {
+                hp1 -= board2.get(i).getDamage();
+                hp2 -= board1.get(i).getDamage();
+            }
+            System.out.println(player1.getNickname() + " HP: " + hp1 + "\t" + player2.getNickname() + " HP: " + hp2);
+            if(hp1 <= 0){
+                System.out.println(player2.getNickname() + " wins!");
+                return player2;
+            } else if(hp2 <= 0){
+                System.out.println(player1.getNickname() + " wins!");
+                return player1;
+            }
+        }
+        return null;
+    }
+
+    public Prize winPrize(User winner, User loser, int bet){
+        if (winner.getLevel() < loser.getLevel()){
+            return new Prize(40 * (loser.getLevel() - winner.getLevel()), 2 * bet);
+        }
+        else if (winner.getLevel() > loser.getLevel()){
+            return new Prize((int)(40 / (winner.getLevel() - loser.getLevel())), 2 * bet);
+        }
+        else{
+            return new Prize(30, 2 * bet);
+        }
+    }
+    
+    public Prize losePrize(User winner, User loser, int bet){
+        if (winner.getLevel() < loser.getLevel()){
+            return new Prize(0, 0);
+        }
+        else if (winner.getLevel() > loser.getLevel()){
+            return new Prize(10 * (winner.getLevel() - loser.getLevel()), 0);
+        }
+        else{
+            return new Prize(5 * (winner.getLevel() - loser.getLevel()), 0);
+        }
     }
 }

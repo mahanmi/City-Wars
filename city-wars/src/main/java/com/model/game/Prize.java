@@ -1,8 +1,8 @@
 package com.model.game;
 
 public class Prize implements Comparable<Prize> {
-  protected int xp;
-  protected int balance;
+  public int xp;
+  public int balance;
 
   public Prize(int xp, int balance) {
     this.xp = xp;

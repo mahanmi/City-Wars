@@ -1,5 +1,6 @@
 package com.model;
 
+import com.model.character.Character;
 public class Card {
     private final String name;
     private int id;
