@@ -17,7 +17,10 @@ public class MenuController {
         while (!haveLoggedIn()) {
             System.out.println("You are not logged in. Please log in to continue.");
             LoginMenu loginMenu = new LoginMenu();
-            loginMenu.run(scanner);
+            Main.loggedInUser = loginMenu.run(scanner);
+            if (Main.loggedInUser != null) {
+                Main.loggedInUserId = Main.crud.getUserId(Main.loggedInUser.getUsername());
+            }
         }
     }
 

@@ -6,6 +6,7 @@ import java.util.regex.Matcher;
 import com.Main;
 import com.view.Command;
 import com.controller.AuthenticationController;
+import com.model.User;
 
 public class SignupMenu {
 
@@ -20,23 +21,26 @@ public class SignupMenu {
     this.controller = new AuthenticationController();
   }
 
-  public void run(Scanner scanner) {
+  public User run(Scanner scanner) {
     System.out.println(welcome);
+
+    User user = null;
 
     Matcher matcher;
 
-    while (Main.loggedInUserId == -1) {
+    while (user == null) {
       Main.input = scanner.nextLine();
       if ((matcher = Command.SIGNUP.getMatcher(Main.input)) != null) {
-        controller.signup(matcher, scanner, false);
+        user = controller.signup(matcher, scanner, false);
       } else if ((matcher = Command.SIGNUP_RANDOM.getMatcher(Main.input)) != null) {
-        controller.signup(matcher, scanner, true);
+        user = controller.signup(matcher, scanner, true);
       } else if (Main.input.equals("exit")) {
         System.out.println("Returning to login menu");
-        return;
+        return null;
       } else {
         System.out.println("Invalid command!");
       }
     }
+    return user;
   }
 }
