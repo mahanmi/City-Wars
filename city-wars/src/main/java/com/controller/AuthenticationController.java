@@ -14,7 +14,7 @@ import com.controller.Admin.AdminController;
 
 public class AuthenticationController {
 
-    public void login(Matcher matcher) {
+    public User login(Matcher matcher) {
         String username = matcher.group("username");
         String password = matcher.group("password");
 
@@ -23,17 +23,19 @@ public class AuthenticationController {
             if (userId != -1) {
                 User user = Main.crud.getUser(userId);
                 if (user.getPassword().equals(password)) {
-                    Main.loggedInUserId = userId;
-                    Main.loggedInUser = user;
                     System.out.println("\u001B[32muser logged in successfully!\u001B[0m");
+                    return user;
                 } else {
                     System.out.println("Password and Username don’t match!");
+                    return null;
                 }
             } else {
                 System.out.println("Username doesn’t exist!");
+                return null;
             }
         } else {
             System.out.println("You must fill all fields!");
+            return null;
         }
     }
 
@@ -54,7 +56,7 @@ public class AuthenticationController {
         }
     }
 
-    public void signup(Matcher matcher, Scanner scanner, boolean isRandomPassword) {
+    public User signup(Matcher matcher, Scanner scanner, boolean isRandomPassword) {
         String username = matcher.group("username");
         String password = (!isRandomPassword) ? matcher.group("password") : generateRandomPassword();
         String passwordConfirmation = (!isRandomPassword) ? matcher.group("passwordConfirmation") : password;
@@ -101,28 +103,32 @@ public class AuthenticationController {
 
                                 Main.crud.addUser(user);
 
-                                Main.loggedInUserId = Main.crud.getUserId(username);
-                                Main.loggedInUser = user;
-
                                 System.out.println("User created & Logged in successfully!");
                                 MenuController menuController = new MenuController();
                                 menuController.greetNewUser(user, scanner);
+                                return user;
                             } else {
                                 System.out.println("Email is invalid!");
+                                return null;
                             }
                         } else {
                             System.out.println("Passwords do not match!");
+                            return null;
                         }
                     }
                 } else {
                     System.out.println("Username already exists!");
+                    return null;
                 }
             } else {
                 System.out.println("Username is invalid!");
+                return null;
             }
         } else {
             System.out.println("You must fill all fields!");
+            return null;
         }
+        return null;
     }
 
     protected boolean isUsernameValid(String username) {

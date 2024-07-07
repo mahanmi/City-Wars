@@ -7,6 +7,7 @@ import com.controller.AuthenticationController;
 
 import com.Main;
 import com.view.Command;
+import com.model.User;
 
 public class LoginMenu {
 
@@ -35,23 +36,25 @@ public class LoginMenu {
     this.controller = new AuthenticationController();
   }
 
-  public void run(Scanner scanner) {
+  public User run(Scanner scanner) {
 
     System.out.println(Welcome);
 
+    User user = null;
+
     Matcher matcher;
 
-    while (Main.loggedInUserId == -1) {
+    while (user == null) {
       Main.input = scanner.nextLine();
       if (lockoutEndTime > System.currentTimeMillis()) {
         System.out.println("Try again in " + remainingTime() + " seconds");
       } else {
         if ((matcher = Command.SIGNUP_PAGE.getMatcher(Main.input)) != null) {
           SignupMenu signupMenu = new SignupMenu();
-          signupMenu.run(scanner);
+          user = signupMenu.run(scanner);
         } else if ((matcher = Command.LOGIN.getMatcher(Main.input)) != null) {
-          controller.login(matcher);
-          if (Main.loggedInUserId == -1) {
+          user = controller.login(matcher);
+          if (user == null) {
             failedAttempts++;
             lockoutEndTime = System.currentTimeMillis() + BASE_LOCKOUT_TIME * failedAttempts * 1000;
             System.out.println("Try again in " + 5 * failedAttempts + " seconds");
@@ -59,18 +62,18 @@ public class LoginMenu {
         } else if ((matcher = Command.FORGOT_PASSWORD.getMatcher(Main.input)) != null) {
           controller.resetPassword(scanner);
           System.out.println(Welcome);
-        } 
-        else if ((matcher = Command.ADMIN_LOGIN.getMatcher(Main.input)) != null){
+        } else if ((matcher = Command.ADMIN_LOGIN.getMatcher(Main.input)) != null) {
           controller.adminLogin(matcher);
           System.out.println(Welcome);
-        }else if ((matcher = Command.EXIT.getMatcher(Main.input)) != null) {
+        } else if ((matcher = Command.EXIT.getMatcher(Main.input)) != null) {
           System.out.println("Returning to main menu");
-          return;
+          return null;
         } else {
           System.out.println("Invalid command!");
           System.out.println(help);
         }
       }
     }
+    return user;
   }
 }
