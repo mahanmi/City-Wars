@@ -15,6 +15,7 @@ public class User {
     private int level = 0;
     private int xp = 0;
     private int balance;
+    private int character = 0;
 
     public ArrayList<Card> cards = new ArrayList<>();
 
@@ -102,6 +103,10 @@ public class User {
         return balance;
     }
 
+    public int getCharacter() {
+        return character;
+    }
+
     public String getCardIDs() {
         String cardIDs = "";
         for (Card card : cards) {
@@ -139,6 +144,10 @@ public class User {
     public void setNickname(String nickname) {
         this.nickname = nickname;
         Main.crud.updateUser(this);
+    }
+
+    public void setCharacter(int character) {
+        this.character = character;
     }
 
     public void setBalance(int balance) {
