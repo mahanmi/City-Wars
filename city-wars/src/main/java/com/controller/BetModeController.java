@@ -7,6 +7,7 @@ import com.model.game.Prize;
 
 import de.vandermeer.asciitable.AsciiTable;
 
+import com.Main;
 import com.model.Card;
 
 public class BetModeController {
@@ -63,25 +64,36 @@ public class BetModeController {
         System.out.println(rend);
     }
 
-    public void placeCard(Scanner scanner, User player, ArrayList<Card> board, ArrayList<Card> board2, Card card) {
+    public void placeCard(Scanner scanner, User player, ArrayList<Card> board, Card card) {
+        outerloop:
         while (true) {
             System.out.println("Please select the position you want to play this card in:");
-            int position = scanner.nextInt();
+            int position;
+            while (true) {
+                try {
+                    System.out.println("Enter a number between 1 and " + (22 - card.getDuration()));
+                    position = Integer.parseInt(scanner.nextLine());
+                    break;
+                } catch (NumberFormatException e) {
+                    System.out.println("Please enter a number");
+                    continue;
+                }
+            }
             if(position < 1 || position > 22 - card.getDuration()){
                 System.out.println("You can't place a card here");
                 continue;
             }
-            for (int i = position - 1; i < position - 1 + card.getDuration() - 1; i++) {
+            for (int i = position - 1; i < position - 1 + card.getDuration(); i++) {
                 if (board.get(i) != null) {
                     System.out.println("You can't place a card here");
-                    continue;
+                    continue outerloop;
                 }
             }
             if (card.getCharacter() == player.getCharacter()) {
                 card.setDamage(card.getDamage() + (2 * card.getDuration()));
             }
             card.setDamage(card.getDamage() / card.getDuration());
-            for (int i = position - 1; i < position - 1 + card.getDuration() - 1; i++) {
+            for (int i = position - 1; i < position - 1 + card.getDuration(); i++) {
                 board.set(i, card);
             }
             return;

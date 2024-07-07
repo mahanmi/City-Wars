@@ -57,7 +57,7 @@ public class AuthenticationController {
     }
 
     public User signup(Matcher matcher, Scanner scanner, boolean isRandomPassword) {
-        String username = matcher.group("username");
+        String username = matcher.group("username").toLowerCase();
         String password = (!isRandomPassword) ? matcher.group("password") : generateRandomPassword();
         String passwordConfirmation = (!isRandomPassword) ? matcher.group("passwordConfirmation") : password;
         String email = matcher.group("email");
@@ -99,7 +99,7 @@ public class AuthenticationController {
                                 }
 
                                 User user = new User(username, password, email, nickname, "",
-                                        securityQuestionID, securityQuestionAnswer);
+                                        securityQuestionID, securityQuestionAnswer.toLowerCase());
 
                                 Main.crud.addUser(user);
 
@@ -220,7 +220,7 @@ public class AuthenticationController {
                 return false;
         }
         System.out.println(question);
-        if (scanner.nextLine().matches(user.getSecurityQuestionAnswer())) {
+        if (scanner.nextLine().equalsIgnoreCase(user.getSecurityQuestionAnswer())) {
             return true;
         }
         return false;
