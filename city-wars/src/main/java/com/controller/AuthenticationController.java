@@ -39,6 +39,28 @@ public class AuthenticationController {
         }
     }
 
+    public User login(String username, String password) {
+        if (username != null && password != null) {
+            int userId = Main.crud.getUserId(username);
+            if (userId != -1) {
+                User user = Main.crud.getUser(userId);
+                if (user.getPassword().equals(password)) {
+                    System.out.println("\u001B[32muser logged in successfully!\u001B[0m");
+                    return user;
+                } else {
+                    System.out.println("Password and Username don’t match!");
+                    return null;
+                }
+            } else {
+                System.out.println("Username doesn’t exist!");
+                return null;
+            }
+        } else {
+            System.out.println("You must fill all fields!");
+            return null;
+        }
+    }
+
     public void adminLogin(Matcher matcher) {
         String password = matcher.group("password");
 

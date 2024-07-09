@@ -2,8 +2,11 @@ module city.wars {
   requires javafx.controls;
   requires javafx.fxml;
   requires java.sql;
+  requires asciitable;
+  requires commons.lang3;
+  requires skb.interfaces;
 
-  opens org.example.demo to javafx.fxml;
+  opens com.app to javafx.fxml;
 
-  exports org.example.demo;
+  exports com.app;
 }
