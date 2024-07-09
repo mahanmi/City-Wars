@@ -170,7 +170,7 @@ public class User {
             int duration = card.getDuration();
             int damage = card.getDamage();
 
-            at.addRow(name, level, String.format("%.2f", upgradeCost), power, duration, damage);
+            at.addRow(name, String.valueOf(level), String.valueOf(upgradeCost), String.valueOf(power), String.valueOf(duration), String.valueOf(damage));
             at.addRule();
         }
 
