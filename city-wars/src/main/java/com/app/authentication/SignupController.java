@@ -58,7 +58,7 @@ public class SignupController implements Initializable {
   private CheckBox randomPasswordCheckBox;
 
   private AuthenticationController controller = new AuthenticationController();
-  private int captchaValue;
+  private int captchaValue = -1;
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -199,15 +199,17 @@ public class SignupController implements Initializable {
 
   private void generateCaptcha() {
     Random random = new Random();
-    int firstDigit = 10 + random.nextInt(99 - 10 + 1);
-    int secondDigit = 10 + random.nextInt(99 - 10 + 1);
-    int operation = random.nextInt(2);
-    if (operation == 0) {
-      captchaValue = firstDigit + secondDigit;
-      captchaLabel.setText(firstDigit + " + " + secondDigit + " = ?");
-    } else {
-      captchaLabel.setText(firstDigit + " - " + secondDigit + " = ?");
-      captchaValue = firstDigit - secondDigit;
+    while (captchaValue < 0) {
+      int firstDigit = 10 + random.nextInt(99 - 10 + 1);
+      int secondDigit = 10 + random.nextInt(99 - 10 + 1);
+      int operation = random.nextInt(2);
+      if (operation == 0) {
+        captchaValue = firstDigit + secondDigit;
+        captchaLabel.setText(firstDigit + " + " + secondDigit + " = ?");
+      } else {
+        captchaLabel.setText(firstDigit + " - " + secondDigit + " = ?");
+        captchaValue = firstDigit - secondDigit;
+      }
     }
   }
 

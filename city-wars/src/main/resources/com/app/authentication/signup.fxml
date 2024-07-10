@@ -62,7 +62,7 @@
                         <RowConstraints maxHeight="265.0" minHeight="5.0" prefHeight="5.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="265.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
                       <RowConstraints maxHeight="265.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
@@ -129,7 +129,7 @@
                         </TextField>
                         <Label fx:id="captchaLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="65.0" prefWidth="274.0" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="9">
                            <font>
-                              <Font size="10.0" />
+                              <Font size="14.0" />
                            </font>
                         </Label>
                      </children>
@@ -142,7 +142,6 @@
                     </columnConstraints>
                     <rowConstraints>
                       <RowConstraints maxHeight="62.0" minHeight="10.0" prefHeight="53.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="27.0" minHeight="3.0" prefHeight="12.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
                         <Button fx:id="signupButton" defaultButton="true" disable="true" mnemonicParsing="false" onAction="#onSignupButtonClick" prefHeight="40.0" prefWidth="250.0" style="-fx-background-radius: 7;" text="Signup" textFill="WHITE" GridPane.columnIndex="1">
