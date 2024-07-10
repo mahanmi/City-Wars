@@ -154,7 +154,7 @@ public class SignupController implements Initializable {
     App.currentUser = new User(username, password, email, nickname, "", 0, "");
 
     try {
-      App.setRoot("authentication/securityQuestion", "authentication/css/securityQuestion");
+      App.setRoot("authentication/securityQuestion");
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -191,7 +191,7 @@ public class SignupController implements Initializable {
   @FXML
   protected void onBackButtonClick() {
     try {
-      App.setRoot("authentication/login", "authentication/css/login");
+      App.setRoot("authentication/login");
     } catch (Exception e) {
       e.printStackTrace();
     }

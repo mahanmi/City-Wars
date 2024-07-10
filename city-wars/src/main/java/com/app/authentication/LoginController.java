@@ -79,9 +79,25 @@ public class LoginController implements Initializable {
         errorLabel.setText("");
       });
     } else {
-      errorLabel.setText("Login successful!");
-      Main.loggedInUser = user;
-      Main.loggedInUserId = Main.crud.getUserId(user.getUsername());
+
+      Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.5), event -> {
+        try {
+          errorLabel.setText("Login successful!");
+          Main.loggedInUser = user;
+          Main.loggedInUserId = Main.crud.getUserId(user.getUsername());
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
+      }));
+      timeline.setCycleCount(3);
+      timeline.play();
+      timeline.setOnFinished(event -> {
+        try {
+          App.setRoot("menu/menu");
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
+      });
     }
 
   }
@@ -89,7 +105,7 @@ public class LoginController implements Initializable {
   @FXML
   protected void onForgotPasswordClick() {
     try {
-      App.setRoot("authentication/forgotPassword","authentication/css/forgotPassword");
+      App.setRoot("authentication/forgotPassword");
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -98,7 +114,7 @@ public class LoginController implements Initializable {
   @FXML
   protected void onSignupHyperlinkClick() {
     try {
-      App.setRoot("authentication/signup","authentication/css/signup");
+      App.setRoot("authentication/signup");
     } catch (Exception e) {
       e.printStackTrace();
     }
