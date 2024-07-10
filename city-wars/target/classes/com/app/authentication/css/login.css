@@ -1,5 +1,6 @@
 #loginButton {
 	-fx-background-color: #003465;
+	-fx-background-radius: 7.5px;
 }
 
 #loginButton:hover {

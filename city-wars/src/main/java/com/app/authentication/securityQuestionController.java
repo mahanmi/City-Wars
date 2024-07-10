@@ -46,10 +46,10 @@ public class securityQuestionController implements Initializable {
       public void run() {
         questionBox.getItems().addAll(questions);
         answerField.textProperty().addListener(((observableValue, oldValue, newValue) -> {
-          enterButton.setDisable(newValue.isEmpty() && questionBox.getValue() != null);
+          enterButton.setDisable(newValue.isEmpty() || questionBox.getValue() == null);
         }));
         questionBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-          enterButton.setDisable(answerField.getText().isEmpty() && newValue != null);
+          enterButton.setDisable(answerField.getText().isEmpty() || newValue == null);
         });
       }
     });
@@ -82,7 +82,7 @@ public class securityQuestionController implements Initializable {
     Main.crud.addUser(App.currentUser);
 
     try {
-      App.setRoot("authentication/login", "authentication/css/login");
+      App.setRoot("authentication/login");
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -93,7 +93,7 @@ public class securityQuestionController implements Initializable {
   protected void onBackButtonClick() {
     try {
       App.currentUser = null;
-      App.setRoot("authentication/login", "authentication/css/login");
+      App.setRoot("authentication/login");
     } catch (Exception e) {
       e.printStackTrace();
     }

@@ -29,11 +29,6 @@ public class App extends Application {
     scene.setRoot(loadFXML(fxml));
   }
 
-  public static void setRoot(String fxml, String css) throws IOException {
-    scene.setRoot(loadFXML(fxml));
-    scene.getStylesheets().add(App.class.getResource(css + ".css").toExternalForm());
-  }
-
   private static Parent loadFXML(String fxml) throws IOException {
     FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
     return fxmlLoader.load();

@@ -2,10 +2,8 @@ package com.app.authentication;
 
 import java.util.ResourceBundle;
 
-import com.Main;
 import com.app.App;
 import com.controller.AuthenticationController;
-import com.model.User;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -95,7 +93,7 @@ public class ResetPasswordController implements Initializable {
       timeline.play();
       timeline.setOnFinished(event -> {
         try {
-          App.setRoot("authentication/login", "authentication/css/login");
+          App.setRoot("authentication/login");
         } catch (Exception e) {
           e.printStackTrace();
         }
@@ -109,7 +107,7 @@ public class ResetPasswordController implements Initializable {
   protected void onBackButtonClick() {
     try {
       App.currentUser = null;
-      App.setRoot("authentication/forgotPassword", "authentication/css/forgotPassword");
+      App.setRoot("authentication/forgotPassword");
     } catch (Exception e) {
       e.printStackTrace();
     }

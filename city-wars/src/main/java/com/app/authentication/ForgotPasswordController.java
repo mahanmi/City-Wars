@@ -71,7 +71,7 @@ public class ForgotPasswordController implements Initializable {
     } else {
       try {
         App.currentUser = user;
-        App.setRoot("authentication/resetPassword", "authentication/css/resetPassword");
+        App.setRoot("authentication/resetPassword");
       } catch (Exception e) {
         e.printStackTrace();
       }
@@ -81,7 +81,7 @@ public class ForgotPasswordController implements Initializable {
   @FXML
   protected void onBackButtonClick() {
     try {
-      App.setRoot("authentication/login", "authentication/css/login");
+      App.setRoot("authentication/login");
     } catch (Exception e) {
       e.printStackTrace();
     }

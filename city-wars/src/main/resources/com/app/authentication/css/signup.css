@@ -1,5 +1,6 @@
 #signupButton {
 	-fx-background-color: #003465;
+	-fx-background-radius: 7.5px;
 }
 
 #signupButton:hover {
@@ -8,6 +9,9 @@
 
 #backButton {
 	-fx-background-color: #005db4;
+	-fx-background-radius: 5px;
+	-fx-border-radius: 5px;
+	-fx-border-color: white;
 }
 
 #backButton:hover {

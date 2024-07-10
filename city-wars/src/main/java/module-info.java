@@ -8,6 +8,7 @@ module city.wars {
 
   opens com.app to javafx.fxml;
   opens com.app.authentication to javafx.fxml;
+  opens com.app.menu to javafx.fxml;
 
   exports com.app;
 }

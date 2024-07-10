@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.authentication.LoginController">
+<GridPane stylesheets="@css/login.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.authentication.LoginController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
    </columnConstraints>
@@ -112,7 +112,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button fx:id="loginButton" defaultButton="true" disable="true" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="40.0" prefWidth="250.0" style="-fx-background-radius: 7;" text="Sign in" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Button fx:id="loginButton" defaultButton="true" disable="true" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="40.0" prefWidth="250.0" text="Sign in" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
                               <Font name="Arial Rounded MT Bold" size="20.0" />
                            </font>
