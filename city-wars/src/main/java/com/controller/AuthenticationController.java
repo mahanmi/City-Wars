@@ -26,11 +26,11 @@ public class AuthenticationController {
                     System.out.println("\u001B[32muser logged in successfully!\u001B[0m");
                     return user;
                 } else {
-                    System.out.println("Password and Username don’t match!");
+                    System.out.println("Password and Username don't match!");
                     return null;
                 }
             } else {
-                System.out.println("Username doesn’t exist!");
+                System.out.println("Username doesn't exist!");
                 return null;
             }
         } else {
@@ -48,11 +48,11 @@ public class AuthenticationController {
                     System.out.println("\u001B[32muser logged in successfully!\u001B[0m");
                     return user;
                 } else {
-                    System.out.println("Password and Username don’t match!");
+                    System.out.println("Password and Username don't match!");
                     return null;
                 }
             } else {
-                System.out.println("Username doesn’t exist!");
+                System.out.println("Username doesn't exist!");
                 return null;
             }
         } else {
@@ -153,7 +153,7 @@ public class AuthenticationController {
         return null;
     }
 
-    protected boolean isUsernameValid(String username) {
+    public boolean isUsernameValid(String username) {
         if (username.matches("[a-zA-Z0-9_]+")) {
             return true;
         }
@@ -173,14 +173,28 @@ public class AuthenticationController {
         return false;
     }
 
-    protected boolean isEmailValid(String email) {
+    public String validatePassword(String password) {
+        if (password.length() >= 8) {
+            if (!password.matches(".*[a-z].*")) {
+                return "Password must contain at least one lowercase letter!";
+            } else if (!password.matches(".*[A-Z].*")) {
+                return "Password must contain at least one uppercase letter!";
+            } else if (!password.matches(".*[^a-zA-Z0-9].*")) {
+                return "Password must contain at least one special character!";
+            }
+            return "";
+        }
+        return "Password must be at least 8 characters long!";
+    }
+
+    public boolean isEmailValid(String email) {
         if (email.matches("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+\\.com$")) {
             return true;
         }
         return false;
     }
 
-    private String generateRandomPassword() {
+    public String generateRandomPassword() {
         char[] possibleCharacters = (new String(
                 "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&*_=+"))
                 .toCharArray();

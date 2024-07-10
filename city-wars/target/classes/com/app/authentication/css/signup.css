@@ -1,0 +1,15 @@
+#signupButton {
+	-fx-background-color: #003465;
+}
+
+#signupButton:hover {
+	-fx-background-color: #31495f;
+}
+
+#backButton {
+	-fx-background-color: #005db4;
+}
+
+#backButton:hover {
+	-fx-background-color: #2a7cc9;
+}

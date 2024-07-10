@@ -122,6 +122,22 @@ public class User {
         return securityQuestionID;
     }
 
+    public String getSecurityQuestion() {
+        switch (securityQuestionID) {
+            case 1:
+                return "What is your father's name ?";
+
+            case 2:
+                return "What is your favorite color ?";
+
+            case 3:
+                return "What was the name of your first pet?";
+
+            default:
+                return null;
+        }
+    }
+
     public String getSecurityQuestionAnswer() {
         return securityQuestionAnswer;
     }
@@ -155,7 +171,6 @@ public class User {
         Main.crud.updateUser(this);
     }
 
-
     public void showCards() {
         AsciiTable at = new AsciiTable();
         at.addRule();
@@ -170,7 +185,8 @@ public class User {
             int duration = card.getDuration();
             int damage = card.getDamage();
 
-            at.addRow(name, String.valueOf(level), String.valueOf(upgradeCost), String.valueOf(power), String.valueOf(duration), String.valueOf(damage));
+            at.addRow(name, String.valueOf(level), String.valueOf(upgradeCost), String.valueOf(power),
+                    String.valueOf(duration), String.valueOf(damage));
             at.addRule();
         }
 
@@ -194,12 +210,12 @@ public class User {
 
     public void showNotOwnedCards() {
         ArrayList<Card> allCards = new ArrayList<>(Main.crud.getAllCards());
-        
+
         AsciiTable at = new AsciiTable();
         at.addRule();
         at.addRow("Name", "Price", "Power", "Duration", "Damage");
         at.addRule();
-        
+
         for (Card card : allCards) {
             if (!cards.contains(card)) {
                 String name = card.getName();
@@ -207,12 +223,13 @@ public class User {
                 int power = card.getPower();
                 int duration = card.getDuration();
                 int damage = card.getDamage();
-    
-                at.addRow(name, String.format("%.2f", price), String.valueOf(power), String.valueOf(duration), String.valueOf(damage));
+
+                at.addRow(name, String.format("%.2f", price), String.valueOf(power), String.valueOf(duration),
+                        String.valueOf(damage));
                 at.addRule();
             }
         }
-        
+
         String rend = at.render();
         System.out.println(rend);
         System.out.println("Your balance: " + this.balance + "$");

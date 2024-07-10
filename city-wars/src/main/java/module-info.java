@@ -7,6 +7,7 @@ module city.wars {
   requires skb.interfaces;
 
   opens com.app to javafx.fxml;
+  opens com.app.authentication to javafx.fxml;
 
   exports com.app;
 }
