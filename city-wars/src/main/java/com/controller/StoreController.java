@@ -15,9 +15,12 @@ public class StoreController {
     if(cardName.equals("back")) return;
     Card card = Main.crud.getCard(cardName);
     if (card == null) {
-      System.out.println("Card not found.");
-      return;
-    } else if (user.getBalance() < 5 * card.getUpgradeCost()) {
+      card = Main.crud.getCard("\u001B[33m" + cardName + "\u001B[0m");
+      if (card == null){
+        System.out.println("Card not found.");
+        return;
+      }
+    } if (user.getBalance() < 5 * card.getUpgradeCost()) {
       System.out.println("You don't have enough coins to buy this card.");
       return;
     }

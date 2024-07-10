@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import com.Main;
 import com.model.User;
-import com.view.authentication.*;;
+import com.view.authentication.*;
 
 public class GameMenu {
   private User opponent = null;
@@ -27,7 +27,13 @@ public class GameMenu {
 
     switch (Main.input) {
       case "1":
-        System.out.println("1v1 game");
+        FriendlyMode friendlyMode = new FriendlyMode();
+        try {
+          friendlyMode.run(scanner, Main.loggedInUser, opponent);
+        } catch (Exception e) {
+          // Handle the exception here
+          e.printStackTrace();
+        }
         break;
       case "2":
         BetMode betMode = new BetMode();

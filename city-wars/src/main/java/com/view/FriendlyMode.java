@@ -2,6 +2,7 @@ package com.view;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 import java.util.Scanner;
 import com.model.User;
@@ -14,24 +15,18 @@ import de.vandermeer.asciitable.AsciiTable;
 import de.vandermeer.asciitable.CWC_LongestLine;
 
 public class FriendlyMode {
-    public static void main(String[] args) {
-        User player1 = Main.crud.getUser(1);
-        User player2 = Main.crud.getUser(2);
-        Scanner scanner = new Scanner(System.in);
-        BetMode betMode = new BetMode();
-        betMode.run(scanner, player1, player2);
-    }
-
     public void run(Scanner scanner, User player1, User player2) {
         int round = 4, cardIndex;
         int hp1 = 150;
         int hp2 = 150;
         int result[];
+        int placeCard[];
         User firstPlayer;
         User secondPlayer;
         User winner = null;
         User loser;
-        Card holeCard = new Card("Hole", 0, 0, 0, 0, 0, 0);
+        boolean hide = false;
+        Card holeCard = new Card("Hole", 0, 1, 0, 0, 0, 0);
 
         FriendlyModeController controller = new FriendlyModeController();
         Random rand = new Random();
@@ -68,7 +63,11 @@ public class FriendlyMode {
             while (round > 0) {
                 System.out.println("Round " + (5 - round) + " of " + 4);
                 System.out.println(firstPlayer.getNickname() + "'s turn");
-                controller.showHand(firstPlayerHand);
+                if (hide) {
+                    Collections.shuffle(firstPlayerHand);
+                } else {
+                    controller.showHand(firstPlayerHand);
+                }
                 System.out.println("Please select a card to play:");
                 while (true) {
                     try {
@@ -79,10 +78,23 @@ public class FriendlyMode {
                         continue;
                     }
                 }
-                controller.placeCard(scanner, firstPlayer, secondPlayer, firstPlayerBoard, secondPlayerBoard, firstPlayerHand.get(cardIndex - 1));
+                hide = false;
+                placeCard = controller.placeCard(scanner, firstPlayer, secondPlayer, firstPlayerBoard,
+                        secondPlayerBoard, firstPlayerHand, secondPlayerHand, firstPlayerHand.get(cardIndex - 1),
+                        round);
+                round = placeCard[0];
+                if (placeCard[1] == 1) {
+                    hide = true;
+                } else if (placeCard[1] == 0) {
+                    hide = false;
+                }
                 firstPlayerHand.set(cardIndex - 1, firstPlayer.cards.get(rand.nextInt(5)));
                 System.out.println(secondPlayer.getNickname() + "'s turn");
-                controller.showHand(secondPlayerHand);
+                if (hide) {
+                    Collections.shuffle(secondPlayerHand);
+                } else {
+                    controller.showHand(secondPlayerHand);
+                }
                 System.out.println("Please select a card to play:");
                 while (true) {
                     try {
@@ -93,23 +105,32 @@ public class FriendlyMode {
                         continue;
                     }
                 }
-                controller.placeCard(scanner, secondPlayer, firstPlayer, secondPlayerBoard, firstPlayerBoard, secondPlayerHand.get(cardIndex - 1));
+                hide = false;
+                placeCard = controller.placeCard(scanner, secondPlayer, firstPlayer, secondPlayerBoard,
+                        firstPlayerBoard, secondPlayerHand, firstPlayerHand, secondPlayerHand.get(cardIndex - 1),
+                        round);
+                round = placeCard[0];
+                if (placeCard[1] == 1) {
+                    hide = true;
+                } else if (placeCard[1] == 0) {
+                    hide = false;
+                }
                 secondPlayerHand.set(cardIndex - 1, secondPlayer.cards.get(rand.nextInt(5)));
-    
+
                 round--;
             }
 
             result = controller.timeline(firstPlayerBoard, secondPlayerBoard, firstPlayer, secondPlayer, hp1, hp2);
             hp1 = result[1];
             hp2 = result[2];
-            if (result[0] == 1){
+            if (result[0] == 1) {
                 winner = firstPlayer;
                 loser = secondPlayer;
-            } else if (result[0] == 2){
+            } else if (result[0] == 2) {
                 winner = secondPlayer;
                 loser = firstPlayer;
             }
-            
+
             round = 4;
             firstPlayerBoard = new ArrayList<>(21);
             for (int i = 0; i < 21; i++) {
@@ -142,7 +163,8 @@ public class FriendlyMode {
         loser.setBalance(loser.getBalance() + loserPrize.balance);
         loser.addXp(loserPrize.xp);
 
-        Game game = new Game(1, firstPlayer, secondPlayer, winnerPrize, new Timestamp(System.currentTimeMillis()),Main.crud.getUserId(winner.getUsername()));
+        Game game = new Game(1, firstPlayer, secondPlayer, winnerPrize, new Timestamp(System.currentTimeMillis()),
+                Main.crud.getUserId(winner.getUsername()));
         Main.crud.addGame(game);
     }
 
@@ -163,7 +185,6 @@ public class FriendlyMode {
         at.getRenderer().setCWC(new CWC_LongestLine());
         at.addRule();
 
-        
         String[] index = new String[21];
         for (int i = 0; i < 21; i++) {
             index[i] = String.valueOf(i + 1);
@@ -171,7 +192,6 @@ public class FriendlyMode {
         at.addRow((Object[]) index);
         at.addRule();
 
-       
         String[] player1Row = new String[21];
         for (int col = 0; col < 21; col++) {
             Card card = player1Board.get(col);
@@ -184,7 +204,6 @@ public class FriendlyMode {
         at.addRow((Object[]) player1Row);
         at.addRule();
 
-        
         String[] player2Row = new String[21];
         for (int col = 0; col < 21; col++) {
             Card card = player2Board.get(col);
@@ -197,9 +216,7 @@ public class FriendlyMode {
         at.addRow((Object[]) player2Row);
         at.addRule();
 
-        
         String renderedTable = at.render();
         System.out.println(renderedTable);
     }
 }
-

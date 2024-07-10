@@ -405,7 +405,7 @@ public class CRUD {
         Card card8 = new Card("Bullet Blast", 35, 5, 55, 3, 250, 2);
         Card card9 = new Card("Bullet Assault", 30, 5, 25, 1, 150, 3);
         Card card10 = new Card("Stealth Support", 35, 4, 20, 2, 100, 3);
-        Card card11 = new Card("Damage Breaker", 0 /* Infinity */ , 2, 40, 4, 350, 3);
+        Card card11 = new Card("Damage Breaker", 40 , 2, 40, 4, 350, 3);
         Card card12 = new Card("IDN Burst", 30, 3, 21, 2, 100, 3);
         Card card13 = new Card("Multi-Fire", 30, 2, 26, 2, 150, 4);
         Card card14 = new Card("Shattered Augmentation", 25, 5, 40, 1, 150, 4);
@@ -427,28 +427,20 @@ public class CRUD {
         addCard(card15);
 
         // SPELLS
-        Card card16 = new Card("Rad Darts", 33, 3, 33, 4, 300, 1); // This spell makes the opposing space poisonous, and
-                                                                   // if
-                                                                   // the opponent places a card in that space, they
-                                                                   // will
-                                                                   // take damage at the end of the game
-        Card card17 = new Card("Thermo Crisi", 33, 2, 36, 3, 200, 2); // This spell randomly sets one of the opponent's
-                                                                      // spaces on fire, causing the damage of the card
-                                                                      // placed in that space to be halved
-        Card card18 = new Card("Ice Land", 32, 2, 34, 5, 350, 3); // This spell freezes two opponent's spaces,
-                                                                  // preventing
-                                                                  // them from placing a card in that space
-        Card card19 = new Card("Acidic Cleanser", 29, 1, 33, 3, 180, 4); // This spell makes the opposing space acidic,
-                                                                         // causing the opponent to take damage when
-                                                                         // they
-                                                                         // reach this space at the end of the game
-        Card card20 = new Card("Thermo Extinguisher", 33, 1, 47, 4, 350, 4); // This spell neutralizes the effect of Ice
-                                                                             // Land on all our spaces
+        Card card16 = new Card("\u001B[33mShield\u001B[0m", 0, 1, 0, 0, 0, 0);
+        Card card17 = new Card("\u001B[33mHeal\u001B[0m", 0, 1, 20, 0, 0, 0);
+        Card card18 = new Card("\u001B[33mHole Changer\u001B[0m", 0, 1, 0, 0, 0, 0);
+        Card card19 = new Card("\u001B[33mRepair\u001B[0m", 0, 1, 0, 0, 0, 0);
+        Card card20 = new Card("\u001B[33mSkip Rounds\u001B[0m", 0, 1, 0, 0, 0, 0);
+        Card card21 = new Card("\u001B[33mHand Hider\u001B[0m", 0, 1, 0, 0, 0, 0);
+        Card card22 = new Card("\u001B[33mCard Swapper\u001B[0m", 0, 1, 0, 0, 0, 0);
         addCard(card16);
         addCard(card17);
         addCard(card18);
         addCard(card19);
         addCard(card20);
+        addCard(card21);
+        addCard(card22);
     }
 
     public void addGame(Game game) {

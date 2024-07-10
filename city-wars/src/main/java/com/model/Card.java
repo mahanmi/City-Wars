@@ -102,13 +102,12 @@ public class Card {
 
     public String boardCard(User player){
         int D;
-        if (duration == 0) {
-            D = 0;
-            return "Hole";
-        }
-        else {
-            D = damage / duration;
-        }
+        if (name.equals("Hole")) {return "Hole";}
+        else if (name.equals("\u001B[33mShield\u001B[0m")) {return "Shield";} 
+        else if (name.equals("\u001B[33mHeal\u001B[0m")) {return "Heal";}
+        
+        D = damage / duration;
+        
         if (character == player.getCharacter()) {
             return "P: " + power + " D: " + (D + 2);
         }

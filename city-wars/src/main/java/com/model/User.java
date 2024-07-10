@@ -1,8 +1,11 @@
 package com.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import de.vandermeer.asciitable.AsciiTable;
+import de.vandermeer.asciithemes.TA_GridThemes;
+
 import com.Main;
 
 public class User {
@@ -170,12 +173,19 @@ public class User {
             int duration = card.getDuration();
             int damage = card.getDamage();
 
-            at.addRow(name, level, String.format("%.2f", upgradeCost), power, duration, damage);
-            at.addRule();
+            if (name.startsWith("\u001B[33m")) {
+                at.addRow(name.replaceAll("\\u001B\\[[;\\d]*m", ""), "-", "-", "-", "-", "-");
+                at.addRule();
+            }
+            else {
+                at.addRow(name, level, String.format("%.2f", upgradeCost), power, duration, damage);
+                at.addRule();
+            }
         }
 
         String rend = at.render();
         System.out.println(rend);
+        System.out.println("You have " + balance + " coins.");
     }
 
     public void addCard(Card card) {
@@ -194,28 +204,33 @@ public class User {
 
     public void showNotOwnedCards() {
         ArrayList<Card> allCards = new ArrayList<>(Main.crud.getAllCards());
-        
         AsciiTable at = new AsciiTable();
+        
         at.addRule();
         at.addRow("Name", "Price", "Power", "Duration", "Damage");
         at.addRule();
-        
+
         for (Card card : allCards) {
             if (!cards.contains(card)) {
                 String name = card.getName();
-                double price = 5 * card.getUpgradeCost();
+                double price = 3 * card.getUpgradeCost();
                 int power = card.getPower();
                 int duration = card.getDuration();
                 int damage = card.getDamage();
-    
-                at.addRow(name, String.format("%.2f", price), String.valueOf(power), String.valueOf(duration), String.valueOf(damage));
-                at.addRule();
+
+                if (name.startsWith("\u001B[33m")) {
+                    at.addRow(name.replaceAll("\\u001B\\[[;\\d]*m", ""), price, "-", "-", "-");
+                    at.addRule();
+                }
+                else {
+                    at.addRow(name, price, power, duration, damage);
+                    at.addRule();
+                }
             }
         }
-        
-        String rend = at.render();
-        System.out.println(rend);
-        System.out.println("Your balance: " + this.balance + "$");
+        String renderedTable = at.render();
+        System.out.println(renderedTable);
+        System.out.println("You have " + balance + " coins.");
     }
 
     public void upgradeCard(Card card) {
