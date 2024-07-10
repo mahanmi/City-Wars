@@ -233,6 +233,7 @@ public class User {
         if (xp >= (level + 1) * 100) {
             level++;
             this.xp -= (level + 1) * 100;
+            System.out.println("Congratulations! " + this.nickname + " have reached level " + level + "!");
         }
         Main.crud.updateUser(this);
     }

@@ -100,6 +100,23 @@ public class Card {
         return name + " (Level " + level + ")" + " Power: " + power + " Duration: " + duration + " Damage: " + damage;
     }
 
+    public String boardCard(User player){
+        int D;
+        if (duration == 0) {
+            D = 0;
+            return "Hole";
+        }
+        else {
+            D = damage / duration;
+        }
+        if (character == player.getCharacter()) {
+            return "P: " + power + " D: " + (D + 2);
+        }
+        else {
+            return "P: " + power + " D: " + D;
+        }
+    }
+
     public String getCardInfo() {
         return "Name: " + name + "\n" +
                 "Power: " + power + "\n" +

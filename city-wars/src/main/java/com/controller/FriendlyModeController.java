@@ -7,27 +7,14 @@ import com.model.game.Prize;
 import de.vandermeer.asciitable.AsciiTable;
 import com.Main;
 import com.model.Card;
-import com.view.BetMode;
+import com.view.FriendlyMode;
 
-public class BetModeController {
-    public int welcome(Scanner scanner, User player1, User player2) {
-        int bet;
+
+public class FriendlyModeController {
+    public void welcome(User player1, User player2) {
         System.out.println("Welcome to the Bet Mode!");
         System.out.println("Player 1: " + player1.getNickname());
         System.out.println("Player 2: " + player2.getNickname());
-        System.out.println("Please enter the amount you want to bet: (it should be less than "
-                + Math.min(player1.getBalance(), player2.getBalance()) + "$)");
-        while (true) {
-            bet = Integer.parseInt(scanner.nextLine());
-            if (bet > Math.min(player1.getBalance(), player2.getBalance())) {
-                System.out.println("The bet amount should be less than "
-                        + Math.min(player1.getBalance(), player2.getBalance()) + "$");
-            } else {
-                player1.setBalance(player1.getBalance() - bet);
-                player2.setBalance(player2.getBalance() - bet);
-                return bet;
-            }
-        }
     }
 
     public User firstPlayer(User player1, User player2) {
@@ -64,11 +51,11 @@ public class BetModeController {
     }
 
     public void placeCard(Scanner scanner, User player, User player2, ArrayList<Card> board, ArrayList<Card> board2, Card card) {
-        BetMode betMode = new BetMode();
+        FriendlyMode friendlyMode = new FriendlyMode();
 
         outerloop: while (true) {
             System.out.println("Please select the position you want to play this card in:");
-            betMode.showBoard(board, board2, player, player2);
+            friendlyMode.showBoard(board, board2, player, player2);
             int position;
             while (true) {
                 try {
@@ -156,9 +143,9 @@ public class BetModeController {
                     }
                 }
             }
-            
-            System.out.println(player1.getNickname() + "'s HP: " + hp1 + "\t" + player2.getNickname() + "'s HP: " + hp2);
     
+            System.out.println(player1.getNickname() + "'s HP: " + hp1 + "\t" + player2.getNickname() + "'s HP: " + hp2);
+           
             if (hp1 <= 0) {
                 System.out.println("\u001B[33m" + player2.getNickname() + " wins!\u001B[0m");
                 result[0] = 2;
@@ -176,12 +163,13 @@ public class BetModeController {
     
             
             try {
-                Thread.sleep(1000);
+                Thread.sleep(1000); 
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
     
+       
         result[0] = 0;
         result[1] = hp1;
         result[2] = hp2;
@@ -189,23 +177,24 @@ public class BetModeController {
     }
     
 
-    public Prize winPrize(User winner, User loser, int bet) {
+    public Prize winPrize(User winner, User loser) {
         if (winner.getLevel() < loser.getLevel()) {
-            return new Prize(40 * (loser.getLevel() - winner.getLevel()), 2 * bet);
+            return new Prize(40 * (loser.getLevel() - winner.getLevel() + 1), 0);
         } else if (winner.getLevel() > loser.getLevel()) {
-            return new Prize((int) (40 / (winner.getLevel() - loser.getLevel())), 2 * bet);
+            return new Prize((int) (40 / (winner.getLevel() - loser.getLevel() + 1)), 0);
         } else {
-            return new Prize(30, 2 * bet);
+            return new Prize(30, 0);
         }
     }
 
-    public Prize losePrize(User winner, User loser, int bet) {
+    public Prize losePrize(User winner, User loser) {
         if (winner.getLevel() < loser.getLevel()) {
             return new Prize(0, 0);
         } else if (winner.getLevel() > loser.getLevel()) {
             return new Prize(10 * (winner.getLevel() - loser.getLevel()), 0);
         } else {
-            return new Prize(5 * (winner.getLevel() - loser.getLevel()), 0);
+            return new Prize(5 , 0);
         }
     }
 }
+

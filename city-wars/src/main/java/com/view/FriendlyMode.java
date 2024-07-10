@@ -8,12 +8,12 @@ import com.model.User;
 import com.model.Card;
 import com.model.game.Game;
 import com.model.game.Prize;
-import com.controller.BetModeController;
+import com.controller.FriendlyModeController;
 import com.Main;
 import de.vandermeer.asciitable.AsciiTable;
 import de.vandermeer.asciitable.CWC_LongestLine;
 
-public class BetMode {
+public class FriendlyMode {
     public static void main(String[] args) {
         User player1 = Main.crud.getUser(1);
         User player2 = Main.crud.getUser(2);
@@ -33,7 +33,7 @@ public class BetMode {
         User loser;
         Card holeCard = new Card("Hole", 0, 0, 0, 0, 0, 0);
 
-        BetModeController controller = new BetModeController();
+        FriendlyModeController controller = new FriendlyModeController();
         Random rand = new Random();
 
         firstPlayer = controller.firstPlayer(player1, player2);
@@ -46,7 +46,7 @@ public class BetMode {
         controller.chooseCharacter(scanner, firstPlayer);
         controller.chooseCharacter(scanner, secondPlayer);
 
-        int bet = controller.welcome(scanner, firstPlayer, secondPlayer);
+        controller.welcome(firstPlayer, secondPlayer);
 
         ArrayList<Card> firstPlayerBoard = new ArrayList<>(21);
         for (int i = 0; i < 21; i++) {
@@ -135,10 +135,10 @@ public class BetMode {
             loser = firstPlayer;
         }
 
-        Prize winnerPrize = controller.winPrize(winner, loser, bet);
+        Prize winnerPrize = controller.winPrize(winner, loser);
         winner.setBalance(winner.getBalance() + winnerPrize.balance);
         winner.addXp(winnerPrize.xp);
-        Prize loserPrize = controller.losePrize(winner, loser, bet);
+        Prize loserPrize = controller.losePrize(winner, loser);
         loser.setBalance(loser.getBalance() + loserPrize.balance);
         loser.addXp(loserPrize.xp);
 
@@ -202,3 +202,4 @@ public class BetMode {
         System.out.println(renderedTable);
     }
 }
+
