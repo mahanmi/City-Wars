@@ -1,9 +1,7 @@
 package com.model;
 
 import java.util.ArrayList;
-import java.util.List;
 import de.vandermeer.asciitable.AsciiTable;
-import de.vandermeer.asciithemes.TA_GridThemes;
 import com.Main;
 
 public class User {
@@ -166,7 +164,7 @@ public class User {
         for (Card card : cards) {
             String name = card.getName();
             int level = card.getLevel();
-            int upgradeCost = (int) (card.getUpgradeCost() * Math.pow(1.25, card.getLevel() - 1));
+            int upgradeCost = (int) (card.getUpgradeCost());
             int power = card.getPower();
             int duration = card.getDuration();
             int damage = card.getDamage();
@@ -211,7 +209,7 @@ public class User {
         for (Card card : allCards) {
             if (!cards.contains(card)) {
                 String name = card.getName();
-                double price = 3 * card.getUpgradeCost();
+                int price = 3 * card.getUpgradeCost();
                 int power = card.getPower();
                 int duration = card.getDuration();
                 int damage = card.getDamage();

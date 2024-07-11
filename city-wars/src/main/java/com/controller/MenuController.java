@@ -2,7 +2,6 @@ package com.controller;
 
 import com.*;
 import com.model.*;
-import com.view.BetMode;
 import com.view.EditProfileMenu;
 import com.view.GameMenu;
 import com.view.MatchHistory;
