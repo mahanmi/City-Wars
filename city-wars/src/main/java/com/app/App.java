@@ -21,7 +21,7 @@ public class App extends Application {
 
   @Override
   public void start(Stage stage) throws IOException {
-    scene = new Scene(loadFXML("authentication/login"), 1200, 674);
+    scene = new Scene(loadFXML("authentication/login"), 1366, 768);
     scene.getStylesheets().add(App.class.getResource("authentication/CSS/login.css").toExternalForm());
     stage.setScene(scene);
     stage.setTitle("City Wars");

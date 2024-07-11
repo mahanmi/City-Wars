@@ -59,7 +59,7 @@ public class MenuController implements Initializable {
   @FXML
   protected void onStoreAndInventoryButtonClick() {
     try {
-      App.setRoot("storeAndInventory/storeAndInventory");
+      App.setRoot("shop/shop");
     } catch (Exception e) {
       e.printStackTrace();
     }

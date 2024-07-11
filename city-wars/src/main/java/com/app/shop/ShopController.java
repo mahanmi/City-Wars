@@ -15,12 +15,18 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.util.Duration;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ShopController implements Initializable {
+
+  @FXML
+  private Label errorLabel;
 
   @FXML
   private Label powerLabel1Up;
@@ -38,7 +44,7 @@ public class ShopController implements Initializable {
   private Label nameLabel1Up;
 
   @FXML
-  ImageView cardImage1Up;
+  private ImageView cardImage1Up;
 
   @FXML
   private Label powerLabel2Up;
@@ -56,7 +62,7 @@ public class ShopController implements Initializable {
   private Label nameLabel2Up;
 
   @FXML
-  ImageView cardImage2Up;
+  private ImageView cardImage2Up;
 
   @FXML
   private Label powerLabel3Up;
@@ -74,7 +80,7 @@ public class ShopController implements Initializable {
   private Label nameLabel3Up;
 
   @FXML
-  ImageView cardImage3Up;
+  private ImageView cardImage3Up;
 
   @FXML
   private Label powerLabel4Up;
@@ -92,7 +98,7 @@ public class ShopController implements Initializable {
   private Label nameLabel4Up;
 
   @FXML
-  ImageView cardImage4Up;
+  private ImageView cardImage4Up;
 
   @FXML
   private Label powerLabel5Up;
@@ -110,7 +116,7 @@ public class ShopController implements Initializable {
   private Label nameLabel5Up;
 
   @FXML
-  ImageView cardImage5Up;
+  private ImageView cardImage5Up;
 
   @FXML
   private Label powerLabel6Up;
@@ -128,7 +134,7 @@ public class ShopController implements Initializable {
   private Label nameLabel6Up;
 
   @FXML
-  ImageView cardImage6Up;
+  private ImageView cardImage6Up;
 
   @FXML
   private Label powerLabel7Up;
@@ -146,7 +152,7 @@ public class ShopController implements Initializable {
   private Label nameLabel7Up;
 
   @FXML
-  ImageView cardImage7Up;
+  private ImageView cardImage7Up;
 
   @FXML
   private Label powerLabel8Up;
@@ -164,7 +170,7 @@ public class ShopController implements Initializable {
   private Label nameLabel8Up;
 
   @FXML
-  ImageView cardImage8Up;
+  private ImageView cardImage8Up;
 
   @FXML
   private Label powerLabel9Up;
@@ -182,7 +188,7 @@ public class ShopController implements Initializable {
   private Label nameLabel9Up;
 
   @FXML
-  ImageView cardImage9Up;
+  private ImageView cardImage9Up;
 
   @FXML
   private Label powerLabel10Up;
@@ -200,7 +206,7 @@ public class ShopController implements Initializable {
   private Label nameLabel10Up;
 
   @FXML
-  ImageView cardImage10Up;
+  private ImageView cardImage10Up;
 
   @FXML
   private Label powerLabel11Up;
@@ -218,7 +224,7 @@ public class ShopController implements Initializable {
   private Label nameLabel11Up;
 
   @FXML
-  ImageView cardImage11Up;
+  private ImageView cardImage11Up;
 
   @FXML
   private Label powerLabel12Up;
@@ -236,7 +242,7 @@ public class ShopController implements Initializable {
   private Label nameLabel12Up;
 
   @FXML
-  ImageView cardImage12Up;
+  private ImageView cardImage12Up;
 
   @FXML
   private Label powerLabel13Up;
@@ -254,7 +260,7 @@ public class ShopController implements Initializable {
   private Label nameLabel13Up;
 
   @FXML
-  ImageView cardImage13Up;
+  private ImageView cardImage13Up;
 
   @FXML
   private Label powerLabel14Up;
@@ -272,7 +278,7 @@ public class ShopController implements Initializable {
   private Label nameLabel14Up;
 
   @FXML
-  ImageView cardImage14Up;
+  private ImageView cardImage14Up;
 
   @FXML
   private Label powerLabel15Up;
@@ -290,7 +296,7 @@ public class ShopController implements Initializable {
   private Label nameLabel15Up;
 
   @FXML
-  ImageView cardImage15Up;
+  private ImageView cardImage15Up;
 
   @FXML
   private Label powerLabel16Up;
@@ -308,7 +314,7 @@ public class ShopController implements Initializable {
   private Label nameLabel16Up;
 
   @FXML
-  ImageView cardImage16Up;
+  private ImageView cardImage16Up;
 
   @FXML
   private Label powerLabel17Up;
@@ -326,7 +332,7 @@ public class ShopController implements Initializable {
   private Label nameLabel17Up;
 
   @FXML
-  ImageView cardImage17Up;
+  private ImageView cardImage17Up;
 
   @FXML
   private Label powerLabel18Up;
@@ -344,7 +350,7 @@ public class ShopController implements Initializable {
   private Label nameLabel18Up;
 
   @FXML
-  ImageView cardImage18Up;
+  private ImageView cardImage18Up;
 
   @FXML
   private Label powerLabel1Buy;
@@ -362,7 +368,7 @@ public class ShopController implements Initializable {
   private Label nameLabel1Buy;
 
   @FXML
-  ImageView cardImage1Buy;
+  private ImageView cardImage1Buy;
 
   @FXML
   private Label powerLabel2Buy;
@@ -380,7 +386,7 @@ public class ShopController implements Initializable {
   private Label nameLabel2Buy;
 
   @FXML
-  ImageView cardImage2Buy;
+  private ImageView cardImage2Buy;
 
   @FXML
   private Label powerLabel3Buy;
@@ -398,7 +404,7 @@ public class ShopController implements Initializable {
   private Label nameLabel3Buy;
 
   @FXML
-  ImageView cardImage3Buy;
+  private ImageView cardImage3Buy;
 
   @FXML
   private Label powerLabel4Buy;
@@ -416,7 +422,7 @@ public class ShopController implements Initializable {
   private Label nameLabel4Buy;
 
   @FXML
-  ImageView cardImage4Buy;
+  private ImageView cardImage4Buy;
 
   @FXML
   private Label powerLabel5Buy;
@@ -434,7 +440,7 @@ public class ShopController implements Initializable {
   private Label nameLabel5Buy;
 
   @FXML
-  ImageView cardImage5Buy;
+  private ImageView cardImage5Buy;
 
   @FXML
   private Label powerLabel6Buy;
@@ -452,7 +458,7 @@ public class ShopController implements Initializable {
   private Label nameLabel6Buy;
 
   @FXML
-  ImageView cardImage6Buy;
+  private ImageView cardImage6Buy;
 
   @FXML
   private Label powerLabel7Buy;
@@ -470,7 +476,7 @@ public class ShopController implements Initializable {
   private Label nameLabel7Buy;
 
   @FXML
-  ImageView cardImage7Buy;
+  private ImageView cardImage7Buy;
 
   @FXML
   private Label powerLabel8Buy;
@@ -488,7 +494,7 @@ public class ShopController implements Initializable {
   private Label nameLabel8Buy;
 
   @FXML
-  ImageView cardImage8Buy;
+  private ImageView cardImage8Buy;
 
   @FXML
   private Label powerLabel9Buy;
@@ -506,7 +512,7 @@ public class ShopController implements Initializable {
   private Label nameLabel9Buy;
 
   @FXML
-  ImageView cardImage9Buy;
+  private ImageView cardImage9Buy;
 
   @FXML
   private Label powerLabel10Buy;
@@ -524,7 +530,7 @@ public class ShopController implements Initializable {
   private Label nameLabel10Buy;
 
   @FXML
-  ImageView cardImage10Buy;
+  private ImageView cardImage10Buy;
 
   @FXML
   private Label powerLabel11Buy;
@@ -542,7 +548,7 @@ public class ShopController implements Initializable {
   private Label nameLabel11Buy;
 
   @FXML
-  ImageView cardImage11Buy;
+  private ImageView cardImage11Buy;
 
   @FXML
   private Label powerLabel12Buy;
@@ -560,7 +566,7 @@ public class ShopController implements Initializable {
   private Label nameLabel12Buy;
 
   @FXML
-  ImageView cardImage12Buy;
+  private ImageView cardImage12Buy;
 
   @FXML
   private Label powerLabel13Buy;
@@ -578,7 +584,7 @@ public class ShopController implements Initializable {
   private Label nameLabel13Buy;
 
   @FXML
-  ImageView cardImage13Buy;
+  private ImageView cardImage13Buy;
 
   @FXML
   private Label powerLabel14Buy;
@@ -596,7 +602,7 @@ public class ShopController implements Initializable {
   private Label nameLabel14Buy;
 
   @FXML
-  ImageView cardImage14Buy;
+  private ImageView cardImage14Buy;
 
   @FXML
   private Label powerLabel15Buy;
@@ -614,7 +620,7 @@ public class ShopController implements Initializable {
   private Label nameLabel15Buy;
 
   @FXML
-  ImageView cardImage15Buy;
+  private ImageView cardImage15Buy;
 
   @FXML
   private Label powerLabel16Buy;
@@ -632,7 +638,7 @@ public class ShopController implements Initializable {
   private Label nameLabel16Buy;
 
   @FXML
-  ImageView cardImage16Buy;
+  private ImageView cardImage16Buy;
 
   @FXML
   private Label powerLabel17Buy;
@@ -650,7 +656,7 @@ public class ShopController implements Initializable {
   private Label nameLabel17Buy;
 
   @FXML
-  ImageView cardImage17Buy;
+  private ImageView cardImage17Buy;
 
   @FXML
   private Label powerLabel18Buy;
@@ -668,65 +674,7 @@ public class ShopController implements Initializable {
   private Label nameLabel18Buy;
 
   @FXML
-  ImageView cardImage18Buy;
-
-  private Label[] powerLabelsUp = { powerLabel1Up, powerLabel2Up, powerLabel3Up, powerLabel4Up, powerLabel5Up,
-      powerLabel6Up,
-      powerLabel7Up, powerLabel8Up, powerLabel9Up, powerLabel10Up, powerLabel11Up, powerLabel12Up, powerLabel13Up,
-      powerLabel14Up, powerLabel15Up, powerLabel16Up, powerLabel17Up, powerLabel18Up };
-
-  private Label[] damageLabelsUp = { damageLabel1Up, damageLabel2Up, damageLabel3Up, damageLabel4Up, damageLabel5Up,
-      damageLabel6Up,
-      damageLabel7Up, damageLabel8Up, damageLabel9Up, damageLabel10Up, damageLabel11Up, damageLabel12Up,
-      damageLabel13Up,
-      damageLabel14Up, damageLabel15Up, damageLabel16Up, damageLabel17Up, damageLabel18Up };
-
-  private Label[] durationLabelsUp = { durationLabel1Up, durationLabel2Up, durationLabel3Up, durationLabel4Up,
-      durationLabel5Up, durationLabel6Up,
-      durationLabel7Up, durationLabel8Up, durationLabel9Up, durationLabel10Up, durationLabel11Up, durationLabel12Up,
-      durationLabel13Up,
-      durationLabel14Up, durationLabel15Up, durationLabel16Up, durationLabel17Up, durationLabel18Up };
-
-  private Label[] priceLabelsUp = { priceLabel1Up, priceLabel2Up, priceLabel3Up, priceLabel4Up, priceLabel5Up,
-      priceLabel6Up,
-      priceLabel7Up, priceLabel8Up, priceLabel9Up, priceLabel10Up, priceLabel11Up, priceLabel12Up, priceLabel13Up,
-      priceLabel14Up, priceLabel15Up, priceLabel16Up, priceLabel17Up, priceLabel18Up };
-
-  private Label[] nameLabelsUp = { nameLabel1Up, nameLabel2Up, nameLabel3Up, nameLabel4Up, nameLabel5Up, nameLabel6Up,
-      nameLabel7Up, nameLabel8Up, nameLabel9Up, nameLabel10Up, nameLabel11Up, nameLabel12Up, nameLabel13Up,
-      nameLabel14Up, nameLabel15Up, nameLabel16Up, nameLabel17Up, nameLabel18Up };
-
-  private ImageView[] cardImagesUp = { cardImage1Up, cardImage2Up, cardImage3Up, cardImage4Up, cardImage5Up,
-      cardImage6Up,
-      cardImage7Up, cardImage8Up, cardImage9Up, cardImage10Up, cardImage11Up, cardImage12Up, cardImage13Up,
-      cardImage14Up, cardImage15Up, cardImage16Up, cardImage17Up, cardImage18Up };
-
-  private Label[] powerLabelsBuy = { powerLabel1Buy, powerLabel2Buy, powerLabel3Buy, powerLabel4Buy, powerLabel5Buy,
-      powerLabel6Buy, powerLabel7Buy, powerLabel8Buy, powerLabel9Buy, powerLabel10Buy, powerLabel11Buy, powerLabel12Buy,
-      powerLabel13Buy, powerLabel14Buy, powerLabel15Buy, powerLabel16Buy, powerLabel17Buy, powerLabel18Buy };
-
-  private Label[] damageLabelsBuy = { damageLabel1Buy, damageLabel2Buy, damageLabel3Buy, damageLabel4Buy,
-      damageLabel5Buy, damageLabel6Buy, damageLabel7Buy, damageLabel8Buy, damageLabel9Buy, damageLabel10Buy,
-      damageLabel11Buy, damageLabel12Buy, damageLabel13Buy, damageLabel14Buy, damageLabel15Buy, damageLabel16Buy,
-      damageLabel17Buy, damageLabel18Buy };
-
-  private Label[] durationLabelsBuy = { durationLabel1Buy, durationLabel2Buy, durationLabel3Buy, durationLabel4Buy,
-      durationLabel5Buy, durationLabel6Buy, durationLabel7Buy, durationLabel8Buy, durationLabel9Buy, durationLabel10Buy,
-      durationLabel11Buy, durationLabel12Buy, durationLabel13Buy, durationLabel14Buy, durationLabel15Buy,
-      durationLabel16Buy, durationLabel17Buy, durationLabel18Buy };
-
-  private Label[] priceLabelsBuy = { priceLabel1Buy, priceLabel2Buy, priceLabel3Buy, priceLabel4Buy, priceLabel5Buy,
-      priceLabel6Buy, priceLabel7Buy, priceLabel8Buy, priceLabel9Buy, priceLabel10Buy, priceLabel11Buy, priceLabel12Buy,
-      priceLabel13Buy, priceLabel14Buy, priceLabel15Buy, priceLabel16Buy, priceLabel17Buy, priceLabel18Buy };
-
-  private Label[] nameLabelsBuy = { nameLabel1Buy, nameLabel2Buy, nameLabel3Buy, nameLabel4Buy, nameLabel5Buy,
-      nameLabel6Buy, nameLabel7Buy, nameLabel8Buy, nameLabel9Buy, nameLabel10Buy, nameLabel11Buy, nameLabel12Buy,
-      nameLabel13Buy, nameLabel14Buy, nameLabel15Buy, nameLabel16Buy, nameLabel17Buy, nameLabel18Buy };
-
-  private ImageView[] cardImagesBuy = { cardImage1Buy, cardImage2Buy, cardImage3Buy, cardImage4Buy, cardImage5Buy,
-      cardImage6Buy, cardImage7Buy, cardImage8Buy, cardImage9Buy, cardImage10Buy, cardImage11Buy, cardImage12Buy,
-      cardImage13Buy, cardImage14Buy, cardImage15Buy, cardImage16Buy, cardImage17Buy, cardImage18Buy };
-
+  private ImageView cardImage18Buy;
 
   private ArrayList<Card> cardsUp = Main.loggedInUser.cards;
 
@@ -734,46 +682,313 @@ public class ShopController implements Initializable {
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
+
     Platform.runLater(new Runnable() {
       @Override
       public void run() {
-        for (int i = 0; i < 18; i++) {
-          if (i >= cardsUp.size()) {
-            powerLabelsUp[i].setText("");
-            damageLabelsUp[i].setText("");
-            durationLabelsUp[i].setText("");
-            priceLabelsUp[i].setText("");
-            nameLabelsUp[i].setText("");
-            cardImagesUp[i].setImage(null);
-          }
-          else {
-            powerLabelsUp[i].setText(String.valueOf(cardsUp.get(i).getPower()));
-            damageLabelsUp[i].setText(String.valueOf(cardsUp.get(i).getDamage()));
-            durationLabelsUp[i].setText(String.valueOf(cardsUp.get(i).getDuration()));
-            priceLabelsUp[i].setText(String.valueOf(cardsUp.get(i).getUpgradeCost()));
-            nameLabelsUp[i].setText(cardsUp.get(i).getName());
-            cardImagesUp[i].setImage(cardsUp.get(i).getImage());
+
+        Label[] powerLabelsUp = new Label[18];
+        {
+          powerLabelsUp[0] = powerLabel1Up;
+          powerLabelsUp[1] = powerLabel2Up;
+          powerLabelsUp[2] = powerLabel3Up;
+          powerLabelsUp[3] = powerLabel4Up;
+          powerLabelsUp[4] = powerLabel5Up;
+          powerLabelsUp[5] = powerLabel6Up;
+          powerLabelsUp[6] = powerLabel7Up;
+          powerLabelsUp[7] = powerLabel8Up;
+          powerLabelsUp[8] = powerLabel9Up;
+          powerLabelsUp[9] = powerLabel10Up;
+          powerLabelsUp[10] = powerLabel11Up;
+          powerLabelsUp[11] = powerLabel12Up;
+          powerLabelsUp[12] = powerLabel13Up;
+          powerLabelsUp[13] = powerLabel14Up;
+          powerLabelsUp[14] = powerLabel15Up;
+          powerLabelsUp[15] = powerLabel16Up;
+          powerLabelsUp[16] = powerLabel17Up;
+          powerLabelsUp[17] = powerLabel18Up;
+        }
+
+        Label[] damageLabelsUp = new Label[18];
+        {
+          damageLabelsUp[0] = damageLabel1Up;
+          damageLabelsUp[1] = damageLabel2Up;
+          damageLabelsUp[2] = damageLabel3Up;
+          damageLabelsUp[3] = damageLabel4Up;
+          damageLabelsUp[4] = damageLabel5Up;
+          damageLabelsUp[5] = damageLabel6Up;
+          damageLabelsUp[6] = damageLabel7Up;
+          damageLabelsUp[7] = damageLabel8Up;
+          damageLabelsUp[8] = damageLabel9Up;
+          damageLabelsUp[9] = damageLabel10Up;
+          damageLabelsUp[10] = damageLabel11Up;
+          damageLabelsUp[11] = damageLabel12Up;
+          damageLabelsUp[12] = damageLabel13Up;
+          damageLabelsUp[13] = damageLabel14Up;
+          damageLabelsUp[14] = damageLabel15Up;
+          damageLabelsUp[15] = damageLabel16Up;
+          damageLabelsUp[16] = damageLabel17Up;
+          damageLabelsUp[17] = damageLabel18Up;
+        }
+
+        Label[] priceLabelsUp = new Label[18];
+        {
+          priceLabelsUp[0] = priceLabel1Up;
+          priceLabelsUp[1] = priceLabel2Up;
+          priceLabelsUp[2] = priceLabel3Up;
+          priceLabelsUp[3] = priceLabel4Up;
+          priceLabelsUp[4] = priceLabel5Up;
+          priceLabelsUp[5] = priceLabel6Up;
+          priceLabelsUp[6] = priceLabel7Up;
+          priceLabelsUp[7] = priceLabel8Up;
+          priceLabelsUp[8] = priceLabel9Up;
+          priceLabelsUp[9] = priceLabel10Up;
+          priceLabelsUp[10] = priceLabel11Up;
+          priceLabelsUp[11] = priceLabel12Up;
+          priceLabelsUp[12] = priceLabel13Up;
+          priceLabelsUp[13] = priceLabel14Up;
+          priceLabelsUp[14] = priceLabel15Up;
+          priceLabelsUp[15] = priceLabel16Up;
+          priceLabelsUp[16] = priceLabel17Up;
+          priceLabelsUp[17] = priceLabel18Up;
+        }
+
+        Label[] nameLabelsUp = new Label[18];
+        {
+          nameLabelsUp[0] = nameLabel1Up;
+          nameLabelsUp[1] = nameLabel2Up;
+          nameLabelsUp[2] = nameLabel3Up;
+          nameLabelsUp[3] = nameLabel4Up;
+          nameLabelsUp[4] = nameLabel5Up;
+          nameLabelsUp[5] = nameLabel6Up;
+          nameLabelsUp[6] = nameLabel7Up;
+          nameLabelsUp[7] = nameLabel8Up;
+          nameLabelsUp[8] = nameLabel9Up;
+          nameLabelsUp[9] = nameLabel10Up;
+          nameLabelsUp[10] = nameLabel11Up;
+          nameLabelsUp[11] = nameLabel12Up;
+          nameLabelsUp[12] = nameLabel13Up;
+          nameLabelsUp[13] = nameLabel14Up;
+          nameLabelsUp[14] = nameLabel15Up;
+          nameLabelsUp[15] = nameLabel16Up;
+          nameLabelsUp[16] = nameLabel17Up;
+          nameLabelsUp[17] = nameLabel18Up;
+        }
+
+        Label[] durationLabelsUp = new Label[18];
+        {
+          durationLabelsUp[0] = durationLabel1Up;
+          durationLabelsUp[1] = durationLabel2Up;
+          durationLabelsUp[2] = durationLabel3Up;
+          durationLabelsUp[3] = durationLabel4Up;
+          durationLabelsUp[4] = durationLabel5Up;
+          durationLabelsUp[5] = durationLabel6Up;
+          durationLabelsUp[6] = durationLabel7Up;
+          durationLabelsUp[7] = durationLabel8Up;
+          durationLabelsUp[8] = durationLabel9Up;
+          durationLabelsUp[9] = durationLabel10Up;
+          durationLabelsUp[10] = durationLabel11Up;
+          durationLabelsUp[11] = durationLabel12Up;
+          durationLabelsUp[12] = durationLabel13Up;
+          durationLabelsUp[13] = durationLabel14Up;
+          durationLabelsUp[14] = durationLabel15Up;
+          durationLabelsUp[15] = durationLabel16Up;
+          durationLabelsUp[16] = durationLabel17Up;
+          durationLabelsUp[17] = durationLabel18Up;
+        }
+
+        ImageView[] cardImagesUp = new ImageView[18];
+        {
+          cardImagesUp[0] = cardImage1Up;
+          cardImagesUp[1] = cardImage2Up;
+          cardImagesUp[2] = cardImage3Up;
+          cardImagesUp[3] = cardImage4Up;
+          cardImagesUp[4] = cardImage5Up;
+          cardImagesUp[5] = cardImage6Up;
+          cardImagesUp[6] = cardImage7Up;
+          cardImagesUp[7] = cardImage8Up;
+          cardImagesUp[8] = cardImage9Up;
+          cardImagesUp[9] = cardImage10Up;
+          cardImagesUp[10] = cardImage11Up;
+          cardImagesUp[11] = cardImage12Up;
+          cardImagesUp[12] = cardImage13Up;
+          cardImagesUp[13] = cardImage14Up;
+          cardImagesUp[14] = cardImage15Up;
+          cardImagesUp[15] = cardImage16Up;
+          cardImagesUp[16] = cardImage17Up;
+          cardImagesUp[17] = cardImage18Up;
+        }
+
+        Label[] powerLabelsBuy = new Label[18];
+        {
+          powerLabelsBuy[0] = powerLabel1Buy;
+          powerLabelsBuy[1] = powerLabel2Buy;
+          powerLabelsBuy[2] = powerLabel3Buy;
+          powerLabelsBuy[3] = powerLabel4Buy;
+          powerLabelsBuy[4] = powerLabel5Buy;
+          powerLabelsBuy[5] = powerLabel6Buy;
+          powerLabelsBuy[6] = powerLabel7Buy;
+          powerLabelsBuy[7] = powerLabel8Buy;
+          powerLabelsBuy[8] = powerLabel9Buy;
+          powerLabelsBuy[9] = powerLabel10Buy;
+          powerLabelsBuy[10] = powerLabel11Buy;
+          powerLabelsBuy[11] = powerLabel12Buy;
+          powerLabelsBuy[12] = powerLabel13Buy;
+          powerLabelsBuy[13] = powerLabel14Buy;
+          powerLabelsBuy[14] = powerLabel15Buy;
+          powerLabelsBuy[15] = powerLabel16Buy;
+          powerLabelsBuy[16] = powerLabel17Buy;
+          powerLabelsBuy[17] = powerLabel18Buy;
+        }
+
+        Label[] damageLabelsBuy = new Label[18];
+        {
+          damageLabelsBuy[0] = damageLabel1Buy;
+          damageLabelsBuy[1] = damageLabel2Buy;
+          damageLabelsBuy[2] = damageLabel3Buy;
+          damageLabelsBuy[3] = damageLabel4Buy;
+          damageLabelsBuy[4] = damageLabel5Buy;
+          damageLabelsBuy[5] = damageLabel6Buy;
+          damageLabelsBuy[6] = damageLabel7Buy;
+          damageLabelsBuy[7] = damageLabel8Buy;
+          damageLabelsBuy[8] = damageLabel9Buy;
+          damageLabelsBuy[9] = damageLabel10Buy;
+          damageLabelsBuy[10] = damageLabel11Buy;
+          damageLabelsBuy[11] = damageLabel12Buy;
+          damageLabelsBuy[12] = damageLabel13Buy;
+          damageLabelsBuy[13] = damageLabel14Buy;
+          damageLabelsBuy[14] = damageLabel15Buy;
+          damageLabelsBuy[15] = damageLabel16Buy;
+          damageLabelsBuy[16] = damageLabel17Buy;
+          damageLabelsBuy[17] = damageLabel18Buy;
+        }
+
+        Label[] durationLabelsBuy = new Label[18];
+        {
+          durationLabelsBuy[0] = durationLabel1Buy;
+          durationLabelsBuy[1] = durationLabel2Buy;
+          durationLabelsBuy[2] = durationLabel3Buy;
+          durationLabelsBuy[3] = durationLabel4Buy;
+          durationLabelsBuy[4] = durationLabel5Buy;
+          durationLabelsBuy[5] = durationLabel6Buy;
+          durationLabelsBuy[6] = durationLabel7Buy;
+          durationLabelsBuy[7] = durationLabel8Buy;
+          durationLabelsBuy[8] = durationLabel9Buy;
+          durationLabelsBuy[9] = durationLabel10Buy;
+          durationLabelsBuy[10] = durationLabel11Buy;
+          durationLabelsBuy[11] = durationLabel12Buy;
+          durationLabelsBuy[12] = durationLabel13Buy;
+          durationLabelsBuy[13] = durationLabel14Buy;
+          durationLabelsBuy[14] = durationLabel15Buy;
+          durationLabelsBuy[15] = durationLabel16Buy;
+          durationLabelsBuy[16] = durationLabel17Buy;
+          durationLabelsBuy[17] = durationLabel18Buy;
+        }
+
+        Label[] priceLabelsBuy = new Label[18];
+        {
+          priceLabelsBuy[0] = priceLabel1Buy;
+          priceLabelsBuy[1] = priceLabel2Buy;
+          priceLabelsBuy[2] = priceLabel3Buy;
+          priceLabelsBuy[3] = priceLabel4Buy;
+          priceLabelsBuy[4] = priceLabel5Buy;
+          priceLabelsBuy[5] = priceLabel6Buy;
+          priceLabelsBuy[6] = priceLabel7Buy;
+          priceLabelsBuy[7] = priceLabel8Buy;
+          priceLabelsBuy[8] = priceLabel9Buy;
+          priceLabelsBuy[9] = priceLabel10Buy;
+          priceLabelsBuy[10] = priceLabel11Buy;
+          priceLabelsBuy[11] = priceLabel12Buy;
+          priceLabelsBuy[12] = priceLabel13Buy;
+          priceLabelsBuy[13] = priceLabel14Buy;
+          priceLabelsBuy[14] = priceLabel15Buy;
+          priceLabelsBuy[15] = priceLabel16Buy;
+          priceLabelsBuy[16] = priceLabel17Buy;
+          priceLabelsBuy[17] = priceLabel18Buy;
+        }
+
+        Label[] nameLabelsBuy = new Label[18];
+        {
+          nameLabelsBuy[0] = nameLabel1Buy;
+          nameLabelsBuy[1] = nameLabel2Buy;
+          nameLabelsBuy[2] = nameLabel3Buy;
+          nameLabelsBuy[3] = nameLabel4Buy;
+          nameLabelsBuy[4] = nameLabel5Buy;
+          nameLabelsBuy[5] = nameLabel6Buy;
+          nameLabelsBuy[6] = nameLabel7Buy;
+          nameLabelsBuy[7] = nameLabel8Buy;
+          nameLabelsBuy[8] = nameLabel9Buy;
+          nameLabelsBuy[9] = nameLabel10Buy;
+          nameLabelsBuy[10] = nameLabel11Buy;
+          nameLabelsBuy[11] = nameLabel12Buy;
+          nameLabelsBuy[12] = nameLabel13Buy;
+          nameLabelsBuy[13] = nameLabel14Buy;
+          nameLabelsBuy[14] = nameLabel15Buy;
+          nameLabelsBuy[15] = nameLabel16Buy;
+          nameLabelsBuy[16] = nameLabel17Buy;
+          nameLabelsBuy[17] = nameLabel18Buy;
+        }
+
+        ImageView[] cardImagesBuy = new ImageView[18];
+        {
+          cardImagesBuy[0] = cardImage1Buy;
+          cardImagesBuy[1] = cardImage2Buy;
+          cardImagesBuy[2] = cardImage3Buy;
+          cardImagesBuy[3] = cardImage4Buy;
+          cardImagesBuy[4] = cardImage5Buy;
+          cardImagesBuy[5] = cardImage6Buy;
+          cardImagesBuy[6] = cardImage7Buy;
+          cardImagesBuy[7] = cardImage8Buy;
+          cardImagesBuy[8] = cardImage9Buy;
+          cardImagesBuy[9] = cardImage10Buy;
+          cardImagesBuy[10] = cardImage11Buy;
+          cardImagesBuy[11] = cardImage12Buy;
+          cardImagesBuy[12] = cardImage13Buy;
+          cardImagesBuy[13] = cardImage14Buy;
+          cardImagesBuy[14] = cardImage15Buy;
+          cardImagesBuy[15] = cardImage16Buy;
+          cardImagesBuy[16] = cardImage17Buy;
+          cardImagesBuy[17] = cardImage18Buy;
+        }
+
+        for (int index = 0; index < 18; index++) {
+          if (index < cardsUp.size()) {
+            powerLabelsUp[index].setText(String.valueOf(cardsUp.get(index).getPower()));
+            damageLabelsUp[index].setText(String.valueOf(cardsUp.get(index).getDamage()));
+            durationLabelsUp[index].setText(String.valueOf(cardsUp.get(index).getDuration()));
+            priceLabelsUp[index].setText(String.valueOf(cardsUp.get(index).getUpgradeCost()));
+            nameLabelsUp[index].setText(cardsUp.get(index).getName());
+            cardImagesUp[index].setImage(cardsUp.get(index).getImage());
+          } else {
+            powerLabelsUp[index].setText("");
+            damageLabelsUp[index].setText("");
+            durationLabelsUp[index].setText("");
+            priceLabelsUp[index].setText("");
+            nameLabelsUp[index].setText("");
+            cardImagesUp[index].visibleProperty().setValue(false);
+            cardImagesUp[index].disableProperty().setValue(true);
           }
         }
 
-        for (int i = 0; i < 18; i++) {
-          if (i >= cardsBuy.size()) {
-            powerLabelsBuy[i].setText("");
-            damageLabelsBuy[i].setText("");
-            durationLabelsBuy[i].setText("");
-            priceLabelsBuy[i].setText("");
-            nameLabelsBuy[i].setText("");
-            cardImagesBuy[i].setImage(null);
-          }
-          else {
-            powerLabelsBuy[i].setText(String.valueOf(cardsBuy.get(i).getPower()));
-            damageLabelsBuy[i].setText(String.valueOf(cardsBuy.get(i).getDamage()));
-            durationLabelsBuy[i].setText(String.valueOf(cardsBuy.get(i).getDuration()));
-            priceLabelsBuy[i].setText(String.valueOf(cardsBuy.get(i).getUpgradeCost()));
-            nameLabelsBuy[i].setText(cardsBuy.get(i).getName());
-            cardImagesBuy[i].setImage(cardsBuy.get(i).getImage());
+        for (int index = 0; index < 18; index++) {
+          if (index < cardsBuy.size()) {
+            powerLabelsBuy[index].setText(String.valueOf(cardsBuy.get(index).getPower()));
+            damageLabelsBuy[index].setText(String.valueOf(cardsBuy.get(index).getDamage()));
+            durationLabelsBuy[index].setText(String.valueOf(cardsBuy.get(index).getDuration()));
+            priceLabelsBuy[index].setText(String.valueOf(3 * cardsBuy.get(index).getUpgradeCost()));
+            nameLabelsBuy[index].setText(cardsBuy.get(index).getName());
+            cardImagesBuy[index].setImage(cardsBuy.get(index).getImage());
+          } else {
+            powerLabelsBuy[index].setText("");
+            damageLabelsBuy[index].setText("");
+            durationLabelsBuy[index].setText("");
+            priceLabelsBuy[index].setText("");
+            nameLabelsBuy[index].setText("");
+            cardImagesBuy[index].visibleProperty().setValue(false);
+            cardImagesBuy[index].disableProperty().setValue(true);
           }
         }
+
       }
     });
   }
@@ -783,4 +998,219 @@ public class ShopController implements Initializable {
     System.out.println("Image clicked");
   }
 
+  @FXML
+  protected void onUpgrade1Click() {
+    errorLabel.setText(Main.loggedInUser.upgradeCard(cardsUp.get(0)));
+    initialize(null, null);
+  }
+
+  @FXML
+  protected void onUpgrade2Click() {
+    errorLabel.setText(Main.loggedInUser.upgradeCard(cardsUp.get(1)));
+    initialize(null, null);
+  }
+
+  @FXML
+  protected void onUpgrade3Click() {
+    errorLabel.setText(Main.loggedInUser.upgradeCard(cardsUp.get(2)));
+    initialize(null, null);
+  }
+
+  @FXML
+  protected void onUpgrade4Click() {
+    errorLabel.setText(Main.loggedInUser.upgradeCard(cardsUp.get(3)));
+    initialize(null, null);
+  }
+
+  @FXML
+  protected void onUpgrade5Click() {
+    errorLabel.setText(Main.loggedInUser.upgradeCard(cardsUp.get(4)));
+    initialize(null, null);
+  }
+
+  @FXML
+  protected void onUpgrade6Click() {
+    errorLabel.setText(Main.loggedInUser.upgradeCard(cardsUp.get(5)));
+    initialize(null, null);
+  }
+
+  @FXML
+  protected void onUpgrade7Click() {
+    errorLabel.setText(Main.loggedInUser.upgradeCard(cardsUp.get(6)));
+    initialize(null, null);
+  }
+
+  @FXML
+  protected void onUpgrade8Click() {
+    errorLabel.setText(Main.loggedInUser.upgradeCard(cardsUp.get(7)));
+    initialize(null, null);
+  }
+
+  @FXML
+  protected void onUpgrade9Click() {
+    errorLabel.setText(Main.loggedInUser.upgradeCard(cardsUp.get(8)));
+    initialize(null, null);
+  }
+
+  @FXML
+  protected void onUpgrade10Click() {
+    errorLabel.setText(Main.loggedInUser.upgradeCard(cardsUp.get(9)));
+    initialize(null, null);
+  }
+
+  @FXML
+  protected void onUpgrade11Click() {
+    errorLabel.setText(Main.loggedInUser.upgradeCard(cardsUp.get(10)));
+    initialize(null, null);
+  }
+
+  @FXML
+  protected void onUpgrade12Click() {
+    errorLabel.setText(Main.loggedInUser.upgradeCard(cardsUp.get(11)));
+    initialize(null, null);
+  }
+
+  @FXML
+  protected void onUpgrade13Click() {
+    errorLabel.setText(Main.loggedInUser.upgradeCard(cardsUp.get(12)));
+    initialize(null, null);
+  }
+
+  @FXML
+  protected void onUpgrade14Click() {
+    errorLabel.setText(Main.loggedInUser.upgradeCard(cardsUp.get(13)));
+    initialize(null, null);
+  }
+
+  @FXML
+  protected void onUpgrade15Click() {
+    errorLabel.setText(Main.loggedInUser.upgradeCard(cardsUp.get(14)));
+    initialize(null, null);
+  }
+
+  @FXML
+  protected void onUpgrade16Click() {
+    errorLabel.setText(Main.loggedInUser.upgradeCard(cardsUp.get(15)));
+    initialize(null, null);
+  }
+
+  @FXML
+  protected void onUpgrade17Click() {
+    errorLabel.setText(Main.loggedInUser.upgradeCard(cardsUp.get(16)));
+    initialize(null, null);
+  }
+
+  @FXML
+  protected void onUpgrade18Click() {
+    errorLabel.setText(Main.loggedInUser.upgradeCard(cardsUp.get(17)));
+    initialize(null, null);
+  }
+
+  @FXML
+  protected void onBuy1Click() {
+    errorLabel.setText(Main.loggedInUser.buyCard(cardsBuy.get(0)));
+    initialize(null, null);
+  }
+
+  @FXML
+  protected void onBuy2Click() {
+    errorLabel.setText(Main.loggedInUser.buyCard(cardsBuy.get(1)));
+    initialize(null, null);
+  }
+
+  @FXML
+  protected void onBuy3Click() {
+    errorLabel.setText(Main.loggedInUser.buyCard(cardsBuy.get(2)));
+    initialize(null, null);
+  }
+
+  @FXML
+  protected void onBuy4Click() {
+    errorLabel.setText(Main.loggedInUser.buyCard(cardsBuy.get(3)));
+    initialize(null, null);
+  }
+
+  @FXML
+  protected void onBuy5Click() {
+    errorLabel.setText(Main.loggedInUser.buyCard(cardsBuy.get(4)));
+    initialize(null, null);
+  }
+
+  @FXML
+  protected void onBuy6Click() {
+    errorLabel.setText(Main.loggedInUser.buyCard(cardsBuy.get(5)));
+    initialize(null, null);
+  }
+
+  @FXML
+  protected void onBuy7Click() {
+    errorLabel.setText(Main.loggedInUser.buyCard(cardsBuy.get(6)));
+    initialize(null, null);
+  }
+
+  @FXML
+  protected void onBuy8Click() {
+    errorLabel.setText(Main.loggedInUser.buyCard(cardsBuy.get(7)));
+    initialize(null, null);
+  }
+
+  @FXML
+  protected void onBuy9Click() {
+    errorLabel.setText(Main.loggedInUser.buyCard(cardsBuy.get(8)));
+    initialize(null, null);
+  }
+
+  @FXML
+  protected void onBuy10Click() {
+    errorLabel.setText(Main.loggedInUser.buyCard(cardsBuy.get(9)));
+    initialize(null, null);
+  }
+
+  @FXML
+  protected void onBuy11Click() {
+    errorLabel.setText(Main.loggedInUser.buyCard(cardsBuy.get(10)));
+    initialize(null, null);
+  }
+
+  @FXML
+  protected void onBuy12Click() {
+    errorLabel.setText(Main.loggedInUser.buyCard(cardsBuy.get(11)));
+    initialize(null, null);
+  }
+
+  @FXML
+  protected void onBuy13Click() {
+    errorLabel.setText(Main.loggedInUser.buyCard(cardsBuy.get(12)));
+    initialize(null, null);
+  }
+
+  @FXML
+  protected void onBuy14Click() {
+    errorLabel.setText(Main.loggedInUser.buyCard(cardsBuy.get(13)));
+    initialize(null, null);
+  }
+
+  @FXML
+  protected void onBuy15Click() {
+    errorLabel.setText(Main.loggedInUser.buyCard(cardsBuy.get(14)));
+    initialize(null, null);
+  }
+
+  @FXML
+  protected void onBuy16Click() {
+    errorLabel.setText(Main.loggedInUser.buyCard(cardsBuy.get(15)));
+    initialize(null, null);
+  }
+
+  @FXML
+  protected void onBuy17Click() {
+    errorLabel.setText(Main.loggedInUser.buyCard(cardsBuy.get(16)));
+    initialize(null, null);
+  }
+
+  @FXML
+  protected void onBuy18Click() {
+    errorLabel.setText(Main.loggedInUser.buyCard(cardsBuy.get(17)));
+    initialize(null, null);
+  }
 }

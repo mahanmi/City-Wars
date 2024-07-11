@@ -248,14 +248,29 @@ public class User {
         System.out.println("Your balance: " + this.balance + "$");
     }
 
-    public void upgradeCard(Card card) {
+    public String upgradeCard(Card card) {
         for (Card i : cards) {
             if (i.equals(card)) {
+                if (balance < card.getUpgradeCost()) {
+                    return "You don't have enough money to upgrade this card.";
+                }
+                balance -= card.getUpgradeCost();
                 i.setLevel(i.getLevel() + 1);
                 Main.crud.updateUser(this);
-                return;
+                return "Card upgraded successfully.";
             }
         }
+        return "You don't own this card.";
+    }
+
+    public String buyCard(Card card) {
+        if (balance < 3 * card.getUpgradeCost()) {
+            return "You don't have enough money to buy this card.";
+        }
+        balance -= 3 * card.getUpgradeCost();
+        cards.add(card);
+        Main.crud.updateUser(this);
+        return "Card bought successfully.";
     }
 
     public void addXp(int xp) {

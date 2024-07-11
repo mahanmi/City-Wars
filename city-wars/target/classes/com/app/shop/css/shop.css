@@ -1,8 +1,16 @@
-.card :hover {
-	-fx-border-color: #e2ad8d;
-	-fx-border-style: solid;
-	-fx-border-width: 3;
-	-fx-border-radius: 5;
+.price {
+	-fx-font-size: 14px;
+	-fx-font-weight: bold;
+	-fx-text-fill: #ffffff;
+}
+
+.price:hover {
+	-fx-text-fill: #ffee00;
+}
+
+.card-name {
+	-fx-font-size: 12px;
+	-fx-text-fill: black;
 }
 
 .tab-pane {
