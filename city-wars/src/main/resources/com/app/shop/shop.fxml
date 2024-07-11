@@ -69,7 +69,7 @@
                                           <RowConstraints maxHeight="108.5" minHeight="10.0" prefHeight="21.5" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <ImageView fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <ImageView fx:id="cardImage1Up" fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <image>
                                                 <Image url="@img/hole changer.png" />
                                              </image>
@@ -109,7 +109,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
+                                                            <Label fx:id="nameLabel1Up" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="15.0" />
                                                                </font>
@@ -134,7 +134,7 @@
                                                                   <Image url="@img/coin.png" />
                                                                </image>
                                                             </ImageView>
-                                                            <Label text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                            <Label fx:id="priceLabel1Up" text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="14.0" />
                                                                </font>
@@ -143,17 +143,17 @@
                                                       </GridPane>
                                                    </children>
                                                 </GridPane>
-                                                <Label fx:id="damageLabel1111" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label fx:id="durationLabel1Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="powerLabel1111" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Label fx:id="damageLabel1Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="durationLabel1111" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <Label fx:id="powerLabel1Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
@@ -174,7 +174,7 @@
                                           <RowConstraints maxHeight="108.5" minHeight="10.0" prefHeight="21.5" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <ImageView fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <ImageView fx:id="cardImage7Up" fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <image>
                                                 <Image url="@img/hole changer.png" />
                                              </image>
@@ -214,7 +214,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
+                                                            <Label fx:id="nameLabel7Up" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="15.0" />
                                                                </font>
@@ -239,7 +239,7 @@
                                                                   <Image url="@img/coin.png" />
                                                                </image>
                                                             </ImageView>
-                                                            <Label text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                            <Label fx:id="priceLabel7Up" text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="14.0" />
                                                                </font>
@@ -248,17 +248,17 @@
                                                       </GridPane>
                                                    </children>
                                                 </GridPane>
-                                                <Label fx:id="damageLabel11" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label fx:id="durationLabel7Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="powerLabel11" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Label fx:id="damageLabel7Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="durationLabel11" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <Label fx:id="powerLabel7Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
@@ -279,7 +279,7 @@
                                           <RowConstraints maxHeight="108.5" minHeight="10.0" prefHeight="21.5" vgrow="SOMETIMES" />
                                       </rowConstraints>
                                        <children>
-                                          <ImageView fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <ImageView fx:id="cardImage13Up" fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <image>
                                                 <Image url="@img/hole changer.png" />
                                              </image>
@@ -319,7 +319,7 @@
                                                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                         </rowConstraints>
                                                          <children>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
+                                                            <Label fx:id="nameLabel13Up" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="15.0" />
                                                                </font>
@@ -344,7 +344,7 @@
                                                                   <Image url="@img/coin.png" />
                                                                </image>
                                                             </ImageView>
-                                                            <Label text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                            <Label fx:id="priceLabel13Up" text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="14.0" />
                                                                </font>
@@ -353,17 +353,17 @@
                                                       </GridPane>
                                                    </children>
                                                 </GridPane>
-                                                <Label fx:id="damageLabel1" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label fx:id="durationLabel13Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="powerLabel1" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Label fx:id="damageLabel13Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="durationLabel1" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <Label fx:id="powerLabel13Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
@@ -384,7 +384,7 @@
                                           <RowConstraints maxHeight="108.5" minHeight="10.0" prefHeight="21.5" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <ImageView fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <ImageView fx:id="cardImage2Up" fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <image>
                                                 <Image url="@img/hole changer.png" />
                                              </image>
@@ -424,14 +424,14 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
+                                                            <Label fx:id="nameLabel2Up" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="15.0" />
                                                                </font>
                                                             </Label>
                                                          </children>
                                                       </GridPane>
-                                                      <GridPane GridPane.rowIndex="2">
+                                                      <GridPane fx:id="priceLabel2Up" GridPane.rowIndex="2">
                                                          <columnConstraints>
                                                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="66.75" minWidth="10.0" prefWidth="20.0" />
                                                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.25" minWidth="10.0" prefWidth="25.0" />
@@ -458,17 +458,17 @@
                                                       </GridPane>
                                                    </children>
                                                 </GridPane>
-                                                <Label fx:id="damageLabel111" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label fx:id="durationLabel2Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="powerLabel111" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Label fx:id="damageLabel2Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="durationLabel111" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <Label fx:id="powerLabel2Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
@@ -489,7 +489,7 @@
                                           <RowConstraints maxHeight="108.5" minHeight="10.0" prefHeight="21.5" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <ImageView fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <ImageView fx:id="cardImage8Up" fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <image>
                                                 <Image url="@img/hole changer.png" />
                                              </image>
@@ -529,7 +529,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
+                                                            <Label fx:id="nameLabel8Up" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="15.0" />
                                                                </font>
@@ -554,7 +554,7 @@
                                                                   <Image url="@img/coin.png" />
                                                                </image>
                                                             </ImageView>
-                                                            <Label text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                            <Label fx:id="priceLabel8Up" text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="14.0" />
                                                                </font>
@@ -563,17 +563,17 @@
                                                       </GridPane>
                                                    </children>
                                                 </GridPane>
-                                                <Label fx:id="damageLabel1112" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label fx:id="durationLabel8Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="powerLabel1112" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Label fx:id="damageLabel8Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="durationLabel1112" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <Label fx:id="powerLabel8Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
@@ -594,7 +594,7 @@
                                           <RowConstraints maxHeight="108.5" minHeight="10.0" prefHeight="21.5" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <ImageView fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <ImageView fx:id="cardImage14Up" fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <image>
                                                 <Image url="@img/hole changer.png" />
                                              </image>
@@ -634,7 +634,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
+                                                            <Label fx:id="nameLabel14Up" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="15.0" />
                                                                </font>
@@ -659,7 +659,7 @@
                                                                   <Image url="@img/coin.png" />
                                                                </image>
                                                             </ImageView>
-                                                            <Label text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                            <Label fx:id="priceLabel14Up" text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="14.0" />
                                                                </font>
@@ -668,17 +668,17 @@
                                                       </GridPane>
                                                    </children>
                                                 </GridPane>
-                                                <Label fx:id="damageLabel1113" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label fx:id="durationLabel14Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="powerLabel1113" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Label fx:id="damageLabel14Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="durationLabel1113" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <Label fx:id="powerLabel14Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
@@ -699,7 +699,7 @@
                                           <RowConstraints maxHeight="108.5" minHeight="10.0" prefHeight="21.5" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <ImageView fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <ImageView fx:id="cardImage3Up" fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <image>
                                                 <Image url="@img/hole changer.png" />
                                              </image>
@@ -739,7 +739,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
+                                                            <Label fx:id="nameLabel3Up" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="15.0" />
                                                                </font>
@@ -764,7 +764,7 @@
                                                                   <Image url="@img/coin.png" />
                                                                </image>
                                                             </ImageView>
-                                                            <Label text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                            <Label fx:id="priceLabel3Up" text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="14.0" />
                                                                </font>
@@ -773,17 +773,17 @@
                                                       </GridPane>
                                                    </children>
                                                 </GridPane>
-                                                <Label fx:id="damageLabel1114" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label fx:id="durationLabel3Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="powerLabel1114" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Label fx:id="damageLabel3Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="durationLabel1114" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <Label fx:id="powerLabel3Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
@@ -804,7 +804,7 @@
                                           <RowConstraints maxHeight="108.5" minHeight="10.0" prefHeight="21.5" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <ImageView fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <ImageView fx:id="cardImage9Up" fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <image>
                                                 <Image url="@img/hole changer.png" />
                                              </image>
@@ -844,7 +844,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
+                                                            <Label fx:id="nameLabel9Up" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="15.0" />
                                                                </font>
@@ -869,7 +869,7 @@
                                                                   <Image url="@img/coin.png" />
                                                                </image>
                                                             </ImageView>
-                                                            <Label text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                            <Label fx:id="priceLabel9Up" text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="14.0" />
                                                                </font>
@@ -878,17 +878,17 @@
                                                       </GridPane>
                                                    </children>
                                                 </GridPane>
-                                                <Label fx:id="damageLabel1115" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label fx:id="durationLabel9Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="powerLabel1115" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Label fx:id="damageLabel9Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="durationLabel1115" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <Label fx:id="powerLabel9Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
@@ -909,7 +909,7 @@
                                           <RowConstraints maxHeight="108.5" minHeight="10.0" prefHeight="21.5" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <ImageView fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <ImageView fx:id="cardImage15Up" fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <image>
                                                 <Image url="@img/hole changer.png" />
                                              </image>
@@ -949,7 +949,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
+                                                            <Label fx:id="nameLabel15Up" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="15.0" />
                                                                </font>
@@ -974,7 +974,7 @@
                                                                   <Image url="@img/coin.png" />
                                                                </image>
                                                             </ImageView>
-                                                            <Label text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                            <Label fx:id="priceLabel15Up" text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="14.0" />
                                                                </font>
@@ -983,17 +983,17 @@
                                                       </GridPane>
                                                    </children>
                                                 </GridPane>
-                                                <Label fx:id="damageLabel1116" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label fx:id="durationLabel15Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="powerLabel1116" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Label fx:id="damageLabel15Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="durationLabel1116" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <Label fx:id="powerLabel15Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
@@ -1014,7 +1014,7 @@
                                           <RowConstraints maxHeight="108.5" minHeight="10.0" prefHeight="21.5" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <ImageView fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <ImageView fx:id="cardImage4Up" fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <image>
                                                 <Image url="@img/hole changer.png" />
                                              </image>
@@ -1054,14 +1054,14 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
+                                                            <Label fx:id="nameLabel4Up" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="15.0" />
                                                                </font>
                                                             </Label>
                                                          </children>
                                                       </GridPane>
-                                                      <GridPane GridPane.rowIndex="2">
+                                                      <GridPane fx:id="priceLabel4Up" GridPane.rowIndex="2">
                                                          <columnConstraints>
                                                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="66.75" minWidth="10.0" prefWidth="20.0" />
                                                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.25" minWidth="10.0" prefWidth="25.0" />
@@ -1088,17 +1088,17 @@
                                                       </GridPane>
                                                    </children>
                                                 </GridPane>
-                                                <Label fx:id="damageLabel1117" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label fx:id="durationLabel4Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="powerLabel1117" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Label fx:id="damageLabel4Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="durationLabel1117" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <Label fx:id="powerLabel4Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
@@ -1119,7 +1119,7 @@
                                           <RowConstraints maxHeight="108.5" minHeight="10.0" prefHeight="21.5" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <ImageView fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <ImageView fx:id="cardImage10Up" fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <image>
                                                 <Image url="@img/hole changer.png" />
                                              </image>
@@ -1159,7 +1159,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
+                                                            <Label fx:id="nameLabel10Up" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="15.0" />
                                                                </font>
@@ -1184,7 +1184,7 @@
                                                                   <Image url="@img/coin.png" />
                                                                </image>
                                                             </ImageView>
-                                                            <Label text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                            <Label fx:id="priceLabel10Up" text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="14.0" />
                                                                </font>
@@ -1193,17 +1193,17 @@
                                                       </GridPane>
                                                    </children>
                                                 </GridPane>
-                                                <Label fx:id="damageLabel1118" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label fx:id="durationLabel10Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="powerLabel1118" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Label fx:id="damageLabel10Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="durationLabel1118" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <Label fx:id="powerLabel10Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
@@ -1224,7 +1224,7 @@
                                           <RowConstraints maxHeight="108.5" minHeight="10.0" prefHeight="21.5" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <ImageView fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <ImageView fx:id="cardImage16Up" fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <image>
                                                 <Image url="@img/hole changer.png" />
                                              </image>
@@ -1264,7 +1264,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
+                                                            <Label fx:id="nameLabel16Up" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="15.0" />
                                                                </font>
@@ -1289,7 +1289,7 @@
                                                                   <Image url="@img/coin.png" />
                                                                </image>
                                                             </ImageView>
-                                                            <Label text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                            <Label fx:id="priceLabel16Up" text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="14.0" />
                                                                </font>
@@ -1298,17 +1298,17 @@
                                                       </GridPane>
                                                    </children>
                                                 </GridPane>
-                                                <Label fx:id="damageLabel1119" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label fx:id="durationLabel16Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="powerLabel1119" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Label fx:id="damageLabel16Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="durationLabel1119" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <Label fx:id="powerLabel16Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
@@ -1329,7 +1329,7 @@
                                           <RowConstraints maxHeight="108.5" minHeight="10.0" prefHeight="21.5" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <ImageView fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <ImageView fx:id="cardImage5Up" fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <image>
                                                 <Image url="@img/hole changer.png" />
                                              </image>
@@ -1369,7 +1369,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
+                                                            <Label fx:id="nameLabel5Up" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="15.0" />
                                                                </font>
@@ -1394,7 +1394,7 @@
                                                                   <Image url="@img/coin.png" />
                                                                </image>
                                                             </ImageView>
-                                                            <Label text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                            <Label fx:id="priceLabel5Up" text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="14.0" />
                                                                </font>
@@ -1403,17 +1403,17 @@
                                                       </GridPane>
                                                    </children>
                                                 </GridPane>
-                                                <Label fx:id="damageLabel11110" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label fx:id="durationLabel5Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="powerLabel11110" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Label fx:id="damageLabel5Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="durationLabel11110" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <Label fx:id="powerLabel5Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
@@ -1434,7 +1434,7 @@
                                           <RowConstraints maxHeight="108.5" minHeight="10.0" prefHeight="21.5" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <ImageView fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <ImageView fx:id="cardImage11Up" fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <image>
                                                 <Image url="@img/hole changer.png" />
                                              </image>
@@ -1474,7 +1474,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
+                                                            <Label fx:id="nameLabel11Up" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="15.0" />
                                                                </font>
@@ -1499,7 +1499,7 @@
                                                                   <Image url="@img/coin.png" />
                                                                </image>
                                                             </ImageView>
-                                                            <Label text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                            <Label fx:id="priceLabel11Up" text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="14.0" />
                                                                </font>
@@ -1508,17 +1508,17 @@
                                                       </GridPane>
                                                    </children>
                                                 </GridPane>
-                                                <Label fx:id="damageLabel11111" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label fx:id="durationLabel11Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="powerLabel11111" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Label fx:id="damageLabel11Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="durationLabel11111" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <Label fx:id="powerLabel11Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
@@ -1539,7 +1539,7 @@
                                           <RowConstraints maxHeight="108.5" minHeight="10.0" prefHeight="21.5" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <ImageView fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <ImageView fx:id="cardImage17Up" fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <image>
                                                 <Image url="@img/hole changer.png" />
                                              </image>
@@ -1579,14 +1579,14 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
+                                                            <Label fx:id="nameLabel17Up" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="15.0" />
                                                                </font>
                                                             </Label>
                                                          </children>
                                                       </GridPane>
-                                                      <GridPane GridPane.rowIndex="2">
+                                                      <GridPane fx:id="priceLabel17Up" GridPane.rowIndex="2">
                                                          <columnConstraints>
                                                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="66.75" minWidth="10.0" prefWidth="20.0" />
                                                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.25" minWidth="10.0" prefWidth="25.0" />
@@ -1613,17 +1613,17 @@
                                                       </GridPane>
                                                    </children>
                                                 </GridPane>
-                                                <Label fx:id="damageLabel11112" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label fx:id="durationLabel17Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="powerLabel11112" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Label fx:id="damageLabel17Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="durationLabel11112" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <Label fx:id="powerLabel17Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
@@ -1644,7 +1644,7 @@
                                           <RowConstraints maxHeight="108.5" minHeight="10.0" prefHeight="21.5" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <ImageView fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <ImageView fx:id="cardImage6Up" fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <image>
                                                 <Image url="@img/hole changer.png" />
                                              </image>
@@ -1684,7 +1684,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
+                                                            <Label fx:id="nameLabel6Up" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="15.0" />
                                                                </font>
@@ -1709,7 +1709,7 @@
                                                                   <Image url="@img/coin.png" />
                                                                </image>
                                                             </ImageView>
-                                                            <Label text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                            <Label fx:id="priceLabel6Up" text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="14.0" />
                                                                </font>
@@ -1718,17 +1718,17 @@
                                                       </GridPane>
                                                    </children>
                                                 </GridPane>
-                                                <Label fx:id="damageLabel11113" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label fx:id="durationLabel6Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="powerLabel11113" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Label fx:id="damageLabel6Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="durationLabel11113" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <Label fx:id="powerLabel6Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
@@ -1749,7 +1749,7 @@
                                           <RowConstraints maxHeight="108.5" minHeight="10.0" prefHeight="21.5" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <ImageView fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <ImageView fx:id="cardImage12Up" fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <image>
                                                 <Image url="@img/hole changer.png" />
                                              </image>
@@ -1789,7 +1789,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
+                                                            <Label fx:id="nameLabel12Up" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="15.0" />
                                                                </font>
@@ -1814,7 +1814,7 @@
                                                                   <Image url="@img/coin.png" />
                                                                </image>
                                                             </ImageView>
-                                                            <Label text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                            <Label fx:id="priceLabel12Up" text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="14.0" />
                                                                </font>
@@ -1823,17 +1823,17 @@
                                                       </GridPane>
                                                    </children>
                                                 </GridPane>
-                                                <Label fx:id="damageLabel11114" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label fx:id="durationLabel12Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="powerLabel11114" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Label fx:id="damageLabel12Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="durationLabel11114" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <Label fx:id="powerLabel12Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
@@ -1854,7 +1854,7 @@
                                           <RowConstraints maxHeight="108.5" minHeight="10.0" prefHeight="21.5" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <ImageView fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <ImageView fx:id="cardImage18Up" fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <image>
                                                 <Image url="@img/hole changer.png" />
                                              </image>
@@ -1894,7 +1894,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
+                                                            <Label fx:id="nameLabel18Up" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="15.0" />
                                                                </font>
@@ -1919,7 +1919,7 @@
                                                                   <Image url="@img/coin.png" />
                                                                </image>
                                                             </ImageView>
-                                                            <Label text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                            <Label fx:id="priceLabel18Up" text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="14.0" />
                                                                </font>
@@ -1928,17 +1928,17 @@
                                                       </GridPane>
                                                    </children>
                                                 </GridPane>
-                                                <Label fx:id="damageLabel11115" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label fx:id="durationLabel18Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="powerLabel11115" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Label fx:id="damageLabel18Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="durationLabel11115" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <Label fx:id="powerLabel18Up" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
@@ -1984,7 +1984,7 @@
                                           <RowConstraints maxHeight="108.5" minHeight="10.0" prefHeight="21.5" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <ImageView fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <ImageView fx:id="cardImage1Buy" fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <image>
                                                 <Image url="@img/hole changer.png" />
                                              </image>
@@ -2024,7 +2024,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
+                                                            <Label fx:id="nameLabel1Buy" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="15.0" />
                                                                </font>
@@ -2049,7 +2049,7 @@
                                                                   <Image url="@img/coin.png" />
                                                                </image>
                                                             </ImageView>
-                                                            <Label text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                            <Label fx:id="priceLabel1Buy" text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="14.0" />
                                                                </font>
@@ -2058,17 +2058,17 @@
                                                       </GridPane>
                                                    </children>
                                                 </GridPane>
-                                                <Label fx:id="damageLabel11111" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label fx:id="durationLabel1Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="powerLabel11111" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Label fx:id="damageLabel1Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="durationLabel11111" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <Label fx:id="powerLabel1Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
@@ -2089,7 +2089,7 @@
                                           <RowConstraints maxHeight="108.5" minHeight="10.0" prefHeight="21.5" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <ImageView fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <ImageView fx:id="cardImage7Buy" fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <image>
                                                 <Image url="@img/hole changer.png" />
                                              </image>
@@ -2129,7 +2129,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
+                                                            <Label fx:id="nameLabel7Buy" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="15.0" />
                                                                </font>
@@ -2154,7 +2154,7 @@
                                                                   <Image url="@img/coin.png" />
                                                                </image>
                                                             </ImageView>
-                                                            <Label text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                            <Label fx:id="priceLabel7Buy" text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="14.0" />
                                                                </font>
@@ -2163,17 +2163,17 @@
                                                       </GridPane>
                                                    </children>
                                                 </GridPane>
-                                                <Label fx:id="damageLabel111" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label fx:id="durationLabel7Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="powerLabel111" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Label fx:id="damageLabel7Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="durationLabel111" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <Label fx:id="powerLabel7Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
@@ -2194,7 +2194,7 @@
                                           <RowConstraints maxHeight="108.5" minHeight="10.0" prefHeight="21.5" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <ImageView fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <ImageView fx:id="cardImage13Buy" fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <image>
                                                 <Image url="@img/hole changer.png" />
                                              </image>
@@ -2234,7 +2234,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
+                                                            <Label fx:id="nameLabel13Buy" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="15.0" />
                                                                </font>
@@ -2259,7 +2259,7 @@
                                                                   <Image url="@img/coin.png" />
                                                                </image>
                                                             </ImageView>
-                                                            <Label text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                            <Label fx:id="priceLabel13Buy" text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="14.0" />
                                                                </font>
@@ -2268,17 +2268,17 @@
                                                       </GridPane>
                                                    </children>
                                                 </GridPane>
-                                                <Label fx:id="damageLabel11" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label fx:id="durationLabel13Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="powerLabel11" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Label fx:id="damageLabel13Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="durationLabel11" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <Label fx:id="powerLabel13Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
@@ -2299,7 +2299,7 @@
                                           <RowConstraints maxHeight="108.5" minHeight="10.0" prefHeight="21.5" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <ImageView fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <ImageView fx:id="cardImage2Buy" fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <image>
                                                 <Image url="@img/hole changer.png" />
                                              </image>
@@ -2339,7 +2339,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
+                                                            <Label fx:id="nameLabel2Buy" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="15.0" />
                                                                </font>
@@ -2364,7 +2364,7 @@
                                                                   <Image url="@img/coin.png" />
                                                                </image>
                                                             </ImageView>
-                                                            <Label text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                            <Label fx:id="priceLabel2Buy" text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="14.0" />
                                                                </font>
@@ -2373,17 +2373,17 @@
                                                       </GridPane>
                                                    </children>
                                                 </GridPane>
-                                                <Label fx:id="damageLabel1111" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label fx:id="durationLabel2Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="powerLabel1111" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Label fx:id="damageLabel2Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="durationLabel1111" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <Label fx:id="powerLabel2Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
@@ -2404,7 +2404,7 @@
                                           <RowConstraints maxHeight="108.5" minHeight="10.0" prefHeight="21.5" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <ImageView fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <ImageView fx:id="cardImage8Buy" fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <image>
                                                 <Image url="@img/hole changer.png" />
                                              </image>
@@ -2444,7 +2444,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
+                                                            <Label fx:id="nameLabel8Buy" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="15.0" />
                                                                </font>
@@ -2469,7 +2469,7 @@
                                                                   <Image url="@img/coin.png" />
                                                                </image>
                                                             </ImageView>
-                                                            <Label text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                            <Label fx:id="priceLabel8Buy" text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="14.0" />
                                                                </font>
@@ -2478,17 +2478,17 @@
                                                       </GridPane>
                                                    </children>
                                                 </GridPane>
-                                                <Label fx:id="damageLabel11121" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label fx:id="durationLabel8Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="powerLabel11121" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Label fx:id="damageLabel8Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="durationLabel11121" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <Label fx:id="powerLabel8Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
@@ -2509,7 +2509,7 @@
                                           <RowConstraints maxHeight="108.5" minHeight="10.0" prefHeight="21.5" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <ImageView fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <ImageView fx:id="cardImage14Buy" fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <image>
                                                 <Image url="@img/hole changer.png" />
                                              </image>
@@ -2549,7 +2549,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
+                                                            <Label fx:id="nameLabel14Buy" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="15.0" />
                                                                </font>
@@ -2574,7 +2574,7 @@
                                                                   <Image url="@img/coin.png" />
                                                                </image>
                                                             </ImageView>
-                                                            <Label text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                            <Label fx:id="priceLabel14Buy" text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="14.0" />
                                                                </font>
@@ -2583,17 +2583,17 @@
                                                       </GridPane>
                                                    </children>
                                                 </GridPane>
-                                                <Label fx:id="damageLabel11131" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label fx:id="durationLabel14Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="powerLabel11131" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Label fx:id="damageLabel14Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="durationLabel11131" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <Label fx:id="powerLabel14Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
@@ -2614,7 +2614,7 @@
                                           <RowConstraints maxHeight="108.5" minHeight="10.0" prefHeight="21.5" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <ImageView fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <ImageView fx:id="cardImage3Buy" fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <image>
                                                 <Image url="@img/hole changer.png" />
                                              </image>
@@ -2654,7 +2654,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
+                                                            <Label fx:id="nameLabel3Buy" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="15.0" />
                                                                </font>
@@ -2679,7 +2679,7 @@
                                                                   <Image url="@img/coin.png" />
                                                                </image>
                                                             </ImageView>
-                                                            <Label text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                            <Label fx:id="priceLabel3Buy" text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="14.0" />
                                                                </font>
@@ -2688,17 +2688,17 @@
                                                       </GridPane>
                                                    </children>
                                                 </GridPane>
-                                                <Label fx:id="damageLabel11141" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label fx:id="durationLabel3Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="powerLabel11141" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Label fx:id="damageLabel3Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="durationLabel11141" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <Label fx:id="powerLabel3Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
@@ -2719,7 +2719,7 @@
                                           <RowConstraints maxHeight="108.5" minHeight="10.0" prefHeight="21.5" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <ImageView fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <ImageView fx:id="cardImage9Buy" fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <image>
                                                 <Image url="@img/hole changer.png" />
                                              </image>
@@ -2759,7 +2759,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
+                                                            <Label fx:id="nameLabel9Buy" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="15.0" />
                                                                </font>
@@ -2784,7 +2784,7 @@
                                                                   <Image url="@img/coin.png" />
                                                                </image>
                                                             </ImageView>
-                                                            <Label text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                            <Label fx:id="priceLabel9Buy" text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="14.0" />
                                                                </font>
@@ -2793,17 +2793,17 @@
                                                       </GridPane>
                                                    </children>
                                                 </GridPane>
-                                                <Label fx:id="damageLabel11151" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label fx:id="durationLabel9Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="powerLabel11151" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Label fx:id="damageLabel9Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="durationLabel11151" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <Label fx:id="powerLabel9Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
@@ -2824,7 +2824,7 @@
                                           <RowConstraints maxHeight="108.5" minHeight="10.0" prefHeight="21.5" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <ImageView fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <ImageView fx:id="cardImage15Buy" fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <image>
                                                 <Image url="@img/hole changer.png" />
                                              </image>
@@ -2864,7 +2864,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
+                                                            <Label fx:id="nameLabel15Buy" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="15.0" />
                                                                </font>
@@ -2889,7 +2889,7 @@
                                                                   <Image url="@img/coin.png" />
                                                                </image>
                                                             </ImageView>
-                                                            <Label text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                            <Label fx:id="priceLabel15Buy" text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="14.0" />
                                                                </font>
@@ -2898,17 +2898,17 @@
                                                       </GridPane>
                                                    </children>
                                                 </GridPane>
-                                                <Label fx:id="damageLabel11161" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label fx:id="durationLabel15Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="powerLabel11161" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Label fx:id="damageLabel15Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="durationLabel11161" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <Label fx:id="powerLabel15Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
@@ -2929,7 +2929,7 @@
                                           <RowConstraints maxHeight="108.5" minHeight="10.0" prefHeight="21.5" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <ImageView fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <ImageView fx:id="cardImage4Buy" fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <image>
                                                 <Image url="@img/hole changer.png" />
                                              </image>
@@ -2969,7 +2969,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
+                                                            <Label fx:id="nameLabel4Buy" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="15.0" />
                                                                </font>
@@ -2994,7 +2994,7 @@
                                                                   <Image url="@img/coin.png" />
                                                                </image>
                                                             </ImageView>
-                                                            <Label text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                            <Label fx:id="priceLabel4Buy" text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="14.0" />
                                                                </font>
@@ -3003,17 +3003,17 @@
                                                       </GridPane>
                                                    </children>
                                                 </GridPane>
-                                                <Label fx:id="damageLabel11171" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label fx:id="durationLabel4Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="powerLabel11171" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Label fx:id="damageLabel4Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="durationLabel11171" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <Label fx:id="powerLabel4Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
@@ -3034,7 +3034,7 @@
                                           <RowConstraints maxHeight="108.5" minHeight="10.0" prefHeight="21.5" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <ImageView fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <ImageView fx:id="cardImage10Buy" fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <image>
                                                 <Image url="@img/hole changer.png" />
                                              </image>
@@ -3074,7 +3074,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
+                                                            <Label fx:id="nameLabel10Buy" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="15.0" />
                                                                </font>
@@ -3099,7 +3099,7 @@
                                                                   <Image url="@img/coin.png" />
                                                                </image>
                                                             </ImageView>
-                                                            <Label text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                            <Label fx:id="priceLabel10Buy" text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="14.0" />
                                                                </font>
@@ -3108,17 +3108,17 @@
                                                       </GridPane>
                                                    </children>
                                                 </GridPane>
-                                                <Label fx:id="damageLabel11181" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label fx:id="durationLabel10Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="powerLabel11181" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Label fx:id="damageLabel10Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="durationLabel11181" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <Label fx:id="powerLabel10Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
@@ -3139,7 +3139,7 @@
                                           <RowConstraints maxHeight="108.5" minHeight="10.0" prefHeight="21.5" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <ImageView fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <ImageView fx:id="cardImage16Buy" fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <image>
                                                 <Image url="@img/hole changer.png" />
                                              </image>
@@ -3179,7 +3179,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
+                                                            <Label fx:id="nameLabel16Buy" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="15.0" />
                                                                </font>
@@ -3204,7 +3204,7 @@
                                                                   <Image url="@img/coin.png" />
                                                                </image>
                                                             </ImageView>
-                                                            <Label text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                            <Label fx:id="priceLabel16Buy" text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="14.0" />
                                                                </font>
@@ -3213,17 +3213,17 @@
                                                       </GridPane>
                                                    </children>
                                                 </GridPane>
-                                                <Label fx:id="damageLabel11191" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label fx:id="durationLabel16Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="powerLabel11191" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Label fx:id="damageLabel16Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="durationLabel11191" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <Label fx:id="powerLabel16Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
@@ -3244,7 +3244,7 @@
                                           <RowConstraints maxHeight="108.5" minHeight="10.0" prefHeight="21.5" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <ImageView fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <ImageView fx:id="cardImage5Buy" fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <image>
                                                 <Image url="@img/hole changer.png" />
                                              </image>
@@ -3284,7 +3284,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
+                                                            <Label fx:id="nameLabel5Buy" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="15.0" />
                                                                </font>
@@ -3309,7 +3309,7 @@
                                                                   <Image url="@img/coin.png" />
                                                                </image>
                                                             </ImageView>
-                                                            <Label text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                            <Label fx:id="priceLabel5Buy" text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="14.0" />
                                                                </font>
@@ -3318,17 +3318,17 @@
                                                       </GridPane>
                                                    </children>
                                                 </GridPane>
-                                                <Label fx:id="damageLabel111101" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label fx:id="durationLabel5Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="powerLabel111101" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Label fx:id="damageLabel5Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="durationLabel111101" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <Label fx:id="powerLabel5Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
@@ -3349,7 +3349,7 @@
                                           <RowConstraints maxHeight="108.5" minHeight="10.0" prefHeight="21.5" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <ImageView fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <ImageView fx:id="cardImage11Buy" fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <image>
                                                 <Image url="@img/hole changer.png" />
                                              </image>
@@ -3389,7 +3389,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
+                                                            <Label fx:id="nameLabel11Buy" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="15.0" />
                                                                </font>
@@ -3414,7 +3414,7 @@
                                                                   <Image url="@img/coin.png" />
                                                                </image>
                                                             </ImageView>
-                                                            <Label text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                            <Label fx:id="priceLabel11Buy" text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="14.0" />
                                                                </font>
@@ -3423,17 +3423,17 @@
                                                       </GridPane>
                                                    </children>
                                                 </GridPane>
-                                                <Label fx:id="damageLabel111111" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label fx:id="durationLabel11Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="powerLabel111111" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Label fx:id="damageLabel11Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="durationLabel111111" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <Label fx:id="powerLabel11Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
@@ -3454,7 +3454,7 @@
                                           <RowConstraints maxHeight="108.5" minHeight="10.0" prefHeight="21.5" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <ImageView fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <ImageView fx:id="cardImage17Buy" fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <image>
                                                 <Image url="@img/hole changer.png" />
                                              </image>
@@ -3494,7 +3494,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
+                                                            <Label fx:id="nameLabel17Buy" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="15.0" />
                                                                </font>
@@ -3519,7 +3519,7 @@
                                                                   <Image url="@img/coin.png" />
                                                                </image>
                                                             </ImageView>
-                                                            <Label text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                            <Label fx:id="priceLabel17Buy" text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="14.0" />
                                                                </font>
@@ -3528,17 +3528,17 @@
                                                       </GridPane>
                                                    </children>
                                                 </GridPane>
-                                                <Label fx:id="damageLabel111121" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label fx:id="durationLabel17Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="powerLabel111121" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Label fx:id="damageLabel17Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="durationLabel111121" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <Label fx:id="powerLabel17Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
@@ -3559,7 +3559,7 @@
                                           <RowConstraints maxHeight="108.5" minHeight="10.0" prefHeight="21.5" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <ImageView fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <ImageView fx:id="cardImage6Buy" fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <image>
                                                 <Image url="@img/hole changer.png" />
                                              </image>
@@ -3599,7 +3599,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
+                                                            <Label fx:id="nameLabel6Buy" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="15.0" />
                                                                </font>
@@ -3624,7 +3624,7 @@
                                                                   <Image url="@img/coin.png" />
                                                                </image>
                                                             </ImageView>
-                                                            <Label text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                            <Label fx:id="priceLabel6Buy" text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="14.0" />
                                                                </font>
@@ -3633,17 +3633,17 @@
                                                       </GridPane>
                                                    </children>
                                                 </GridPane>
-                                                <Label fx:id="damageLabel111131" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label fx:id="durationLabel6Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="powerLabel111131" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Label fx:id="damageLabel6Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="durationLabel111131" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <Label fx:id="powerLabel6Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
@@ -3664,7 +3664,7 @@
                                           <RowConstraints maxHeight="108.5" minHeight="10.0" prefHeight="21.5" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <ImageView fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <ImageView fx:id="cardImage12Buy" fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <image>
                                                 <Image url="@img/hole changer.png" />
                                              </image>
@@ -3704,7 +3704,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
+                                                            <Label fx:id="nameLabel12Buy" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="15.0" />
                                                                </font>
@@ -3729,7 +3729,7 @@
                                                                   <Image url="@img/coin.png" />
                                                                </image>
                                                             </ImageView>
-                                                            <Label text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                            <Label fx:id="priceLabel12Buy" text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="14.0" />
                                                                </font>
@@ -3738,17 +3738,17 @@
                                                       </GridPane>
                                                    </children>
                                                 </GridPane>
-                                                <Label fx:id="damageLabel111141" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label fx:id="durationLabel12Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="powerLabel111141" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Label fx:id="damageLabel12Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="durationLabel111141" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <Label fx:id="powerLabel12Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
@@ -3769,7 +3769,7 @@
                                           <RowConstraints maxHeight="108.5" minHeight="10.0" prefHeight="21.5" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <ImageView fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <ImageView fx:id="cardImage18Buy" fitHeight="205.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <image>
                                                 <Image url="@img/hole changer.png" />
                                              </image>
@@ -3809,7 +3809,7 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                          </rowConstraints>
                                                          <children>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
+                                                            <Label fx:id="nameLabel18Buy" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="118.0" text="Card Name" GridPane.columnIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="15.0" />
                                                                </font>
@@ -3834,7 +3834,7 @@
                                                                   <Image url="@img/coin.png" />
                                                                </image>
                                                             </ImageView>
-                                                            <Label text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                            <Label fx:id="priceLabel18Buy" text="Price" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                                <font>
                                                                   <Font name="Arial Rounded MT Bold" size="14.0" />
                                                                </font>
@@ -3843,17 +3843,17 @@
                                                       </GridPane>
                                                    </children>
                                                 </GridPane>
-                                                <Label fx:id="damageLabel111151" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label fx:id="durationLabel18Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="powerLabel111151" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Label fx:id="damageLabel18Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="durationLabel111151" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <Label fx:id="powerLabel18Buy" alignment="CENTER" prefHeight="33.0" prefWidth="27.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Arial Rounded MT Bold" size="18.0" />
                                                    </font>
