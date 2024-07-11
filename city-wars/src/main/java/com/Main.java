@@ -8,7 +8,7 @@ import com.view.MainMenu;
 public class Main {
 
     public static final int INITIAL_BALANCE = 1000;
-    public static final int STARTER_CARDS = 5;
+    public static final int STARTER_CARDS = 12;
     public static int loggedInUserId = -1;
     public static CRUD crud = new CRUD();
     public static User loggedInUser = null;

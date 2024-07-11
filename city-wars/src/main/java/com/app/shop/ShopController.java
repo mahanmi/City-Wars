@@ -951,6 +951,10 @@ public class ShopController implements Initializable {
           cardImagesBuy[17] = cardImage18Buy;
         }
 
+        cardsUp = Main.loggedInUser.cards;
+
+        cardsBuy = Main.loggedInUser.notOwnedCards();
+
         for (int index = 0; index < 18; index++) {
           if (index < cardsUp.size()) {
             powerLabelsUp[index].setText(String.valueOf(cardsUp.get(index).getPower()));

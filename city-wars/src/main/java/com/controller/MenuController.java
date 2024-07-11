@@ -2,7 +2,6 @@ package com.controller;
 
 import com.*;
 import com.model.*;
-import com.view.BetMode;
 import com.view.EditProfileMenu;
 import com.view.GameMenu;
 import com.view.MatchHistory;
@@ -58,7 +57,7 @@ public class MenuController {
         scanner.nextLine();
     }
 
-    private ArrayList<Card> starterCards() {
+    public ArrayList<Card> starterCards() {
         ArrayList<Card> allCards = Main.crud.getAllCards();
         ArrayList<Card> starterCards = new ArrayList<Card>();
         Random rand = new Random();
