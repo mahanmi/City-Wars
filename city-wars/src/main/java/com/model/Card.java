@@ -1,6 +1,11 @@
 package com.model;
 
+import java.io.File;
+
 import com.model.character.Character;
+
+import javafx.scene.image.Image;
+
 public class Card {
     private final String name;
     private int id;
@@ -93,6 +98,14 @@ public class Card {
 
     public void setDamage(int damage) {
         this.damage = damage;
+    }
+
+    public Image getImage() {
+        File file = new File("city-wars/src/main/resources/com/app/shop/img/" + name + ".png");
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+        }
+        return new Image(file.toURI().toString());
     }
 
     @Override
