@@ -82,7 +82,7 @@ public class Card {
     }
 
     public int getUpgradeCost() {
-        return upgradeCost;
+        return (int) (upgradeCost * Math.pow(1.25, level - 1));
     }
 
     public int getCharacter() {
@@ -125,6 +125,6 @@ public class Card {
                 "Damage: " + damage + "\n" +
                 "Level: " + level + "\n" +
                 "Upgrade Level: " + upgradeLevel + "\n" +
-                "Upgrade Cost: " + upgradeCost + "\n";
+                "Upgrade Cost: " + this.getUpgradeCost() + "\n";
     }
 }
