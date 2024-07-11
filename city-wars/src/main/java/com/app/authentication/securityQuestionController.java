@@ -1,17 +1,21 @@
 package com.app.authentication;
 
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import com.Main;
 import com.app.App;
+import com.model.Card;
 import com.model.User;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.application.Platform;
 
 import java.net.URL;
@@ -68,6 +72,10 @@ public class securityQuestionController implements Initializable {
     String email = App.currentUser.getEmail();
     String nickname = App.currentUser.getNickname();
 
+    com.controller.MenuController controller = new com.controller.MenuController();
+
+    ArrayList<Card> starterCards = controller.starterCards();
+
     if (question.equals(questions[0])) {
       User user = new User(username, password, email, nickname, "", 1, answer);
       App.currentUser = user;
@@ -79,10 +87,28 @@ public class securityQuestionController implements Initializable {
       App.currentUser = user;
     }
 
+    App.currentUser.addCards(starterCards);
+
     Main.crud.addUser(App.currentUser);
 
+    Main.loggedInUser = App.currentUser;
+    Main.loggedInUserId = Main.crud.getUserId(App.currentUser.getUsername());
+
+    AlertType alertType = AlertType.INFORMATION;
+    String title = "Greetings!";
+    String headerText = "Welcome to the game!";
+    String contentText = "You have been given 1000 coins to start with.\n"
+        + "You have been given the following cards:\n";
+    for (Card card : starterCards) {
+      contentText += card + "\n";
+    }
+    Alert alert = new Alert(alertType);
+    alert.setTitle(title);
+    alert.setHeaderText(headerText);
+    alert.setContentText(contentText);
+    alert.showAndWait();
     try {
-      App.setRoot("authentication/login");
+      App.setRoot("menu/menu");
     } catch (Exception e) {
       e.printStackTrace();
     }
