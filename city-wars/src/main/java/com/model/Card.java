@@ -85,7 +85,7 @@ public class Card {
     }
 
     public int getUpgradeCost() {
-        return upgradeCost;
+        return (int) (upgradeCost * Math.pow(1.25, level - 1));
     }
 
     public int getCharacter() {
