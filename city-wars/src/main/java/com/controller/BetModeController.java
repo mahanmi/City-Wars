@@ -7,7 +7,6 @@ import com.model.game.Prize;
 
 import de.vandermeer.asciitable.AsciiTable;
 
-import com.Main;
 import com.model.Card;
 
 public class BetModeController {

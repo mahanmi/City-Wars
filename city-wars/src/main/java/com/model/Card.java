@@ -2,8 +2,6 @@ package com.model;
 
 import java.io.File;
 
-import com.model.character.Character;
-
 import javafx.scene.image.Image;
 
 public class Card {

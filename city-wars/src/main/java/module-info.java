@@ -1,7 +1,7 @@
 module city.wars {
   requires javafx.controls;
   requires javafx.fxml;
-  requires javafx.media; // You must add this line
+  requires javafx.media;
   requires java.sql;
   requires asciitable;
   requires commons.lang3;
