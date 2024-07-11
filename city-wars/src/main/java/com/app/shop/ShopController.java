@@ -676,7 +676,7 @@ public class ShopController implements Initializable {
   @FXML
   private ImageView cardImage18Buy;
 
-  private ArrayList<Card> cardsUp = Main.loggedInUser.cards;
+  private ArrayList<Card> cardsUp = Main.loggedInUser.cardsUp();
 
   private ArrayList<Card> cardsBuy = Main.loggedInUser.notOwnedCards();
 

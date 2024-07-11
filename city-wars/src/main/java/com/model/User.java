@@ -230,6 +230,16 @@ public class User {
         return notOwnedCards;
     }
 
+    public ArrayList<Card> cardsUp() {
+        ArrayList<Card> cardsUp = new ArrayList<>();
+        for (Card card : cards) {
+            if (card.getUpgradeLevel() != 0) {
+                cardsUp.add(card);
+            }
+        }
+        return cardsUp;
+    }
+
     public void showNotOwnedCards() {
         ArrayList<Card> allCards = new ArrayList<>(Main.crud.getAllCards());
 

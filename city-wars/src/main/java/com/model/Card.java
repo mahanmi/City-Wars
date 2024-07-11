@@ -65,7 +65,7 @@ public class Card {
     }
 
     public int getPower() {
-        return power;
+        return (power + level * 2);
     }
 
     public int getDuration() {
@@ -73,7 +73,7 @@ public class Card {
     }
 
     public int getDamage() {
-        return damage;
+        return (damage + duration * (level - 1));
     }
 
     public int getLevel() {
