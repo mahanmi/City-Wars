@@ -963,6 +963,8 @@ public class ShopController implements Initializable {
             priceLabelsUp[index].setText(String.valueOf(cardsUp.get(index).getUpgradeCost()));
             nameLabelsUp[index].setText(cardsUp.get(index).getName());
             cardImagesUp[index].setImage(cardsUp.get(index).getImage());
+            cardImagesUp[index].visibleProperty().setValue(true);
+            cardImagesUp[index].disableProperty().setValue(false);
           } else {
             powerLabelsUp[index].setText("");
             damageLabelsUp[index].setText("");
@@ -982,6 +984,8 @@ public class ShopController implements Initializable {
             priceLabelsBuy[index].setText(String.valueOf(3 * cardsBuy.get(index).getUpgradeCost()));
             nameLabelsBuy[index].setText(cardsBuy.get(index).getName());
             cardImagesBuy[index].setImage(cardsBuy.get(index).getImage());
+            cardImagesBuy[index].visibleProperty().setValue(true);
+            cardImagesBuy[index].disableProperty().setValue(false);
           } else {
             powerLabelsBuy[index].setText("");
             damageLabelsBuy[index].setText("");
