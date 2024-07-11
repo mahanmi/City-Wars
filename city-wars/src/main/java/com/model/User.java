@@ -212,9 +212,18 @@ public class User {
         ArrayList<Card> allCards = new ArrayList<>(Main.crud.getAllCards());
         ArrayList<Card> notOwnedCards = new ArrayList<>();
 
-        for (Card card : allCards) {
-            if (!cards.contains(card)) {
-                notOwnedCards.add(card);
+        boolean owned = false;
+
+        for (int i = 0; i < allCards.size(); i++) {
+            owned = false;
+            for (int j = 0; j < cards.size(); j++) {
+                if (allCards.get(i).getId() == cards.get(j).getId()) {
+                    owned = true;
+                    break;
+                }
+            }
+            if (!owned) {
+                notOwnedCards.add(allCards.get(i));
             }
         }
 
