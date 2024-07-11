@@ -26,6 +26,9 @@ import java.util.ResourceBundle;
 public class ShopController implements Initializable {
 
   @FXML
+  private Label coinLabel;
+
+  @FXML
   private Label errorLabel;
 
   @FXML
@@ -954,6 +957,8 @@ public class ShopController implements Initializable {
         cardsUp = Main.loggedInUser.cards;
 
         cardsBuy = Main.loggedInUser.notOwnedCards();
+
+        coinLabel.setText(String.valueOf(Main.loggedInUser.getBalance()));
 
         for (int index = 0; index < 18; index++) {
           if (index < cardsUp.size()) {

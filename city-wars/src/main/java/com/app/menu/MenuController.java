@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -23,6 +24,12 @@ import java.io.File;
 
 public class MenuController implements Initializable {
 
+  @FXML
+  private ProgressBar xpProgressBar;
+
+  @FXML
+  private Label userStatusLabel;
+
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
     Platform.runLater(new Runnable() {
@@ -34,6 +41,9 @@ public class MenuController implements Initializable {
           App.mediaPlayer.setVolume(0.75);
           App.mediaPlayer.play();
         }
+        xpProgressBar.setProgress((double) Main.loggedInUser.getXp() / 100);
+        userStatusLabel
+            .setText("Level " + Main.loggedInUser.getLevel() + "\t" + "Balance: " + Main.loggedInUser.getBalance());
       }
     });
   }

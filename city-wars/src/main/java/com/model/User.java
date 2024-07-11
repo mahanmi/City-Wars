@@ -12,8 +12,8 @@ public class User {
     private String nickname;
     private int securityQuestionID;
     private String securityQuestionAnswer;
-    private int level = 0;
-    private int xp = 0;
+    private int level = 1;
+    private int xp = 20;
     private int balance;
     private int character = 0;
 

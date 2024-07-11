@@ -15,3 +15,23 @@
 	-fx-background-color: #31495f;
 	-fx-border-color: #ffffff;
 }
+
+.progress-bar > .bar {
+	-fx-background-color: linear-gradient(
+		from 0px 0.75em to 0.75em 0px,
+		repeat,
+		-fx-accent 0%,
+		-fx-accent 49%,
+		derive(-fx-accent, 30%) 50%,
+		derive(-fx-accent, 30%) 99%
+	);
+}
+
+.progress-bar > .track {
+	-fx-background-radius: 7.5;
+	-fx-border-radius: 5;
+	-fx-border-color: #3f87ca;
+	-fx-border-width: 3;
+	-fx-background-color: #003465;
+	-fx-control-inner-background: #003465;
+}
