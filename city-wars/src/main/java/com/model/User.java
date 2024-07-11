@@ -208,6 +208,19 @@ public class User {
         cards.remove(card);
     }
 
+    public ArrayList<Card> notOwnedCards() {
+        ArrayList<Card> allCards = new ArrayList<>(Main.crud.getAllCards());
+        ArrayList<Card> notOwnedCards = new ArrayList<>();
+
+        for (Card card : allCards) {
+            if (!cards.contains(card)) {
+                notOwnedCards.add(card);
+            }
+        }
+
+        return notOwnedCards;
+    }
+
     public void showNotOwnedCards() {
         ArrayList<Card> allCards = new ArrayList<>(Main.crud.getAllCards());
 
