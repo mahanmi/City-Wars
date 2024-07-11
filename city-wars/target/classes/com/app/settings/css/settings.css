@@ -1,0 +1,51 @@
+.label {
+	-fx-set-font-family: "Arial Rounded MT Bold";
+}
+
+#backButton {
+	-fx-background-color: #005db4;
+	-fx-background-radius: 5px;
+	-fx-border-radius: 5px;
+	-fx-border-color: white;
+}
+
+#backButton:hover {
+	-fx-background-color: #2a7cc9;
+}
+
+.choice-box {
+	-fx-text-fill: white;
+	-fx-font-family: "Arial Rounded MT Bold";
+	-fx-background-color: #65b2fa;
+	-fx-background-radius: 10px;
+	-fx-border-radius: 10px;
+	-fx-border-color: white;
+	-fx-border-width: 2px;
+}
+
+.choiceBox .context-menu {
+	-fx-background-color: #65b2fa;
+	-fx-background-radius: 10px;
+}
+
+.choice-box .menu-item:focused {
+	-fx-background-color: #005db4;
+}
+
+.choice-box .menu-item > .label {
+	-fx-text-fill: white;
+}
+
+.choice-box > .label {
+	-fx-text-fill: white;
+}
+
+.slider {
+	-default-track-color: -fx-control-inner-background;
+	-fx-background-color: #ddeeff;
+	-fx-background-radius: 10px;
+}
+
+.slider .track {
+	-fx-background-color: linear-gradient(to right, #65b2fa, #005db4);
+}

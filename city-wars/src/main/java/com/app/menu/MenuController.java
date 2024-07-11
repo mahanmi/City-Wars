@@ -17,6 +17,10 @@ import javafx.util.Duration;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import java.io.File;
+
 public class MenuController implements Initializable {
 
   @Override
@@ -24,7 +28,12 @@ public class MenuController implements Initializable {
     Platform.runLater(new Runnable() {
       @Override
       public void run() {
-
+        if (App.mediaPlayer == null) {
+          Media sound = new Media(getClass().getResource("music/GOAT.mp3").toExternalForm());
+          App.mediaPlayer = new MediaPlayer(sound);
+          App.mediaPlayer.setVolume(0.75);
+          App.mediaPlayer.play();
+        }
       }
     });
   }
@@ -70,6 +79,7 @@ public class MenuController implements Initializable {
     try {
       Main.loggedInUser = null;
       Main.loggedInUserId = -1;
+      App.mediaPlayer.stop();
       App.setRoot("authentication/login");
     } catch (Exception e) {
       e.printStackTrace();
