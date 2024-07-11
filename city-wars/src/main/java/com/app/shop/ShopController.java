@@ -1221,4 +1221,13 @@ public class ShopController implements Initializable {
     errorLabel.setText(Main.loggedInUser.buyCard(cardsBuy.get(17)));
     initialize(null, null);
   }
+
+  @FXML
+  protected void onBackButtonClick() {
+    try {
+      App.setRoot("menu/menu");
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
 }
