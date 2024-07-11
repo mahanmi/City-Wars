@@ -17,12 +17,12 @@ public class StoreController {
     if (card == null) {
       System.out.println("Card not found.");
       return;
-    } else if (user.getBalance() < 5 * card.getUpgradeCost()) {
+    } else if (user.getBalance() < 3 * card.getUpgradeCost()) {
       System.out.println("You don't have enough coins to buy this card.");
       return;
     }
     user.addCard(card);
-    user.setBalance(user.getBalance() - 5 * card.getUpgradeCost());
+    user.setBalance(user.getBalance() - 3 * card.getUpgradeCost());
     System.out.println("You have successfully bought the card.");
   }
 
@@ -41,11 +41,11 @@ public class StoreController {
     if (card == null) {
       System.out.println("Card not found.");
       return;
-    } else if (user.getBalance() < card.getUpgradeCost() * Math.pow(1.25, card.getLevel() - 1)) {
+    } else if (user.getBalance() < card.getUpgradeCost()) {
       System.out.println("You don't have enough coins to upgrade this card.");
       return;
     }
-    user.setBalance((int) (user.getBalance() - card.getUpgradeCost() * Math.pow(1.25, card.getLevel() - 1)));
+    user.setBalance((int) (user.getBalance() - card.getUpgradeCost()));
     user.upgradeCard(card);
     System.out.println("You have successfully upgraded the card.");
   }
