@@ -42,8 +42,8 @@ public class FriendlyModeController {
             int duration = card.getDuration();
             int damage = card.getDamage();
 
-            if (name.startsWith("\u001B[33m")) {
-                at.addRow(i, name.replaceAll("\\u001B\\[[;\\d]*m", ""), "-", "-", "-");
+            if (isSpell(card)) {
+                at.addRow(i, name, "-", "-", "-");
             }
 
             else {
@@ -64,15 +64,15 @@ public class FriendlyModeController {
         int[] result = new int[2];
         result[1] = 0;
 
-        if (card.getName().equals("\u001B[33mHole Changer\u001B[0m")) {
+        if (card.getName().equals("Hole Changer")) {
             holeChanger(board, board2);
-        } else if (card.getName().equals("\u001B[33mRepair\u001B[0m")) {
+        } else if (card.getName().equals("Repair")) {
             repair(board);
-        } else if (card.getName().equals("\u001B[33mSkip Rounds\u001B[0m")) {
+        } else if (card.getName().equals("Skip Rounds")) {
             round--;
-        } else if (card.getName().equals("\u001B[33mHand Hider\u001B[0m")) {
+        } else if (card.getName().equals("Hand Hider")) {
             result[1] = 1;
-        } else if (card.getName().equals("\u001B[33mCard Swapper\u001B[0m")) {
+        } else if (card.getName().equals("Card Swapper")) {
             cardSwapper(scanner, hand1, hand2);
         } else {
             int position = 22;
@@ -144,7 +144,7 @@ public class FriendlyModeController {
             if (card1 != null && card2 == null) {
                 if (card1.getCharacter() == player1.getCharacter()) {
                     hp2 -= D1 + 2;
-                } else if (card1.getName().equals("\u001B[33mHeal\u001B[0m")) {
+                } else if (card1.getName().equals("Heal")) {
                     hp1 += card1.getDamage();
                 } else {
                     hp2 -= D1;
@@ -159,7 +159,7 @@ public class FriendlyModeController {
             } else if (card1 == null && card2 != null) {
                 if (card2.getCharacter() == player2.getCharacter()) {
                     hp1 -= D2 + 2;
-                } else if (card2.getName().equals("\u001B[33mHeal\u001B[0m")) {
+                } else if (card2.getName().equals("Heal")) {
                     hp2 += card2.getDamage();
                 } else {
                     hp1 -= D2;
@@ -175,7 +175,7 @@ public class FriendlyModeController {
                     if (card1.getCharacter() == player1.getCharacter()) {
                         D1 += 2;
                     } 
-                    if (card2.getName().equals("\u001B[33mHeal\u001B[0m")) {
+                    if (card2.getName().equals("Heal")) {
                         hp2 += card2.getDamage();
                         System.out.println(player2.getNickname() + "'s HP: \u001B[32m" + hp2 + "\u001B[0m");
                         try {
@@ -184,7 +184,7 @@ public class FriendlyModeController {
                             e.printStackTrace();
                         }
                     }
-                    if (!card2.getName().equals("\u001B[33mShield\u001B[0m")) {
+                    if (!card2.getName().equals("Shield")) {
                         hp2 -= D1;
                         System.out.println(player2.getNickname() + "'s HP: \u001B[31m" + hp2 + "\u001B[0m");
                         try {
@@ -193,7 +193,7 @@ public class FriendlyModeController {
                             e.printStackTrace();
                         }
                     }
-                    else if (card2.getName().equals("\u001B[33mShield\u001B[0m")) {
+                    else if (card2.getName().equals("Shield")) {
                         System.out.println(player2.getNickname() + "'s HP: \u001B[34m" + hp2 + "\u001B[0m");
                         try {
                             Thread.sleep(1000);
@@ -207,7 +207,7 @@ public class FriendlyModeController {
                     if (card2.getCharacter() == player2.getCharacter()) {
                         D2 += 2;
                     } 
-                    if (card1.getName().equals("\u001B[33mHeal\u001B[0m")) {
+                    if (card1.getName().equals("Heal")) {
                         hp1 += card1.getDamage();
                         System.out.println(player1.getNickname() + "'s HP: \u001B[32m" + hp1 + "\u001B[0m");
                         try {
@@ -216,7 +216,7 @@ public class FriendlyModeController {
                             e.printStackTrace();
                         }
                     }
-                    if (!card1.getName().equals("\u001B[33mShield\u001B[0m")) {
+                    if (!card1.getName().equals("Shield")) {
                         hp1 -= D2;
                         System.out.println(player1.getNickname() + "'s HP: \u001B[31m" + hp1 + "\u001B[0m");
                         try {
@@ -225,7 +225,7 @@ public class FriendlyModeController {
                             e.printStackTrace();
                         }
                     }
-                    else if (card1.getName().equals("\u001B[33mShield\u001B[0m")) {
+                    else if (card1.getName().equals("Shield")) {
                         System.out.println(player1.getNickname() + "'s HP: \u001B[34m" + hp1 + "\u001B[0m");
                         try {
                             Thread.sleep(1000);
@@ -236,7 +236,7 @@ public class FriendlyModeController {
                     }        
                 }
                 else {
-                    if (card1.getName().equals("\u001B[33mHeal\u001B[0m")) {
+                    if (card1.getName().equals("Heal")) {
                         hp1 += card1.getDamage();
                         System.out.println(player1.getNickname() + "'s HP: \u001B[32m" + hp1 + "\u001B[0m");
                     try {
@@ -245,7 +245,7 @@ public class FriendlyModeController {
                         e.printStackTrace();
                     }
                     }
-                    if (card2.getName().equals("\u001B[33mHeal\u001B[0m")) {
+                    if (card2.getName().equals("Heal")) {
                         hp2 += card2.getDamage();
                         System.out.println(player2.getNickname() + "'s HP: \u001B[32m" + hp2 + "\u001B[0m");
                     try {
@@ -375,5 +375,13 @@ public class FriendlyModeController {
                 hand1.get(index1).getUpgradeCost(), hand1.get(index1).getCharacter());
         hand1.set(index1, hand2.get(index2));
         hand2.set(index2, temp);
+    }
+
+    public boolean isSpell(Card card) {
+        if (card.getDamage() == 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

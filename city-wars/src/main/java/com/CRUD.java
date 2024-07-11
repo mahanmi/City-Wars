@@ -427,13 +427,13 @@ public class CRUD {
         addCard(card15);
 
         // SPELLS
-        Card card16 = new Card("\u001B[33mShield\u001B[0m", 0, 1, 0, 0, 0, 0);
-        Card card17 = new Card("\u001B[33mHeal\u001B[0m", 0, 1, 20, 0, 0, 0);
-        Card card18 = new Card("\u001B[33mHole Changer\u001B[0m", 0, 1, 0, 0, 0, 0);
-        Card card19 = new Card("\u001B[33mRepair\u001B[0m", 0, 1, 0, 0, 0, 0);
-        Card card20 = new Card("\u001B[33mSkip Rounds\u001B[0m", 0, 1, 0, 0, 0, 0);
-        Card card21 = new Card("\u001B[33mHand Hider\u001B[0m", 0, 1, 0, 0, 0, 0);
-        Card card22 = new Card("\u001B[33mCard Swapper\u001B[0m", 0, 1, 0, 0, 0, 0);
+        Card card16 = new Card("Shield", 0, 1, 0, 0, 300, 0);
+        Card card17 = new Card("Heal", 0, 1, 20, 0, 300, 0);
+        Card card18 = new Card("Hole Changer", 0, 1, 0, 0, 300, 0);
+        Card card19 = new Card("Repair", 0, 1, 0, 0, 300, 0);
+        Card card20 = new Card("Skip Rounds", 0, 1, 0, 0, 300, 0);
+        Card card21 = new Card("Hand Hider", 0, 1, 0, 0, 300, 0);
+        Card card22 = new Card("Card Swapper", 0, 1, 0, 0, 300, 0);
         addCard(card16);
         addCard(card17);
         addCard(card18);

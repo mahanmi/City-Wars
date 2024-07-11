@@ -2,10 +2,8 @@ package com.model;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import de.vandermeer.asciitable.AsciiTable;
 import de.vandermeer.asciithemes.TA_GridThemes;
-
 import com.Main;
 
 public class User {
@@ -173,12 +171,12 @@ public class User {
             int duration = card.getDuration();
             int damage = card.getDamage();
 
-            if (name.startsWith("\u001B[33m")) {
-                at.addRow(name.replaceAll("\\u001B\\[[;\\d]*m", ""), "-", "-", "-", "-", "-");
+            if (damage == 0) {
+                at.addRow(name, "-", "-", "-", "-", "-");
                 at.addRule();
             }
             else {
-                at.addRow(name, level, String.format("%.2f", upgradeCost), power, duration, damage);
+                at.addRow(name, level, upgradeCost, power, duration, damage);
                 at.addRule();
             }
         }
@@ -218,8 +216,8 @@ public class User {
                 int duration = card.getDuration();
                 int damage = card.getDamage();
 
-                if (name.startsWith("\u001B[33m")) {
-                    at.addRow(name.replaceAll("\\u001B\\[[;\\d]*m", ""), price, "-", "-", "-");
+                if (damage == 0) {
+                    at.addRow(name, price, "-", "-", "-");
                     at.addRule();
                 }
                 else {

@@ -191,7 +191,7 @@ public class BetMode {
 
         String[] index = new String[21];
         for (int i = 0; i < 21; i++) {
-            index[i] = String.valueOf("\u001B[34m" + (i + 1) + "\u001B[0m");
+            index[i] = String.valueOf(i + 1);
         }
         at.addRow((Object[]) index);
         at.addRule();

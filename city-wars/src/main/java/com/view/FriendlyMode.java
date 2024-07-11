@@ -157,10 +157,8 @@ public class FriendlyMode {
         }
 
         Prize winnerPrize = controller.winPrize(winner, loser);
-        winner.setBalance(winner.getBalance() + winnerPrize.balance);
         winner.addXp(winnerPrize.xp);
         Prize loserPrize = controller.losePrize(winner, loser);
-        loser.setBalance(loser.getBalance() + loserPrize.balance);
         loser.addXp(loserPrize.xp);
 
         Game game = new Game(1, firstPlayer, secondPlayer, winnerPrize, new Timestamp(System.currentTimeMillis()),

@@ -1,5 +1,7 @@
 package com.model;
 
+import java.time.Duration;
+
 import com.model.character.Character;
 public class Card {
     private final String name;
@@ -39,9 +41,9 @@ public class Card {
     public Card(Card card, int level) {
         this.id = card.getId();
         this.name = card.getName();
-        this.power = card.getPower();
+        this.power = card.getPower() + ((level - 1) * duration);
         this.duration = card.getDuration();
-        this.damage = card.getDamage();
+        this.damage = card.getDamage() + ((level - 1) * duration);
         this.level = level;
         this.upgradeLevel = card.getUpgradeLevel();
         this.upgradeCost = card.getUpgradeCost();
@@ -102,9 +104,9 @@ public class Card {
 
     public String boardCard(User player){
         int D;
-        if (name.equals("Hole")) {return "Hole";}
-        else if (name.equals("\u001B[33mShield\u001B[0m")) {return "Shield";} 
-        else if (name.equals("\u001B[33mHeal\u001B[0m")) {return "Heal";}
+        if (damage == 0) {
+            return name;
+        }
         
         D = damage / duration;
         

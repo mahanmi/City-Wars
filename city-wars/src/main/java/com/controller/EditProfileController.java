@@ -16,6 +16,7 @@ public class EditProfileController {
     System.out.println("Password: " + user.getPassword());
     System.out.println("Email: " + user.getEmail());
     System.out.println("Nickname: " + user.getNickname());
+    System.out.println("Level: " + user.getLevel());
     System.out.println("Balance: " + user.getBalance() + "$");
     String securityQuestion;
     if (user.getSecurityQuestionID() == 1) {
